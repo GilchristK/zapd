@@ -1,0 +1,6 @@
+org\zapd\view\ViewUtils.class
+org\zapd\rest\PersonWithDisabilityEndpoint.class
+org\zapd\rest\RestApplication.class
+org\zapd\model\PersonWithDisability.class
+org\zapd\view\PersonWithDisabilityBean$1.class
+org\zapd\view\PersonWithDisabilityBean.class
