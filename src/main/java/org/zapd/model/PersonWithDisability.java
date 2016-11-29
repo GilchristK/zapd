@@ -34,6 +34,24 @@ public class PersonWithDisability implements Serializable {
 	@Column
 	private String nrc;
 
+	@Column(length = 6)
+	private String sex;
+
+	@Column(length = 20)
+	private Interger dmisNumber;
+
+	@Column(length = 1)
+	private Char maritalStatus;
+
+	@Column
+	private String educationLevel;
+
+	@Column
+	private String occupation;
+
+	@Column(length = 15)
+	private Date dateOfRegistration;
+
 	public Long getId() {
 		return this.id;
 	}
@@ -107,6 +125,54 @@ public class PersonWithDisability implements Serializable {
 		this.nrc = nrc;
 	}
 
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public Interger getDmisNumber() {
+		return dmisNumber;
+	}
+
+	public void setDmisNumber(Interger dmisNumber) {
+		this.dmisNumber = dmisNumber;
+	}
+
+	public Char getMaritalStatus() {
+		return maritalStatus;
+	}
+
+	public void setMaritalStatus(Char maritalStatus) {
+		this.maritalStatus = maritalStatus;
+	}
+
+	public String getEducationLevel() {
+		return educationLevel;
+	}
+
+	public void setEducationLevel(String educationLevel) {
+		this.educationLevel = educationLevel;
+	}
+
+	public String getOccupation() {
+		return occupation;
+	}
+
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
+
+	public Date getDateOfRegistration() {
+		return dateOfRegistration;
+	}
+
+	public void setDateOfRegistration(Date dateOfRegistration) {
+		this.dateOfRegistration = dateOfRegistration;
+	}
+
 	@Override
 	public String toString() {
 		String result = getClass().getSimpleName() + " ";
@@ -118,6 +184,12 @@ public class PersonWithDisability implements Serializable {
 			result += ", dateOfBirth: " + dateOfBirth;
 		if (nrc != null && !nrc.trim().isEmpty())
 			result += ", nrc: " + nrc;
+		if (sex != null && !sex.trim().isEmpty())
+			result += ", sex: " + sex;
+		if (educationLevel != null && !educationLevel.trim().isEmpty())
+			result += ", educationLevel: " + educationLevel;
+		if (occupation != null && !occupation.trim().isEmpty())
+			result += ", occupation: " + occupation;
 		return result;
 	}
 }
