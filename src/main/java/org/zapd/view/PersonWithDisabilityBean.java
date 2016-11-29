@@ -234,6 +234,12 @@ public class PersonWithDisabilityBean implements Serializable {
 					builder.lower(root.<String> get("nrc")),
 					'%' + nrc.toLowerCase() + '%'));
 		}
+		String sex = this.example.getSex();
+		if (sex != null && !"".equals(sex)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("sex")),
+					'%' + sex.toLowerCase() + '%'));
+		}
 
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);
 	}

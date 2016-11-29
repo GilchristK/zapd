@@ -53,6 +53,12 @@
 							<h:message for="personWithDisabilityBeanExampleNrc" styleClass="error"/>
 						</h:panelGroup>
 						<h:outputText/>
+						<h:outputLabel for="personWithDisabilityBeanExampleSex" value="Sex:"/>
+						<h:panelGroup>
+							<h:inputText id="personWithDisabilityBeanExampleSex" maxLength="6" value="#{personWithDisabilityBean.example.sex}"/>
+							<h:message for="personWithDisabilityBeanExampleSex" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
 					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{personWithDisabilityBean.search}' styleClass="btn btn-primary"/>
@@ -66,7 +72,7 @@
 					<f:facet name="header">
 						<h:outputText value="Firstname"/>
 					</f:facet>
-					<h:link outcome="/zapid/personWithDisability/view">
+					<h:link outcome="/personWithDisability/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="_itemFirstname" value="#{_item.firstname}"/>
 					</h:link>
@@ -75,7 +81,7 @@
 					<f:facet name="header">
 						<h:outputText value="Surname"/>
 					</f:facet>
-					<h:link outcome="/zapid/personWithDisability/view">
+					<h:link outcome="/personWithDisability/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="_itemSurname" value="#{_item.surname}"/>
 					</h:link>
@@ -84,7 +90,7 @@
 					<f:facet name="header">
 						<h:outputText value="Date Of Birth"/>
 					</f:facet>
-					<h:link outcome="/zapid/personWithDisability/view">
+					<h:link outcome="/personWithDisability/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="_itemDateOfBirth" value="#{_item.dateOfBirth}"/>
 					</h:link>
@@ -93,9 +99,18 @@
 					<f:facet name="header">
 						<h:outputText value="Nrc"/>
 					</f:facet>
-					<h:link outcome="/zapid/personWithDisability/view">
+					<h:link outcome="/personWithDisability/view">
 						<f:param name="id" value="#{_item.id}"/>
 						<h:outputText id="_itemNrc" value="#{_item.nrc}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Sex"/>
+					</f:facet>
+					<h:link outcome="/personWithDisability/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemSex" value="#{_item.sex}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>

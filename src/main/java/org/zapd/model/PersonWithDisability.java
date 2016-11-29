@@ -37,20 +37,20 @@ public class PersonWithDisability implements Serializable {
 	@Column(length = 6)
 	private String sex;
 
-	@Column(length = 20)
-	private Interger dmisNumber;
-
-	@Column(length = 1)
-	private Char maritalStatus;
-
 	@Column
 	private String educationLevel;
 
 	@Column
 	private String occupation;
 
-	@Column(length = 15)
-	private Date dateOfRegistration;
+	@Column(name = "dmisNumber")
+	private Long dmisNumber;
+
+	@Column(name = "dateOfRegistration")
+	private String dateOfRegistration;
+
+	@Column
+	private String maritalStatus;
 
 	public Long getId() {
 		return this.id;
@@ -133,22 +133,6 @@ public class PersonWithDisability implements Serializable {
 		this.sex = sex;
 	}
 
-	public Interger getDmisNumber() {
-		return dmisNumber;
-	}
-
-	public void setDmisNumber(Interger dmisNumber) {
-		this.dmisNumber = dmisNumber;
-	}
-
-	public Char getMaritalStatus() {
-		return maritalStatus;
-	}
-
-	public void setMaritalStatus(Char maritalStatus) {
-		this.maritalStatus = maritalStatus;
-	}
-
 	public String getEducationLevel() {
 		return educationLevel;
 	}
@@ -165,12 +149,28 @@ public class PersonWithDisability implements Serializable {
 		this.occupation = occupation;
 	}
 
-	public Date getDateOfRegistration() {
+	public Long getDmisNumber() {
+		return dmisNumber;
+	}
+
+	public void setDmisNumber(Long dmisNumber) {
+		this.dmisNumber = dmisNumber;
+	}
+
+	public String getDateOfRegistration() {
 		return dateOfRegistration;
 	}
 
-	public void setDateOfRegistration(Date dateOfRegistration) {
+	public void setDateOfRegistration(String dateOfRegistration) {
 		this.dateOfRegistration = dateOfRegistration;
+	}
+
+	public String getMaritalStatus() {
+		return maritalStatus;
+	}
+
+	public void setMaritalStatus(String maritalStatus) {
+		this.maritalStatus = maritalStatus;
 	}
 
 	@Override
@@ -190,6 +190,12 @@ public class PersonWithDisability implements Serializable {
 			result += ", educationLevel: " + educationLevel;
 		if (occupation != null && !occupation.trim().isEmpty())
 			result += ", occupation: " + occupation;
+		if (dmisNumber != null)
+			result += ", dmisNumber: " + dmisNumber;
+		if (dateOfRegistration != null && !dateOfRegistration.trim().isEmpty())
+			result += ", dateOfRegistration: " + dateOfRegistration;
+		if (maritalStatus != null && !maritalStatus.trim().isEmpty())
+			result += ", maritalStatus: " + maritalStatus;
 		return result;
 	}
 }
