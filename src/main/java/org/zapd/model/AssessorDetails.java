@@ -22,6 +22,18 @@ public class AssessorDetails implements Serializable {
 	@Column(name = "version")
 	private int version;
 
+	@Column
+	private String assessorName;
+
+	@Column
+	private String sex;
+
+	@Column
+	private String designation;
+
+	@Column
+	private String identity;
+
 	public Long getId() {
 		return this.id;
 	}
@@ -36,14 +48,6 @@ public class AssessorDetails implements Serializable {
 
 	public void setVersion(final int version) {
 		this.version = version;
-	}
-
-	@Override
-	public String toString() {
-		String result = getClass().getSimpleName() + " ";
-		if (id != null)
-			result += "id: " + id;
-		return result;
 	}
 
 	@Override
@@ -68,6 +72,52 @@ public class AssessorDetails implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	public String getAssessorName() {
+		return assessorName;
+	}
+
+	public void setAssessorName(String assessorName) {
+		this.assessorName = assessorName;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public String getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+
+	public String getIdentity() {
+		return identity;
+	}
+
+	public void setIdentity(String identity) {
+		this.identity = identity;
+	}
+
+	@Override
+	public String toString() {
+		String result = getClass().getSimpleName() + " ";
+		if (assessorName != null && !assessorName.trim().isEmpty())
+			result += "assessorName: " + assessorName;
+		if (sex != null && !sex.trim().isEmpty())
+			result += ", sex: " + sex;
+		if (designation != null && !designation.trim().isEmpty())
+			result += ", designation: " + designation;
+		if (identity != null && !identity.trim().isEmpty())
+			result += ", identity: " + identity;
 		return result;
 	}
 }

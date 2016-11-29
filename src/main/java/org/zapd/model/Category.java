@@ -22,6 +22,9 @@ public class Category implements Serializable {
 	@Column(name = "version")
 	private int version;
 
+	@Column
+	private String category;
+
 	public Long getId() {
 		return this.id;
 	}
@@ -36,14 +39,6 @@ public class Category implements Serializable {
 
 	public void setVersion(final int version) {
 		this.version = version;
-	}
-
-	@Override
-	public String toString() {
-		String result = getClass().getSimpleName() + " ";
-		if (id != null)
-			result += "id: " + id;
-		return result;
 	}
 
 	@Override
@@ -68,6 +63,22 @@ public class Category implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	@Override
+	public String toString() {
+		String result = getClass().getSimpleName() + " ";
+		if (category != null && !category.trim().isEmpty())
+			result += "category: " + category;
 		return result;
 	}
 }

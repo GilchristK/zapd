@@ -22,6 +22,18 @@ public class AssessmentDetails implements Serializable {
 	@Column(name = "version")
 	private int version;
 
+	@Column
+	private String dmisNumber;
+
+	@Column
+	private String dateOfAssessment;
+
+	@Column
+	private String dateOfDisability;
+
+	@Column
+	private String causeOfDisabilty;
+
 	public Long getId() {
 		return this.id;
 	}
@@ -36,14 +48,6 @@ public class AssessmentDetails implements Serializable {
 
 	public void setVersion(final int version) {
 		this.version = version;
-	}
-
-	@Override
-	public String toString() {
-		String result = getClass().getSimpleName() + " ";
-		if (id != null)
-			result += "id: " + id;
-		return result;
 	}
 
 	@Override
@@ -68,6 +72,52 @@ public class AssessmentDetails implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	public String getDmisNumber() {
+		return dmisNumber;
+	}
+
+	public void setDmisNumber(String dmisNumber) {
+		this.dmisNumber = dmisNumber;
+	}
+
+	public String getDateOfAssessment() {
+		return dateOfAssessment;
+	}
+
+	public void setDateOfAssessment(String dateOfAssessment) {
+		this.dateOfAssessment = dateOfAssessment;
+	}
+
+	public String getDateOfDisability() {
+		return dateOfDisability;
+	}
+
+	public void setDateOfDisability(String dateOfDisability) {
+		this.dateOfDisability = dateOfDisability;
+	}
+
+	public String getCauseOfDisabilty() {
+		return causeOfDisabilty;
+	}
+
+	public void setCauseOfDisabilty(String causeOfDisabilty) {
+		this.causeOfDisabilty = causeOfDisabilty;
+	}
+
+	@Override
+	public String toString() {
+		String result = getClass().getSimpleName() + " ";
+		if (dmisNumber != null && !dmisNumber.trim().isEmpty())
+			result += "dmisNumber: " + dmisNumber;
+		if (dateOfAssessment != null && !dateOfAssessment.trim().isEmpty())
+			result += ", dateOfAssessment: " + dateOfAssessment;
+		if (dateOfDisability != null && !dateOfDisability.trim().isEmpty())
+			result += ", dateOfDisability: " + dateOfDisability;
+		if (causeOfDisabilty != null && !causeOfDisabilty.trim().isEmpty())
+			result += ", causeOfDisabilty: " + causeOfDisabilty;
 		return result;
 	}
 }

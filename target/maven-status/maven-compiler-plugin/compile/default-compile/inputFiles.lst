@@ -1,8 +1,12 @@
+/Users/kingford/Sites/zapd/src/main/java/org/zapd/view/ConstituencyBean.java
 /Users/kingford/Sites/zapd/src/main/java/org/zapd/view/ProvinceBean.java
 /Users/kingford/Sites/zapd/src/main/java/org/zapd/view/PersonWithDisabilityBean.java
+/Users/kingford/Sites/zapd/src/main/java/org/zapd/view/DegreeOfDisabilityBean.java
 /Users/kingford/Sites/zapd/src/main/java/org/zapd/model/User.java
 /Users/kingford/Sites/zapd/src/main/java/org/zapd/model/Status.java
+/Users/kingford/Sites/zapd/src/main/java/org/zapd/view/CwacBean.java
 /Users/kingford/Sites/zapd/src/main/java/org/zapd/model/Village.java
+/Users/kingford/Sites/zapd/src/main/java/org/zapd/view/AssessmentDetailsBean.java
 /Users/kingford/Sites/zapd/src/main/java/org/zapd/model/AssessmentDetails.java
 /Users/kingford/Sites/zapd/src/main/java/org/zapd/model/Cases.java
 /Users/kingford/Sites/zapd/src/main/java/org/zapd/model/District.java
@@ -26,6 +30,12 @@
 /Users/kingford/Sites/zapd/src/main/java/org/zapd/model/Referral.java
 /Users/kingford/Sites/zapd/src/main/java/org/zapd/model/Skill.java
 /Users/kingford/Sites/zapd/src/main/java/org/zapd/model/TypeOfCase.java
+/Users/kingford/Sites/zapd/src/main/java/org/zapd/view/AssessorDetailsBean.java
 /Users/kingford/Sites/zapd/src/main/java/org/zapd/model/Ward.java
+/Users/kingford/Sites/zapd/src/main/java/org/zapd/view/CategoryBean.java
 /Users/kingford/Sites/zapd/src/main/java/org/zapd/model/DegreeOfDisability.java
 /Users/kingford/Sites/zapd/src/main/java/org/zapd/model/ClientSkill.java
+/Users/kingford/Sites/zapd/src/main/java/org/zapd/view/DisabilityBean.java
+/Users/kingford/Sites/zapd/src/main/java/org/zapd/view/ClientDisabilityBean.java
+/Users/kingford/Sites/zapd/src/main/java/org/zapd/view/CasesBean.java
+/Users/kingford/Sites/zapd/src/main/java/org/zapd/view/ClientSkillBean.java
