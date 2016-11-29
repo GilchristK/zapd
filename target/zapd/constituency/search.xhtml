@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{constituencyBean.page}'/>
+		<f:event type="preRenderView" listener='#{constituencyBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Constituency entities"/>
+
+	<ui:define name="header">
+		Constituency
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Constituency entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="constituencyBeanExampleName" value="Name:"/>
+						<h:panelGroup>
+							<h:inputText id="constituencyBeanExampleName" value="#{constituencyBean.example.name}"/>
+							<h:message for="constituencyBeanExampleName" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{constituencyBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{constituencyBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="constituencyBeanPageItems" styleClass="data-table" value="#{constituencyBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name"/>
+					</f:facet>
+					<h:link outcome="/constituency/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemName" value="#{_item.name}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{constituencyBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

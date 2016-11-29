@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{disabilityBean.page}'/>
+		<f:event type="preRenderView" listener='#{disabilityBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Disability entities"/>
+
+	<ui:define name="header">
+		Disability
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Disability entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="disabilityBeanExampleNatureOfDisability" value="Nature Of Disability:"/>
+						<h:panelGroup>
+							<h:inputText id="disabilityBeanExampleNatureOfDisability" value="#{disabilityBean.example.natureOfDisability}"/>
+							<h:message for="disabilityBeanExampleNatureOfDisability" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{disabilityBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{disabilityBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="disabilityBeanPageItems" styleClass="data-table" value="#{disabilityBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nature Of Disability"/>
+					</f:facet>
+					<h:link outcome="/disability/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemNatureOfDisability" value="#{_item.natureOfDisability}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{disabilityBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

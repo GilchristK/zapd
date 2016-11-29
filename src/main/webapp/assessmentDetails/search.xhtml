@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{assessmentDetailsBean.page}'/>
+		<f:event type="preRenderView" listener='#{assessmentDetailsBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Assessment Details entities"/>
+
+	<ui:define name="header">
+		Assessment Details
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Assessment Details entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="assessmentDetailsBeanExampleDmisNumber" value="Dmis Number:"/>
+						<h:panelGroup>
+							<h:inputText id="assessmentDetailsBeanExampleDmisNumber" value="#{assessmentDetailsBean.example.dmisNumber}"/>
+							<h:message for="assessmentDetailsBeanExampleDmisNumber" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="assessmentDetailsBeanExampleDateOfAssessment" value="Date Of Assessment:"/>
+						<h:panelGroup>
+							<h:inputText id="assessmentDetailsBeanExampleDateOfAssessment" value="#{assessmentDetailsBean.example.dateOfAssessment}"/>
+							<h:message for="assessmentDetailsBeanExampleDateOfAssessment" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="assessmentDetailsBeanExampleDateOfDisability" value="Date Of Disability:"/>
+						<h:panelGroup>
+							<h:inputText id="assessmentDetailsBeanExampleDateOfDisability" value="#{assessmentDetailsBean.example.dateOfDisability}"/>
+							<h:message for="assessmentDetailsBeanExampleDateOfDisability" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="assessmentDetailsBeanExampleCauseOfDisabilty" value="Cause Of Disabilty:"/>
+						<h:panelGroup>
+							<h:inputText id="assessmentDetailsBeanExampleCauseOfDisabilty" value="#{assessmentDetailsBean.example.causeOfDisabilty}"/>
+							<h:message for="assessmentDetailsBeanExampleCauseOfDisabilty" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{assessmentDetailsBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{assessmentDetailsBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="assessmentDetailsBeanPageItems" styleClass="data-table" value="#{assessmentDetailsBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Dmis Number"/>
+					</f:facet>
+					<h:link outcome="/assessmentDetails/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemDmisNumber" value="#{_item.dmisNumber}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Date Of Assessment"/>
+					</f:facet>
+					<h:link outcome="/assessmentDetails/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemDateOfAssessment" value="#{_item.dateOfAssessment}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Date Of Disability"/>
+					</f:facet>
+					<h:link outcome="/assessmentDetails/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemDateOfDisability" value="#{_item.dateOfDisability}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Cause Of Disabilty"/>
+					</f:facet>
+					<h:link outcome="/assessmentDetails/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemCauseOfDisabilty" value="#{_item.causeOfDisabilty}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{assessmentDetailsBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>
