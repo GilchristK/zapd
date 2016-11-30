@@ -24,7 +24,11 @@
 	<ui:define name="footer"/>
 
 	<ui:define name="main">
-		<h:panelGrid columnClasses="label,component,required" columns="3"/>
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="degreeOfDisabilityBeanDegreeOfDisabilityDegreeOfDisability" value="Degree Of Disability:"/>
+			<h:outputText id="degreeOfDisabilityBeanDegreeOfDisabilityDegreeOfDisability" value="#{degreeOfDisabilityBean.degreeOfDisability.degreeOfDisability}"/>
+			<h:outputText/>
+		</h:panelGrid>
 
 		<div class="buttons">
 			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 

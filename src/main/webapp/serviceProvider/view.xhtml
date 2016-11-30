@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="id" value='#{serviceProviderBean.id}'/>
+		<f:event type="preRenderView" listener='#{serviceProviderBean.retrieve}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="View Service Provider"/>
+
+	<ui:define name="header">
+		Service Provider
+	</ui:define>
+
+	<ui:define name="subheader">
+		View existing Service Provider
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:panelGrid columnClasses="label,component,required" columns="3">
+			<h:outputLabel for="serviceProviderBeanServiceProviderNameOfServiceProvider" value="Name Of Service Provider:"/>
+			<h:outputText id="serviceProviderBeanServiceProviderNameOfServiceProvider" value="#{serviceProviderBean.serviceProvider.nameOfServiceProvider}"/>
+			<h:outputText/>
+			<h:outputLabel for="serviceProviderBeanServiceProviderPostalAddress" value="Postal Address:"/>
+			<h:outputText id="serviceProviderBeanServiceProviderPostalAddress" value="#{serviceProviderBean.serviceProvider.postalAddress}"/>
+			<h:outputText/>
+			<h:outputLabel for="serviceProviderBeanServiceProviderPhysicalAddress" value="Physical Address:"/>
+			<h:outputText id="serviceProviderBeanServiceProviderPhysicalAddress" value="#{serviceProviderBean.serviceProvider.physicalAddress}"/>
+			<h:outputText/>
+			<h:outputLabel for="serviceProviderBeanServiceProviderGeographicalLocation" value="Geographical Location:"/>
+			<h:outputText id="serviceProviderBeanServiceProviderGeographicalLocation" value="#{serviceProviderBean.serviceProvider.geographicalLocation}"/>
+			<h:outputText/>
+		</h:panelGrid>
+
+		<div class="buttons">
+			<h:link value="View All" outcome="search" styleClass="btn btn-primary"/> 
+			<h:link value="Edit" outcome="create" includeViewParams="true" styleClass="btn btn-primary"/>
+			<h:link value="Create New" outcome="create" styleClass="btn btn-primary"/>
+		</div>
+	</ui:define>
+
+</ui:composition>

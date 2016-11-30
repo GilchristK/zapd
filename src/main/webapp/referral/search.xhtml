@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{referralBean.page}'/>
+		<f:event type="preRenderView" listener='#{referralBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Referral entities"/>
+
+	<ui:define name="header">
+		Referral
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Referral entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="referralBeanExampleDmisNumber" value="Dmis Number:"/>
+						<h:panelGroup>
+							<h:inputText id="referralBeanExampleDmisNumber" value="#{referralBean.example.dmisNumber}"/>
+							<h:message for="referralBeanExampleDmisNumber" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="referralBeanExampleStartDate" value="Start Date:"/>
+						<h:panelGroup>
+							<h:inputText id="referralBeanExampleStartDate" value="#{referralBean.example.startDate}"/>
+							<h:message for="referralBeanExampleStartDate" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="referralBeanExampleEndDate" value="End Date:"/>
+						<h:panelGroup>
+							<h:inputText id="referralBeanExampleEndDate" value="#{referralBean.example.endDate}"/>
+							<h:message for="referralBeanExampleEndDate" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="referralBeanExampleLocationOfService" value="Location Of Service:"/>
+						<h:panelGroup>
+							<h:inputText id="referralBeanExampleLocationOfService" value="#{referralBean.example.locationOfService}"/>
+							<h:message for="referralBeanExampleLocationOfService" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{referralBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{referralBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="referralBeanPageItems" styleClass="data-table" value="#{referralBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Dmis Number"/>
+					</f:facet>
+					<h:link outcome="/referral/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemDmisNumber" value="#{_item.dmisNumber}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Start Date"/>
+					</f:facet>
+					<h:link outcome="/referral/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemStartDate" value="#{_item.startDate}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="End Date"/>
+					</f:facet>
+					<h:link outcome="/referral/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemEndDate" value="#{_item.endDate}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Location Of Service"/>
+					</f:facet>
+					<h:link outcome="/referral/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemLocationOfService" value="#{_item.locationOfService}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{referralBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{serviceProviderBean.page}'/>
+		<f:event type="preRenderView" listener='#{serviceProviderBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Service Provider entities"/>
+
+	<ui:define name="header">
+		Service Provider
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Service Provider entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="serviceProviderBeanExampleNameOfServiceProvider" value="Name Of Service Provider:"/>
+						<h:panelGroup>
+							<h:inputText id="serviceProviderBeanExampleNameOfServiceProvider" value="#{serviceProviderBean.example.nameOfServiceProvider}"/>
+							<h:message for="serviceProviderBeanExampleNameOfServiceProvider" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="serviceProviderBeanExamplePostalAddress" value="Postal Address:"/>
+						<h:panelGroup>
+							<h:inputText id="serviceProviderBeanExamplePostalAddress" value="#{serviceProviderBean.example.postalAddress}"/>
+							<h:message for="serviceProviderBeanExamplePostalAddress" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="serviceProviderBeanExamplePhysicalAddress" value="Physical Address:"/>
+						<h:panelGroup>
+							<h:inputText id="serviceProviderBeanExamplePhysicalAddress" value="#{serviceProviderBean.example.physicalAddress}"/>
+							<h:message for="serviceProviderBeanExamplePhysicalAddress" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+						<h:outputLabel for="serviceProviderBeanExampleGeographicalLocation" value="Geographical Location:"/>
+						<h:panelGroup>
+							<h:inputText id="serviceProviderBeanExampleGeographicalLocation" value="#{serviceProviderBean.example.geographicalLocation}"/>
+							<h:message for="serviceProviderBeanExampleGeographicalLocation" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{serviceProviderBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{serviceProviderBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="serviceProviderBeanPageItems" styleClass="data-table" value="#{serviceProviderBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Name Of Service Provider"/>
+					</f:facet>
+					<h:link outcome="/serviceProvider/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemNameOfServiceProvider" value="#{_item.nameOfServiceProvider}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Postal Address"/>
+					</f:facet>
+					<h:link outcome="/serviceProvider/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemPostalAddress" value="#{_item.postalAddress}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Physical Address"/>
+					</f:facet>
+					<h:link outcome="/serviceProvider/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemPhysicalAddress" value="#{_item.physicalAddress}"/>
+					</h:link>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Geographical Location"/>
+					</f:facet>
+					<h:link outcome="/serviceProvider/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemGeographicalLocation" value="#{_item.geographicalLocation}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{serviceProviderBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>

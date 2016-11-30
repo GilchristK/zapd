@@ -207,6 +207,13 @@ public class ClientSkillBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String dmisNumber = this.example.getDmisNumber();
+		if (dmisNumber != null && !"".equals(dmisNumber)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("dmisNumber")),
+					'%' + dmisNumber.toLowerCase() + '%'));
+		}
+
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);
 	}
 

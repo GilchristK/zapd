@@ -22,6 +22,18 @@ public class ServiceProvider implements Serializable {
 	@Column(name = "version")
 	private int version;
 
+	@Column
+	private String nameOfServiceProvider;
+
+	@Column
+	private String postalAddress;
+
+	@Column
+	private String physicalAddress;
+
+	@Column
+	private String geographicalLocation;
+
 	public Long getId() {
 		return this.id;
 	}
@@ -36,14 +48,6 @@ public class ServiceProvider implements Serializable {
 
 	public void setVersion(final int version) {
 		this.version = version;
-	}
-
-	@Override
-	public String toString() {
-		String result = getClass().getSimpleName() + " ";
-		if (id != null)
-			result += "id: " + id;
-		return result;
 	}
 
 	@Override
@@ -68,6 +72,54 @@ public class ServiceProvider implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	public String getNameOfServiceProvider() {
+		return nameOfServiceProvider;
+	}
+
+	public void setNameOfServiceProvider(String nameOfServiceProvider) {
+		this.nameOfServiceProvider = nameOfServiceProvider;
+	}
+
+	public String getPostalAddress() {
+		return postalAddress;
+	}
+
+	public void setPostalAddress(String postalAddress) {
+		this.postalAddress = postalAddress;
+	}
+
+	public String getPhysicalAddress() {
+		return physicalAddress;
+	}
+
+	public void setPhysicalAddress(String physicalAddress) {
+		this.physicalAddress = physicalAddress;
+	}
+
+	public String getGeographicalLocation() {
+		return geographicalLocation;
+	}
+
+	public void setGeographicalLocation(String geographicalLocation) {
+		this.geographicalLocation = geographicalLocation;
+	}
+
+	@Override
+	public String toString() {
+		String result = getClass().getSimpleName() + " ";
+		if (nameOfServiceProvider != null
+				&& !nameOfServiceProvider.trim().isEmpty())
+			result += "nameOfServiceProvider: " + nameOfServiceProvider;
+		if (postalAddress != null && !postalAddress.trim().isEmpty())
+			result += ", postalAddress: " + postalAddress;
+		if (physicalAddress != null && !physicalAddress.trim().isEmpty())
+			result += ", physicalAddress: " + physicalAddress;
+		if (geographicalLocation != null
+				&& !geographicalLocation.trim().isEmpty())
+			result += ", geographicalLocation: " + geographicalLocation;
 		return result;
 	}
 }

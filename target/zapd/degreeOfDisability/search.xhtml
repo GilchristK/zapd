@@ -28,7 +28,14 @@
 			<f:validateBean disabled="true">
 				<h:panelGroup styleClass="search">
 
-					<h:panelGrid columnClasses="label,component,required" columns="3"/>
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="degreeOfDisabilityBeanExampleDegreeOfDisability" value="Degree Of Disability:"/>
+						<h:panelGroup>
+							<h:inputText id="degreeOfDisabilityBeanExampleDegreeOfDisability" value="#{degreeOfDisabilityBean.example.degreeOfDisability}"/>
+							<h:message for="degreeOfDisabilityBeanExampleDegreeOfDisability" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{degreeOfDisabilityBean.search}' styleClass="btn btn-primary"/>
 						<h:commandLink value="Create New" action='#{degreeOfDisabilityBean.create}' styleClass="btn btn-primary"/>
@@ -36,7 +43,17 @@
 				</h:panelGroup>
 			</f:validateBean>
 			
-			<h:dataTable id="degreeOfDisabilityBeanPageItems" styleClass="data-table" value="#{degreeOfDisabilityBean.pageItems}" var="_item"/>
+			<h:dataTable id="degreeOfDisabilityBeanPageItems" styleClass="data-table" value="#{degreeOfDisabilityBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Degree Of Disability"/>
+					</f:facet>
+					<h:link outcome="/degreeOfDisability/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemDegreeOfDisability" value="#{_item.degreeOfDisability}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value='#{degreeOfDisabilityBean}'/>
 			</ui:include>

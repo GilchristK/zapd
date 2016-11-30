@@ -22,6 +22,9 @@ public class Skill implements Serializable {
 	@Column(name = "version")
 	private int version;
 
+	@Column
+	private String skillAquisition;
+
 	public Long getId() {
 		return this.id;
 	}
@@ -36,14 +39,6 @@ public class Skill implements Serializable {
 
 	public void setVersion(final int version) {
 		this.version = version;
-	}
-
-	@Override
-	public String toString() {
-		String result = getClass().getSimpleName() + " ";
-		if (id != null)
-			result += "id: " + id;
-		return result;
 	}
 
 	@Override
@@ -68,6 +63,22 @@ public class Skill implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	public String getSkillAquisition() {
+		return skillAquisition;
+	}
+
+	public void setSkillAquisition(String skillAquisition) {
+		this.skillAquisition = skillAquisition;
+	}
+
+	@Override
+	public String toString() {
+		String result = getClass().getSimpleName() + " ";
+		if (skillAquisition != null && !skillAquisition.trim().isEmpty())
+			result += "skillAquisition: " + skillAquisition;
 		return result;
 	}
 }

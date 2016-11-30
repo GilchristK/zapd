@@ -52,6 +52,12 @@ public class PersonWithDisability implements Serializable {
 	@Column
 	private String maritalStatus;
 
+	@Column
+	private String contactNumber;
+
+	@Column
+	private String levelOfEducation;
+
 	public Long getId() {
 		return this.id;
 	}
@@ -173,6 +179,22 @@ public class PersonWithDisability implements Serializable {
 		this.maritalStatus = maritalStatus;
 	}
 
+	public String getContactNumber() {
+		return contactNumber;
+	}
+
+	public void setContactNumber(String contactNumber) {
+		this.contactNumber = contactNumber;
+	}
+
+	public String getLevelOfEducation() {
+		return levelOfEducation;
+	}
+
+	public void setLevelOfEducation(String levelOfEducation) {
+		this.levelOfEducation = levelOfEducation;
+	}
+
 	@Override
 	public String toString() {
 		String result = getClass().getSimpleName() + " ";
@@ -196,6 +218,10 @@ public class PersonWithDisability implements Serializable {
 			result += ", dateOfRegistration: " + dateOfRegistration;
 		if (maritalStatus != null && !maritalStatus.trim().isEmpty())
 			result += ", maritalStatus: " + maritalStatus;
+		if (contactNumber != null && !contactNumber.trim().isEmpty())
+			result += ", contactNumber: " + contactNumber;
+		if (levelOfEducation != null && !levelOfEducation.trim().isEmpty())
+			result += ", levelOfEducation: " + levelOfEducation;
 		return result;
 	}
 }

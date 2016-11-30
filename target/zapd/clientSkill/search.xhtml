@@ -28,7 +28,14 @@
 			<f:validateBean disabled="true">
 				<h:panelGroup styleClass="search">
 
-					<h:panelGrid columnClasses="label,component,required" columns="3"/>
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="clientSkillBeanExampleDmisNumber" value="Dmis Number:"/>
+						<h:panelGroup>
+							<h:inputText id="clientSkillBeanExampleDmisNumber" value="#{clientSkillBean.example.dmisNumber}"/>
+							<h:message for="clientSkillBeanExampleDmisNumber" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
 						<h:commandLink value="Search" action='#{clientSkillBean.search}' styleClass="btn btn-primary"/>
 						<h:commandLink value="Create New" action='#{clientSkillBean.create}' styleClass="btn btn-primary"/>
@@ -36,7 +43,17 @@
 				</h:panelGroup>
 			</f:validateBean>
 			
-			<h:dataTable id="clientSkillBeanPageItems" styleClass="data-table" value="#{clientSkillBean.pageItems}" var="_item"/>
+			<h:dataTable id="clientSkillBeanPageItems" styleClass="data-table" value="#{clientSkillBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Dmis Number"/>
+					</f:facet>
+					<h:link outcome="/clientSkill/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemDmisNumber" value="#{_item.dmisNumber}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
 				<ui:param name="paginatorBean" value='#{clientSkillBean}'/>
 			</ui:include>

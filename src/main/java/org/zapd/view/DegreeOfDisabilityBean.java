@@ -209,6 +209,13 @@ public class DegreeOfDisabilityBean implements Serializable {
 		CriteriaBuilder builder = this.entityManager.getCriteriaBuilder();
 		List<Predicate> predicatesList = new ArrayList<Predicate>();
 
+		String degreeOfDisability = this.example.getDegreeOfDisability();
+		if (degreeOfDisability != null && !"".equals(degreeOfDisability)) {
+			predicatesList.add(builder.like(
+					builder.lower(root.<String> get("degreeOfDisability")),
+					'%' + degreeOfDisability.toLowerCase() + '%'));
+		}
+
 		return predicatesList.toArray(new Predicate[predicatesList.size()]);
 	}
 

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	template="/resources/scaffold/pageTemplate.xhtml">
+
+	<f:metadata>
+		<f:viewParam name="page" value='#{typeOfCaseBean.page}'/>
+		<f:event type="preRenderView" listener='#{typeOfCaseBean.paginate}'/>
+	</f:metadata>
+
+	<ui:param name="pageTitle" value="Search Type Of Case entities"/>
+
+	<ui:define name="header">
+		Type Of Case
+	</ui:define>
+
+	<ui:define name="subheader">
+		Search Type Of Case entities
+	</ui:define>
+
+	<ui:define name="footer"/>
+
+	<ui:define name="main">
+		<h:form id="search">
+			<f:validateBean disabled="true">
+				<h:panelGroup styleClass="search">
+
+					<h:panelGrid columnClasses="label,component,required" columns="3">
+						<h:outputLabel for="typeOfCaseBeanExampleTypeOfCase" value="Type Of Case:"/>
+						<h:panelGroup>
+							<h:inputText id="typeOfCaseBeanExampleTypeOfCase" value="#{typeOfCaseBean.example.typeOfCase}"/>
+							<h:message for="typeOfCaseBeanExampleTypeOfCase" styleClass="error"/>
+						</h:panelGroup>
+						<h:outputText/>
+					</h:panelGrid>
+					<h:panelGroup styleClass="buttons">
+						<h:commandLink value="Search" action='#{typeOfCaseBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{typeOfCaseBean.create}' styleClass="btn btn-primary"/>
+					</h:panelGroup>
+				</h:panelGroup>
+			</f:validateBean>
+			
+			<h:dataTable id="typeOfCaseBeanPageItems" styleClass="data-table" value="#{typeOfCaseBean.pageItems}" var="_item">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Type Of Case"/>
+					</f:facet>
+					<h:link outcome="/typeOfCase/view">
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemTypeOfCase" value="#{_item.typeOfCase}"/>
+					</h:link>
+				</h:column>
+			</h:dataTable>
+			<ui:include src="/resources/scaffold/paginator.xhtml">
+				<ui:param name="paginatorBean" value='#{typeOfCaseBean}'/>
+			</ui:include>
+		</h:form>
+			
+	</ui:define>
+
+</ui:composition>
