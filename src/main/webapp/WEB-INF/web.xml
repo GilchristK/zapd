@@ -27,8 +27,7 @@
   <security-constraint>
 		<web-resource-collection>
 			<web-resource-name>Wildcard means whole app requires authentication</web-resource-name>
-			<!--<url-pattern>/personWithDisability/*</url-pattern>-->
-			<url-pattern>/index.xhtml</url-pattern>
+			<url-pattern>/*</url-pattern>
 			
 		</web-resource-collection>
 
