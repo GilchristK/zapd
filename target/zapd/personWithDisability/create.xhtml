@@ -24,7 +24,7 @@
 				Edit existing Person With Disability
 			</c:when>
 			<c:otherwise>
-				Create a new Person With Disability
+				Registration Data Capture
 			</c:otherwise>
 		</c:choose>
 	</ui:define>
@@ -36,16 +36,26 @@
 			<h:messages globalOnly="true" styleClass="error"/>
 
 			<h:panelGrid columnClasses="label,component,required" columns="3">
-				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityFirstname" value="Firstname:"/>
+			
+				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityDmisNumber" value="Dmis Number:"/>
 				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityFirstname" value="#{personWithDisabilityBean.personWithDisability.firstname}"/>
-					<h:message for="personWithDisabilityBeanPersonWithDisabilityFirstname" styleClass="error"/>
+					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityDmisNumber" value="#{personWithDisabilityBean.personWithDisability.dmisNumber}" required="true" requiredMessage="DMIS Number is required..!">
+						<f:validateLength minimum="4" maximum="10" />
+					</h:inputText>
+					<h:message for="personWithDisabilityBeanPersonWithDisabilityDmisNumber" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+				
 				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilitySurname" value="Surname:"/>
 				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilitySurname" value="#{personWithDisabilityBean.personWithDisability.surname}"/>
+					<h:inputText id="personWithDisabilityBeanPersonWithDisabilitySurname" value="#{personWithDisabilityBean.personWithDisability.surname}" required="true" requiredMessage="Surname is required..!"/>
 					<h:message for="personWithDisabilityBeanPersonWithDisabilitySurname" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityFirstname" value="Firstname:"/>
+				<h:panelGroup>
+					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityFirstname" value="#{personWithDisabilityBean.personWithDisability.firstname}" required="true" requiredMessage="Firstname is required..!"/>
+					<h:message for="personWithDisabilityBeanPersonWithDisabilityFirstname" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityDateOfBirth" value="Date Of Birth:"/>
@@ -56,43 +66,54 @@
 				<h:outputText/>
 				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityNrc" value="Nrc:"/>
 				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityNrc" value="#{personWithDisabilityBean.personWithDisability.nrc}"/>
+					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityNrc" value="#{personWithDisabilityBean.personWithDisability.nrc}" />
 					<h:message for="personWithDisabilityBeanPersonWithDisabilityNrc" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilitySex" value="Sex:"/>
 				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilitySex" maxLength="6" value="#{personWithDisabilityBean.personWithDisability.sex}"/>
+					<h:selectOneMenu value="#{personWithDisabilityBean.personWithDisability.sex} " required="true" requiredMessage="Gender is required..!">
+						<f:selectItem itemValue="" itemLabel="-select-" />
+					   <f:selectItem itemValue="Male" itemLabel="Male" />	 
+					   <f:selectItem itemValue="Female" itemLabel="Female" />	   							
+					</h:selectOneMenu>	
 					<h:message for="personWithDisabilityBeanPersonWithDisabilitySex" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityEducationLevel" value="Education Level:"/>
 				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityEducationLevel" value="#{personWithDisabilityBean.personWithDisability.educationLevel}"/>
+					<h:selectOneMenu value="#{personWithDisabilityBean.personWithDisability.educationLevel}" required="true" requiredMessage="Education level is required..!">
+						<f:selectItem itemValue="" itemLabel="-select-" />
+						<f:selectItem itemValue="Unlearned" itemLabel="Unlearned" />
+					   <f:selectItem itemValue="GCE" itemLabel="GCE" />	 
+					   <f:selectItem itemValue="College" itemLabel="College" />	
+					   <f:selectItem itemValue="University" itemLabel="University" />	   							
+					</h:selectOneMenu>	
 					<h:message for="personWithDisabilityBeanPersonWithDisabilityEducationLevel" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityOccupation" value="Occupation:"/>
 				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityOccupation" value="#{personWithDisabilityBean.personWithDisability.occupation}"/>
+					<h:selectOneMenu value="#{personWithDisabilityBean.personWithDisability.occupation}">
+					   <f:selectItem itemValue="" itemLabel="-select-" />	 	   							
+					</h:selectOneMenu>
 					<h:message for="personWithDisabilityBeanPersonWithDisabilityOccupation" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityDmisNumber" value="Dmis Number:"/>
+				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityDateOfRegistration" value="Date Of Registration:" />
 				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityDmisNumber" value="#{personWithDisabilityBean.personWithDisability.dmisNumber}"/>
-					<h:message for="personWithDisabilityBeanPersonWithDisabilityDmisNumber" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityDateOfRegistration" value="Date Of Registration:"/>
-				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityDateOfRegistration" value="#{personWithDisabilityBean.personWithDisability.dateOfRegistration}"/>
+					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityDateOfRegistration" value="#{personWithDisabilityBean.personWithDisability.dateOfRegistration}" required="true" requiredMessage="Date of Registration is required..!"/>
 					<h:message for="personWithDisabilityBeanPersonWithDisabilityDateOfRegistration" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityMaritalStatus" value="Marital Status:"/>
 				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityMaritalStatus" value="#{personWithDisabilityBean.personWithDisability.maritalStatus}"/>
+					<h:selectOneMenu value="#{personWithDisabilityBean.personWithDisability.educationLevel}">
+					   <f:selectItem itemValue="Single" itemLabel="Single" />	 
+					   <f:selectItem itemValue="Married" itemLabel="Married" />	
+					   <f:selectItem itemValue="Divorced" itemLabel="Divorced" />	
+					   <f:selectItem itemValue="Widowed" itemLabel="Widowed" />	   							
+					</h:selectOneMenu>	
 					<h:message for="personWithDisabilityBeanPersonWithDisabilityMaritalStatus" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
@@ -102,12 +123,7 @@
 					<h:message for="personWithDisabilityBeanPersonWithDisabilityContactNumber" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
-				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityLevelOfEducation" value="Level Of Education:"/>
-				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityLevelOfEducation" value="#{personWithDisabilityBean.personWithDisability.levelOfEducation}"/>
-					<h:message for="personWithDisabilityBeanPersonWithDisabilityLevelOfEducation" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
+				
 			</h:panelGrid>
 
 			<div class="buttons">
