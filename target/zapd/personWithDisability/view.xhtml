@@ -66,6 +66,31 @@
 				<f:param name="id" value="#{personWithDisabilityBean.personWithDisability.province.id}"/>
 			</h:link>
 			<h:outputText/>
+			<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityDistrict" value="District:"/>
+			<h:link id="personWithDisabilityBeanPersonWithDisabilityDistrict" outcome="/district/view" rendered="#{!empty personWithDisabilityBean.personWithDisability.district}" value="#{personWithDisabilityBean.personWithDisability.district}">
+				<f:param name="id" value="#{personWithDisabilityBean.personWithDisability.district.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityConstituency" value="Constituency:"/>
+			<h:link id="personWithDisabilityBeanPersonWithDisabilityConstituency" outcome="/constituency/view" rendered="#{!empty personWithDisabilityBean.personWithDisability.constituency}" value="#{personWithDisabilityBean.personWithDisability.constituency}">
+				<f:param name="id" value="#{personWithDisabilityBean.personWithDisability.constituency.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityWard" value="Ward:"/>
+			<h:link id="personWithDisabilityBeanPersonWithDisabilityWard" outcome="/ward/view" rendered="#{!empty personWithDisabilityBean.personWithDisability.ward}" value="#{personWithDisabilityBean.personWithDisability.ward}">
+				<f:param name="id" value="#{personWithDisabilityBean.personWithDisability.ward.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityVillage" value="Village:"/>
+			<h:link id="personWithDisabilityBeanPersonWithDisabilityVillage" outcome="/village/view" rendered="#{!empty personWithDisabilityBean.personWithDisability.village}" value="#{personWithDisabilityBean.personWithDisability.village}">
+				<f:param name="id" value="#{personWithDisabilityBean.personWithDisability.village.id}"/>
+			</h:link>
+			<h:outputText/>
+			<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityStation" value="Station:"/>
+			<h:link id="personWithDisabilityBeanPersonWithDisabilityStation" outcome="/station/view" rendered="#{!empty personWithDisabilityBean.personWithDisability.station}" value="#{personWithDisabilityBean.personWithDisability.station}">
+				<f:param name="id" value="#{personWithDisabilityBean.personWithDisability.station.id}"/>
+			</h:link>
+			<h:outputText/>
 		</h:panelGrid>
 
 		<div class="buttons">

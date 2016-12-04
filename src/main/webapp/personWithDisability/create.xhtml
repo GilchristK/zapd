@@ -63,7 +63,7 @@
 				<h:outputText/>
 				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilitySex" value="Sex:"/>
 				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilitySex"  value="#{personWithDisabilityBean.personWithDisability.sex}"/>
+					<h:inputText id="personWithDisabilityBeanPersonWithDisabilitySex" maxLength="6" value="#{personWithDisabilityBean.personWithDisability.sex}"/>
 					<h:message for="personWithDisabilityBeanPersonWithDisabilitySex" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
@@ -116,6 +116,51 @@
 						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{provinceBean.all}" var="_item"/>
 					</h:selectOneMenu>
 					<h:message for="personWithDisabilityBeanPersonWithDisabilityProvince" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityDistrict" value="District:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{districtBean.converter}" id="personWithDisabilityBeanPersonWithDisabilityDistrict" value="#{personWithDisabilityBean.personWithDisability.district}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{districtBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="personWithDisabilityBeanPersonWithDisabilityDistrict" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityConstituency" value="Constituency:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{constituencyBean.converter}" id="personWithDisabilityBeanPersonWithDisabilityConstituency" value="#{personWithDisabilityBean.personWithDisability.constituency}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{constituencyBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="personWithDisabilityBeanPersonWithDisabilityConstituency" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityWard" value="Ward:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{wardBean.converter}" id="personWithDisabilityBeanPersonWithDisabilityWard" value="#{personWithDisabilityBean.personWithDisability.ward}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{wardBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="personWithDisabilityBeanPersonWithDisabilityWard" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityVillage" value="Village:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{villageBean.converter}" id="personWithDisabilityBeanPersonWithDisabilityVillage" value="#{personWithDisabilityBean.personWithDisability.village}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{villageBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="personWithDisabilityBeanPersonWithDisabilityVillage" styleClass="error"/>
+				</h:panelGroup>
+				<h:outputText/>
+				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityStation" value="Station:"/>
+				<h:panelGroup>
+					<h:selectOneMenu converter="#{stationBean.converter}" id="personWithDisabilityBeanPersonWithDisabilityStation" value="#{personWithDisabilityBean.personWithDisability.station}">
+						<f:selectItem/>
+						<f:selectItems itemLabel="#{forgeview:display(_item)}" itemValue="#{_item}" value="#{stationBean.all}" var="_item"/>
+					</h:selectOneMenu>
+					<h:message for="personWithDisabilityBeanPersonWithDisabilityStation" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>

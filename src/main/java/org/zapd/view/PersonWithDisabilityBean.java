@@ -25,7 +25,12 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.zapd.model.PersonWithDisability;
+import org.zapd.model.Constituency;
+import org.zapd.model.District;
 import org.zapd.model.Province;
+import org.zapd.model.Station;
+import org.zapd.model.Village;
+import org.zapd.model.Ward;
 
 /**
  * Backing bean for PersonWithDisability entities.
@@ -137,6 +142,26 @@ public class PersonWithDisabilityBean implements Serializable {
 			province.getProvince().remove(deletableEntity);
 			deletableEntity.setProvince(null);
 			this.entityManager.merge(province);
+			District district = deletableEntity.getDistrict();
+			district.getDistrict().remove(deletableEntity);
+			deletableEntity.setDistrict(null);
+			this.entityManager.merge(district);
+			Constituency constituency = deletableEntity.getConstituency();
+			constituency.getConstituency().remove(deletableEntity);
+			deletableEntity.setConstituency(null);
+			this.entityManager.merge(constituency);
+			Ward ward = deletableEntity.getWard();
+			ward.getWard().remove(deletableEntity);
+			deletableEntity.setWard(null);
+			this.entityManager.merge(ward);
+			Village village = deletableEntity.getVillage();
+			village.getVillage().remove(deletableEntity);
+			deletableEntity.setVillage(null);
+			this.entityManager.merge(village);
+			Station station = deletableEntity.getStation();
+			station.getStation().remove(deletableEntity);
+			deletableEntity.setStation(null);
+			this.entityManager.merge(station);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";

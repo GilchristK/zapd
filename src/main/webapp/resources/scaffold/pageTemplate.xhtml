@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-        xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
 	<title>#{empty pageTitle ? 'Page Title' : pageTitle}</title>
@@ -18,7 +17,7 @@
 			<div class="container">
 				<h:link id="brandLink" outcome="/index.xhtml" styleClass="brand">
 					<h:outputText value="Welcome to " rendered=" #{request.userPrincipal !=null} "/>
-                    Zapd
+                    Zapd MIS
                     <h:outputText value=",  #{request.userPrincipal.name}" rendered="#{request.userPrincipal !=null} "/>
 				</h:link>
 				<div class="nav-collapse collapse">
@@ -33,9 +32,12 @@
 	<div class="container forgecontainer">
 		<div id="navigation">
 			<h:link id="homeLink" outcome="/index.xhtml">
-				<h:graphicImage value='#{resource["forge-logo.png"]}' alt="Forge... get hammered" />	
+				<h:graphicImage value='#{resource["forge-logo.png"]}' alt="Forge... get hammered" border="0" />	
 			</h:link>
 			<ul>
+				<li>
+					<h:link outcome="/personWithDisability/create" value="Registration"/>
+				</li>
 				<li>
 					<h:link outcome="/assessmentDetails/search" value="Assessment Details"/>
 				</li>
@@ -70,17 +72,10 @@
 					<h:link outcome="/district/search" value="District"/>
 				</li>
 				<li>
-					<h:link outcome="/personWithDisability/search" value="Person With Disability">
-						
-					</h:link>
-				</li>
-				<li>
 					<h:link outcome="/providerStatus/search" value="Provider Status"/>
 				</li>
 				<li>
-					<h:link outcome="/province/search" value="Province">
-						
-					</h:link>
+					<h:link outcome="/province/search" value="Province"/>
 				</li>
 				<li>
 					<h:link outcome="/referral/search" value="Referral"/>

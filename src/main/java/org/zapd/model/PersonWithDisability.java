@@ -10,6 +10,11 @@ import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.zapd.model.Province;
 import javax.persistence.ManyToOne;
+import org.zapd.model.District;
+import org.zapd.model.Constituency;
+import org.zapd.model.Ward;
+import org.zapd.model.Village;
+import org.zapd.model.Station;
 
 @Entity
 @XmlRootElement
@@ -62,6 +67,21 @@ public class PersonWithDisability implements Serializable {
 
 	@ManyToOne
 	private Province province;
+
+	@ManyToOne
+	private District district;
+
+	@ManyToOne
+	private Constituency constituency;
+
+	@ManyToOne
+	private Ward ward;
+
+	@ManyToOne
+	private Village village;
+
+	@ManyToOne
+	private Station station;
 
 	public Long getId() {
 		return this.id;
@@ -236,5 +256,45 @@ public class PersonWithDisability implements Serializable {
 
 	public void setProvince(final Province province) {
 		this.province = province;
+	}
+
+	public District getDistrict() {
+		return this.district;
+	}
+
+	public void setDistrict(final District district) {
+		this.district = district;
+	}
+
+	public Constituency getConstituency() {
+		return this.constituency;
+	}
+
+	public void setConstituency(final Constituency constituency) {
+		this.constituency = constituency;
+	}
+
+	public Ward getWard() {
+		return this.ward;
+	}
+
+	public void setWard(final Ward ward) {
+		this.ward = ward;
+	}
+
+	public Village getVillage() {
+		return this.village;
+	}
+
+	public void setVillage(final Village village) {
+		this.village = village;
+	}
+
+	public Station getStation() {
+		return this.station;
+	}
+
+	public void setStation(final Station station) {
+		this.station = station;
 	}
 }

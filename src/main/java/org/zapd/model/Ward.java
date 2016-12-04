@@ -8,6 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import javax.persistence.Version;
+import java.util.Set;
+import java.util.HashSet;
+import org.zapd.model.PersonWithDisability;
+import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
 
 @Entity
 @Table(name = "Ward")
@@ -24,6 +29,9 @@ public class Ward implements Serializable {
 
 	@Column
 	private String nameOfWard;
+
+	@OneToMany(mappedBy = "ward", cascade = CascadeType.ALL)
+	private Set<PersonWithDisability> ward = new HashSet<PersonWithDisability>();
 
 	public Long getId() {
 		return this.id;
@@ -80,5 +88,13 @@ public class Ward implements Serializable {
 		if (nameOfWard != null && !nameOfWard.trim().isEmpty())
 			result += "nameOfWard: " + nameOfWard;
 		return result;
+	}
+
+	public Set<PersonWithDisability> getWard() {
+		return this.ward;
+	}
+
+	public void setWard(final Set<PersonWithDisability> ward) {
+		this.ward = ward;
 	}
 }
