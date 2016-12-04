@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.zapd.model.Province;
+import javax.persistence.ManyToOne;
 
 @Entity
 @XmlRootElement
@@ -57,6 +59,9 @@ public class PersonWithDisability implements Serializable {
 
 	@Column
 	private String levelOfEducation;
+
+	@ManyToOne
+	private Province province;
 
 	public Long getId() {
 		return this.id;
@@ -223,5 +228,13 @@ public class PersonWithDisability implements Serializable {
 		if (levelOfEducation != null && !levelOfEducation.trim().isEmpty())
 			result += ", levelOfEducation: " + levelOfEducation;
 		return result;
+	}
+
+	public Province getProvince() {
+		return this.province;
+	}
+
+	public void setProvince(final Province province) {
+		this.province = province;
 	}
 }

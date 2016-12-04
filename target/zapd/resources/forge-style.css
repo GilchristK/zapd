@@ -255,9 +255,9 @@ footer p {
 }
 
 #content .search {
-	display: block;
-	background-image: url(#{request.contextPath}/resources/search.png);
-	background-position: 30px 3px;
+    display: block;
+    background-image: url(#{request.contextPath}/resources/search.png);
+    background-position: 30px 3px;
     background-repeat: no-repeat;
     padding-bottom: 20px;
     padding-left: 70px;

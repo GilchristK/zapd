@@ -7,13 +7,11 @@
 	template="/resources/scaffold/pageTemplate.xhtml">
 
 	<f:metadata>
-		<f:viewParam name="page" value='#{personWithDisabilityBean.page}' />
-		<f:event type="preRenderView"
-			listener='#{personWithDisabilityBean.paginate}' />
+		<f:viewParam name="page" value='#{personWithDisabilityBean.page}'/>
+		<f:event type="preRenderView" listener='#{personWithDisabilityBean.paginate}'/>
 	</f:metadata>
 
-	<ui:param name="pageTitle"
-		value="Search for a record" />
+	<ui:param name="pageTitle" value="Search Person With Disability entities"/>
 
 	<ui:define name="header">
 		Person With Disability
@@ -23,7 +21,7 @@
 		Search Person With Disability entities
 	</ui:define>
 
-	<ui:define name="footer" />
+	<ui:define name="footer"/>
 
 	<ui:define name="main">
 		<h:form id="search">
@@ -31,131 +29,96 @@
 				<h:panelGroup styleClass="search">
 
 					<h:panelGrid columnClasses="label,component,required" columns="3">
-						<h:outputLabel
-							for="personWithDisabilityBeanPersonWithDisabilityDmisNumber"
-							value="DmisNumber" />
+						<h:outputLabel for="personWithDisabilityBeanExampleFirstname" value="Firstname:"/>
 						<h:panelGroup>
-							<h:inputText
-								id="personWithDisabilityBeanExampleDmisNumber"
-								value="#{personWithDisabilityBean.example.dmisNumber}">
-								<f:validateLength maximum="10" />
-							</h:inputText>
-							<h:message
-								for="personWithDisabilityBeanExampleDmisNumber"
-								styleClass="error" />
+							<h:inputText id="personWithDisabilityBeanExampleFirstname" value="#{personWithDisabilityBean.example.firstname}"/>
+							<h:message for="personWithDisabilityBeanExampleFirstname" styleClass="error"/>
 						</h:panelGroup>
-						<h:outputText />
-						<h:outputLabel for="personWithDisabilityBeanExampleFirstname"
-							value="Firstname:" />
+						<h:outputText/>
+						<h:outputLabel for="personWithDisabilityBeanExampleSurname" value="Surname:"/>
 						<h:panelGroup>
-							<h:inputText id="personWithDisabilityBeanExampleFirstname"
-								value="#{personWithDisabilityBean.example.firstname}" />
-							<h:message for="personWithDisabilityBeanExampleFirstname"
-								styleClass="error" />
+							<h:inputText id="personWithDisabilityBeanExampleSurname" value="#{personWithDisabilityBean.example.surname}"/>
+							<h:message for="personWithDisabilityBeanExampleSurname" styleClass="error"/>
 						</h:panelGroup>
-						<h:outputText />
-						<h:outputLabel for="personWithDisabilityBeanExampleSurname"
-							value="Surname:" />
+						<h:outputText/>
+						<h:outputLabel for="personWithDisabilityBeanExampleDateOfBirth" value="Date Of Birth:"/>
 						<h:panelGroup>
-							<h:inputText id="personWithDisabilityBeanExampleSurname"
-								value="#{personWithDisabilityBean.example.surname}" />
-							<h:message for="personWithDisabilityBeanExampleSurname"
-								styleClass="error" />
+							<h:inputText id="personWithDisabilityBeanExampleDateOfBirth" value="#{personWithDisabilityBean.example.dateOfBirth}"/>
+							<h:message for="personWithDisabilityBeanExampleDateOfBirth" styleClass="error"/>
 						</h:panelGroup>
-						<h:outputText />
-						<h:outputLabel for="personWithDisabilityBeanExampleDateOfBirth"
-							value="Date Of Birth:" />
+						<h:outputText/>
+						<h:outputLabel for="personWithDisabilityBeanExampleNrc" value="Nrc:"/>
 						<h:panelGroup>
-							<h:inputText id="personWithDisabilityBeanExampleDateOfBirth"
-								value="#{personWithDisabilityBean.example.dateOfBirth}" />
-							<h:message for="personWithDisabilityBeanExampleDateOfBirth"
-								styleClass="error" />
+							<h:inputText id="personWithDisabilityBeanExampleNrc" value="#{personWithDisabilityBean.example.nrc}"/>
+							<h:message for="personWithDisabilityBeanExampleNrc" styleClass="error"/>
 						</h:panelGroup>
-						<h:outputText />
-						<h:outputLabel for="personWithDisabilityBeanExampleNrc"
-							value="Nrc:" />
+						<h:outputText/>
+						<h:outputLabel for="personWithDisabilityBeanExampleSex" value="Sex:"/>
 						<h:panelGroup>
-							<h:inputText id="personWithDisabilityBeanExampleNrc"
-								value="#{personWithDisabilityBean.example.nrc}" />
-							<h:message for="personWithDisabilityBeanExampleNrc"
-								styleClass="error" />
+							<h:inputText id="personWithDisabilityBeanExampleSex" maxLength="6" value="#{personWithDisabilityBean.example.sex}"/>
+							<h:message for="personWithDisabilityBeanExampleSex" styleClass="error"/>
 						</h:panelGroup>
-						<h:outputText />
-						<h:outputLabel for="personWithDisabilityBeanExampleSex"
-							value="Sex:" />
-						<h:panelGroup>
-							<h:inputText id="personWithDisabilityBeanExampleSex"
-								maxLength="6" value="#{personWithDisabilityBean.example.sex}" />
-							<h:message for="personWithDisabilityBeanExampleSex"
-								styleClass="error" />
-						</h:panelGroup>
-						<h:outputText />
+						<h:outputText/>
 					</h:panelGrid>
 					<h:panelGroup styleClass="buttons">
-						<h:commandLink value="Search"
-							action='#{personWithDisabilityBean.search}'
-							styleClass="btn btn-primary" />
-						<h:commandLink value="Create New"
-							action='#{personWithDisabilityBean.create}'
-							styleClass="btn btn-primary" />
+						<h:commandLink value="Search" action='#{personWithDisabilityBean.search}' styleClass="btn btn-primary"/>
+						<h:commandLink value="Create New" action='#{personWithDisabilityBean.create}' styleClass="btn btn-primary"/>
 					</h:panelGroup>
 				</h:panelGroup>
 			</f:validateBean>
-
-			<h:dataTable id="personWithDisabilityBeanPageItems"
-				styleClass="data-table"
-				value="#{personWithDisabilityBean.pageItems}" var="_item">
+			
+			<h:dataTable id="personWithDisabilityBeanPageItems" styleClass="data-table" value="#{personWithDisabilityBean.pageItems}" var="_item">
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Firstname" />
+						<h:outputText value="Firstname"/>
 					</f:facet>
 					<h:link outcome="/personWithDisability/view">
-						<f:param name="id" value="#{_item.id}" />
-						<h:outputText id="_itemFirstname" value="#{_item.firstname}" />
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemFirstname" value="#{_item.firstname}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Surname" />
+						<h:outputText value="Surname"/>
 					</f:facet>
 					<h:link outcome="/personWithDisability/view">
-						<f:param name="id" value="#{_item.id}" />
-						<h:outputText id="_itemSurname" value="#{_item.surname}" />
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemSurname" value="#{_item.surname}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Date Of Birth" />
+						<h:outputText value="Date Of Birth"/>
 					</f:facet>
 					<h:link outcome="/personWithDisability/view">
-						<f:param name="id" value="#{_item.id}" />
-						<h:outputText id="_itemDateOfBirth" value="#{_item.dateOfBirth}" />
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemDateOfBirth" value="#{_item.dateOfBirth}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Nrc" />
+						<h:outputText value="Nrc"/>
 					</f:facet>
 					<h:link outcome="/personWithDisability/view">
-						<f:param name="id" value="#{_item.id}" />
-						<h:outputText id="_itemNrc" value="#{_item.nrc}" />
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemNrc" value="#{_item.nrc}"/>
 					</h:link>
 				</h:column>
 				<h:column>
 					<f:facet name="header">
-						<h:outputText value="Sex" />
+						<h:outputText value="Sex"/>
 					</f:facet>
 					<h:link outcome="/personWithDisability/view">
-						<f:param name="id" value="#{_item.id}" />
-						<h:outputText id="_itemSex" value="#{_item.sex}" />
+						<f:param name="id" value="#{_item.id}"/>
+						<h:outputText id="_itemSex" value="#{_item.sex}"/>
 					</h:link>
 				</h:column>
 			</h:dataTable>
 			<ui:include src="/resources/scaffold/paginator.xhtml">
-				<ui:param name="paginatorBean" value='#{personWithDisabilityBean}' />
+				<ui:param name="paginatorBean" value='#{personWithDisabilityBean}'/>
 			</ui:include>
 		</h:form>
-
+			
 	</ui:define>
 
 </ui:composition>

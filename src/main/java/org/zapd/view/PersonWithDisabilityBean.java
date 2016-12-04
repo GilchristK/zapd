@@ -25,6 +25,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import org.zapd.model.PersonWithDisability;
+import org.zapd.model.Province;
 
 /**
  * Backing bean for PersonWithDisability entities.
@@ -132,7 +133,10 @@ public class PersonWithDisabilityBean implements Serializable {
 
 		try {
 			PersonWithDisability deletableEntity = findById(getId());
-
+			Province province = deletableEntity.getProvince();
+			province.getProvince().remove(deletableEntity);
+			deletableEntity.setProvince(null);
+			this.entityManager.merge(province);
 			this.entityManager.remove(deletableEntity);
 			this.entityManager.flush();
 			return "search?faces-redirect=true";

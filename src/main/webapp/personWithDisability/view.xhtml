@@ -61,6 +61,11 @@
 			<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityLevelOfEducation" value="Level Of Education:"/>
 			<h:outputText id="personWithDisabilityBeanPersonWithDisabilityLevelOfEducation" value="#{personWithDisabilityBean.personWithDisability.levelOfEducation}"/>
 			<h:outputText/>
+			<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityProvince" value="Province:"/>
+			<h:link id="personWithDisabilityBeanPersonWithDisabilityProvince" outcome="/province/view" rendered="#{!empty personWithDisabilityBean.personWithDisability.province}" value="#{personWithDisabilityBean.personWithDisability.province}">
+				<f:param name="id" value="#{personWithDisabilityBean.personWithDisability.province.id}"/>
+			</h:link>
+			<h:outputText/>
 		</h:panelGrid>
 
 		<div class="buttons">
