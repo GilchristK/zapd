@@ -69,9 +69,6 @@ public class PersonWithDisability implements Serializable {
 	private Province province;
 
 	@ManyToOne
-	private District district;
-
-	@ManyToOne
 	private Constituency constituency;
 
 	@ManyToOne
@@ -82,6 +79,9 @@ public class PersonWithDisability implements Serializable {
 
 	@ManyToOne
 	private Station station;
+
+	@ManyToOne
+	private District district;
 
 	public Long getId() {
 		return this.id;
@@ -220,50 +220,12 @@ public class PersonWithDisability implements Serializable {
 		this.levelOfEducation = levelOfEducation;
 	}
 
-	@Override
-	public String toString() {
-		String result = getClass().getSimpleName() + " ";
-		if (firstname != null && !firstname.trim().isEmpty())
-			result += "firstname: " + firstname;
-		if (surname != null && !surname.trim().isEmpty())
-			result += ", surname: " + surname;
-		if (dateOfBirth != null && !dateOfBirth.trim().isEmpty())
-			result += ", dateOfBirth: " + dateOfBirth;
-		if (nrc != null && !nrc.trim().isEmpty())
-			result += ", nrc: " + nrc;
-		if (sex != null && !sex.trim().isEmpty())
-			result += ", sex: " + sex;
-		if (educationLevel != null && !educationLevel.trim().isEmpty())
-			result += ", educationLevel: " + educationLevel;
-		if (occupation != null && !occupation.trim().isEmpty())
-			result += ", occupation: " + occupation;
-		if (dmisNumber != null)
-			result += ", dmisNumber: " + dmisNumber;
-		if (dateOfRegistration != null && !dateOfRegistration.trim().isEmpty())
-			result += ", dateOfRegistration: " + dateOfRegistration;
-		if (maritalStatus != null && !maritalStatus.trim().isEmpty())
-			result += ", maritalStatus: " + maritalStatus;
-		if (contactNumber != null && !contactNumber.trim().isEmpty())
-			result += ", contactNumber: " + contactNumber;
-		if (levelOfEducation != null && !levelOfEducation.trim().isEmpty())
-			result += ", levelOfEducation: " + levelOfEducation;
-		return result;
-	}
-
 	public Province getProvince() {
 		return this.province;
 	}
 
 	public void setProvince(final Province province) {
 		this.province = province;
-	}
-
-	public District getDistrict() {
-		return this.district;
-	}
-
-	public void setDistrict(final District district) {
-		this.district = district;
 	}
 
 	public Constituency getConstituency() {
@@ -296,5 +258,43 @@ public class PersonWithDisability implements Serializable {
 
 	public void setStation(final Station station) {
 		this.station = station;
+	}
+
+	@Override
+	public String toString() {
+		String result = getClass().getSimpleName() + " ";
+		if (firstname != null && !firstname.trim().isEmpty())
+			result += "firstname: " + firstname;
+		if (surname != null && !surname.trim().isEmpty())
+			result += ", surname: " + surname;
+		if (dateOfBirth != null && !dateOfBirth.trim().isEmpty())
+			result += ", dateOfBirth: " + dateOfBirth;
+		if (nrc != null && !nrc.trim().isEmpty())
+			result += ", nrc: " + nrc;
+		if (sex != null && !sex.trim().isEmpty())
+			result += ", sex: " + sex;
+		if (educationLevel != null && !educationLevel.trim().isEmpty())
+			result += ", educationLevel: " + educationLevel;
+		if (occupation != null && !occupation.trim().isEmpty())
+			result += ", occupation: " + occupation;
+		if (dmisNumber != null)
+			result += ", dmisNumber: " + dmisNumber;
+		if (dateOfRegistration != null && !dateOfRegistration.trim().isEmpty())
+			result += ", dateOfRegistration: " + dateOfRegistration;
+		if (maritalStatus != null && !maritalStatus.trim().isEmpty())
+			result += ", maritalStatus: " + maritalStatus;
+		if (contactNumber != null && !contactNumber.trim().isEmpty())
+			result += ", contactNumber: " + contactNumber;
+		if (levelOfEducation != null && !levelOfEducation.trim().isEmpty())
+			result += ", levelOfEducation: " + levelOfEducation;
+		return result;
+	}
+
+	public District getDistrict() {
+		return this.district;
+	}
+
+	public void setDistrict(final District district) {
+		this.district = district;
 	}
 }
