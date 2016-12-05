@@ -26,7 +26,26 @@
   <security-constraint>
 		<web-resource-collection>
 			<web-resource-name>Wildcard means whole app requires authentication</web-resource-name>
-			<url-pattern>/*</url-pattern>
+			<url-pattern>/assessmentDetails/*</url-pattern>
+                        <url-pattern>/assessorDetails/*</url-pattern>
+                        <url-pattern>/assessorDetails/*</url-pattern>
+                        <url-pattern>/cases/*</url-pattern>
+                        <url-pattern>/category/*</url-pattern>
+                        <url-pattern>/clientDisability/*</url-pattern>
+                        <url-pattern>/constituency/*</url-pattern>
+                        <url-pattern>/cwac/*</url-pattern>
+                        <url-pattern>/degreeOfDisability/*</url-pattern>
+                        <url-pattern>/disability/*</url-pattern>
+                        <url-pattern>/district/*</url-pattern>
+                        <url-pattern>/personWithDisability/*</url-pattern>
+                        <url-pattern>/providerStatus/*</url-pattern>
+                        <url-pattern>/province/*</url-pattern>
+                        <url-pattern>/referral/*</url-pattern>
+                        <url-pattern>/sector/*</url-pattern>
+                        <url-pattern>/serviceProvider/*</url-pattern>
+                        <url-pattern>/skill/*</url-pattern>
+                        <url-pattern>/station/*</url-pattern>
+			
 			
 		</web-resource-collection>
 
