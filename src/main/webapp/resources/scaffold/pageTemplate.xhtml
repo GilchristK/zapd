@@ -17,13 +17,18 @@
 			<div class="container">
 				<h:link id="brandLink" outcome="/index.xhtml" styleClass="brand">
                                         
-					<h:outputText value="Welcome to " rendered=" #{request.userPrincipal !=null} "/>
+					<h:outputText id="principal" value="Welcome to " rendered="#{request.userPrincipal.name != null}"/>
+               
                     Zapd MIS
-                    <h:outputText value=",  #{request.userPrincipal.name}" rendered="#{request.userPrincipal !=null} "/>
+                    <h:outputText id="principal2" value=", #{request.remoteUser} " rendered="#{request.userPrincipal.name != null}"/>
 				</h:link>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
+<<<<<<< Updated upstream
 						<li><a href="http://localhost:8080/zapd">Offline Client</a></li>
+=======
+                                            <li><a href="http://www.unza.zm">Offline client</a></li>
+>>>>>>> Stashed changes
 					</ul>
 				</div>
 			</div>
@@ -37,6 +42,7 @@
 			</h:link>
 			<ul>
 				<li>
+<<<<<<< Updated upstream
 					<h:link outcome="/personWithDisability/search" value="Registration"/>
 				</li>
 				<li>
@@ -114,6 +120,85 @@
 				<li>
 					<h:link outcome="/ward/search" value="Ward"/>
 				</li>
+=======
+					<h:link outcome="/personWithDisability/create" value="Registration"/>
+				</li>
+				<li>
+					<h:link outcome="/assessmentDetails/search" value="Assessment Details"/>
+				</li>
+				<li>
+					<h:link outcome="/assessorDetails/search" value="Assessor Details"/>
+				</li>
+				<li>
+					<h:link outcome="/cases/search" value="Cases"/>
+				</li>
+				<li>
+					<h:link outcome="/category/search" value="Category"/>
+				</li>
+				<li>
+					<h:link outcome="/clientDisability/search" value="Client Disability"/>
+				</li>
+				<li>
+					<h:link outcome="/clientSkill/search" value="Client Skill"/>
+				</li>
+				<li>
+					<h:link outcome="/constituency/search" value="Constituency"/>
+				</li>
+				<li>
+					<h:link outcome="/cwac/search" value="Cwac"/>
+				</li>
+				<li>
+					<h:link outcome="/degreeOfDisability/search" value="Degree Of Disability"/>
+				</li>
+				<li>
+					<h:link outcome="/disability/search" value="Disability"/>
+				</li>
+				<li>
+					<h:link outcome="/district/search" value="District"/>
+				</li>
+				<li>
+					<h:link outcome="/providerStatus/search" value="Provider Status"/>
+				</li>
+				<li>
+					<h:link outcome="/province/search" value="Province"/>
+				</li>
+				<li>
+					<h:link outcome="/referral/search" value="Referral"/>
+				</li>
+				<li>
+					<h:link outcome="/sector/search" value="Sector"/>
+				</li>
+				<li>
+					<h:link outcome="/serviceProvider/search" value="Service Provider"/>
+				</li>
+				<li>
+					<h:link outcome="/skill/search" value="Skill"/>
+				</li>
+				<li>
+					<h:link outcome="/station/search" value="Station"/>
+				</li>
+				<li>
+					<h:link outcome="/status/search" value="Status"/>
+				</li>
+				<li>
+					<h:link outcome="/typeOfCase/search" value="Type Of Case"/>
+				</li>
+				<li>
+					<h:link outcome="/typeOfService/search" value="Type Of Service"/>
+				</li>
+				<li>
+					<h:link outcome="/update/search" value="Update"/>
+				</li>
+				<li>
+					<h:link outcome="/user/search" value="User"/>
+				</li>
+				<li>
+					<h:link outcome="/village/search" value="Village"/>
+				</li>
+				<li>
+					<h:link outcome="/ward/search" value="Ward"/>
+				</li>
+>>>>>>> Stashed changes
 			</ul>
 		</div>
 
@@ -131,7 +216,11 @@
 
 	<footer>
 		<div id="footer-wrapper">
+<<<<<<< Updated upstream
 	    	<p>Developed by <a href="http://www.unza.zm">UNZA CICT</a></p>
+=======
+	    	<p>Powered by <a href="http://www.unza.zm">UNZA-CICT</a></p>
+>>>>>>> Stashed changes
 	    </div>
 	</footer>
 
