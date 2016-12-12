@@ -25,7 +25,7 @@
 				Edit existing Person With Disability
 			</c:when>
 			<c:otherwise>
-				Create a new Person With Disability
+				Register a new Person With Disability
 			</c:otherwise>
 		</c:choose>
 	</ui:define>
@@ -51,7 +51,7 @@
 				<h:outputText/>
 				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityDateOfBirth" value="Date Of Birth:"/>
 				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityDateOfBirth" value="#{personWithDisabilityBean.personWithDisability.dateOfBirth}"/>
+					<h:inputText styleClass="datepicker" value="#{personWithDisabilityBean.personWithDisability.dateOfBirth}"/>  
 					<h:message for="personWithDisabilityBeanPersonWithDisabilityDateOfBirth" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
@@ -63,13 +63,24 @@
 				<h:outputText/>
 				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilitySex" value="Sex:"/>
 				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilitySex" maxLength="6" value="#{personWithDisabilityBean.personWithDisability.sex}"/>
+					<h:selectOneMenu value="#{personWithDisabilityBean.personWithDisability.sex}">
+					   	<f:selectItem itemValue="" itemLabel="" />
+					   <f:selectItem itemValue="Female" itemLabel="Female" />
+					   <f:selectItem itemValue="Male" itemLabel="Male" />	   							
+					</h:selectOneMenu>	
 					<h:message for="personWithDisabilityBeanPersonWithDisabilitySex" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityEducationLevel" value="Education Level:"/>
 				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityEducationLevel" value="#{personWithDisabilityBean.personWithDisability.educationLevel}"/>
+					<h:selectOneMenu value="#{personWithDisabilityBean.personWithDisability.educationLevel}">
+					   <f:selectItem itemValue="" itemLabel="" />
+					   <f:selectItem itemValue="Primary" itemLabel="Primary" />
+					   <f:selectItem itemValue="Secondary" itemLabel="Secondary" />
+					   <f:selectItem itemValue="GCE" itemLabel="GCE" />
+					   <f:selectItem itemValue="College" itemLabel="College" />
+					   <f:selectItem itemValue="University" itemLabel="University" />	   							
+					</h:selectOneMenu>	
 					<h:message for="personWithDisabilityBeanPersonWithDisabilityEducationLevel" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
@@ -87,13 +98,19 @@
 				<h:outputText/>
 				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityDateOfRegistration" value="Date Of Registration:"/>
 				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityDateOfRegistration" value="#{personWithDisabilityBean.personWithDisability.dateOfRegistration}"/>
+					<h:inputText styleClass="datepicker" value="#{personWithDisabilityBean.personWithDisability.dateOfRegistration}"/>
 					<h:message for="personWithDisabilityBeanPersonWithDisabilityDateOfRegistration" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityMaritalStatus" value="Marital Status:"/>
 				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityMaritalStatus" value="#{personWithDisabilityBean.personWithDisability.maritalStatus}"/>
+					<h:selectOneMenu value="#{personWithDisabilityBean.personWithDisability.maritalStatus}">
+						<f:selectItem itemValue="" itemLabel="" />
+					   <f:selectItem itemValue="Single" itemLabel="Single" />
+					   <f:selectItem itemValue="Married" itemLabel="Married" />	
+					   <f:selectItem itemValue="Divorced" itemLabel="Divorced" />
+					   <f:selectItem itemValue="Widowed" itemLabel="Widowed" />	   							
+					</h:selectOneMenu>	
 					<h:message for="personWithDisabilityBeanPersonWithDisabilityMaritalStatus" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
@@ -101,12 +118,6 @@
 				<h:panelGroup>
 					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityContactNumber" value="#{personWithDisabilityBean.personWithDisability.contactNumber}"/>
 					<h:message for="personWithDisabilityBeanPersonWithDisabilityContactNumber" styleClass="error"/>
-				</h:panelGroup>
-				<h:outputText/>
-				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityLevelOfEducation" value="Level Of Education:"/>
-				<h:panelGroup>
-					<h:inputText id="personWithDisabilityBeanPersonWithDisabilityLevelOfEducation" value="#{personWithDisabilityBean.personWithDisability.levelOfEducation}"/>
-					<h:message for="personWithDisabilityBeanPersonWithDisabilityLevelOfEducation" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
 				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityProvince" value="Province:"/>

@@ -8,6 +8,15 @@
 	<link rel="icon" href='#{resource["favicon.ico"]}' />
 	<h:outputStylesheet name="bootstrap.css" />
 	<h:outputStylesheet name="forge-style.css" />
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+  	<link rel="stylesheet" href="/resources/demos/style.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script>
+		  $( function() {
+		    $( ".datepicker" ).datepicker();
+		  } );
+  </script>
 </h:head>
 
 <h:body>
@@ -19,7 +28,7 @@
                                         
 					<h:outputText id="principal" value="Welcome to " rendered="#{request.userPrincipal.name != null}"/>
                
-                    Zapd MIS
+                    Zapd DMIS
                     <h:outputText id="principal2" value=", #{request.remoteUser} " rendered="#{request.userPrincipal.name != null}"/>
 				</h:link>
 				<div class="nav-collapse collapse">
@@ -137,6 +146,5 @@
 	    	<p>Developed by <a href="http://www.unza.zm">UNZA CICT</a></p>
 	    </div>
 	</footer>
-
 </h:body>
 </html>

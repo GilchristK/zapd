@@ -172,6 +172,9 @@ public class ProvinceBean implements Serializable {
 	}
 
 	public String search() {
+		if(this.conversation != null){
+			this.conversation.end();
+		}
 		this.page = 0;
 		return null;
 	}

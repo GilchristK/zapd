@@ -24,9 +24,10 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import org.zapd.model.PersonWithDisability;
+import java.util.logging.*;
 import org.zapd.model.Constituency;
 import org.zapd.model.District;
+import org.zapd.model.PersonWithDisability;
 import org.zapd.model.Province;
 import org.zapd.model.Station;
 import org.zapd.model.Village;
@@ -48,6 +49,7 @@ import org.zapd.model.Ward;
 public class PersonWithDisabilityBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	private static Logger log = Logger.getLogger(PersonWithDisabilityBean.class.getName());
 
 	/*
 	 * Support creating and retrieving PersonWithDisability entities
@@ -82,8 +84,10 @@ public class PersonWithDisabilityBean implements Serializable {
 
 	public String create() {
 
-		this.conversation.begin();
-		this.conversation.setTimeout(1800000L);
+		if(this.conversation.isTransient()){
+			this.conversation.begin();
+			this.conversation.setTimeout(1800000L);
+		}
 		return "create?faces-redirect=true";
 	}
 
@@ -204,6 +208,9 @@ public class PersonWithDisabilityBean implements Serializable {
 
 	public String search() {
 		this.page = 0;
+		Boolean isTransient = this.conversation.isTransient();
+		log.log(Level.INFO,"conversation is transiet?"+isTransient);
+		this.conversation.end();
 		return null;
 	}
 

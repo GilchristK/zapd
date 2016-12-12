@@ -285,8 +285,6 @@ public class PersonWithDisability implements Serializable {
 			result += ", maritalStatus: " + maritalStatus;
 		if (contactNumber != null && !contactNumber.trim().isEmpty())
 			result += ", contactNumber: " + contactNumber;
-		if (levelOfEducation != null && !levelOfEducation.trim().isEmpty())
-			result += ", levelOfEducation: " + levelOfEducation;
 		return result;
 	}
 

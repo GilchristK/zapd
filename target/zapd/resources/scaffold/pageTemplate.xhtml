@@ -8,6 +8,15 @@
 	<link rel="icon" href='#{resource["favicon.ico"]}' />
 	<h:outputStylesheet name="bootstrap.css" />
 	<h:outputStylesheet name="forge-style.css" />
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+  	<link rel="stylesheet" href="/resources/demos/style.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script>
+		  $( function() {
+		    $( ".datepicker" ).datepicker();
+		  } );
+  </script>
 </h:head>
 
 <h:body>
@@ -19,16 +28,13 @@
                                         
 					<h:outputText id="principal" value="Welcome to " rendered="#{request.userPrincipal.name != null}"/>
                
-                    Zapd MIS
+                    Zapd DMIS
                     <h:outputText id="principal2" value=", #{request.remoteUser} " rendered="#{request.userPrincipal.name != null}"/>
 				</h:link>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-<<<<<<< Updated upstream
-						<li><a href="http://localhost:8080/zapd">Offline Client</a></li>
-=======
-                                            <li><a href="http://www.unza.zm">Offline client</a></li>
->>>>>>> Stashed changes
+                                     <li><a href="http://www.unza.zm">Offline client</a></li>
+
 					</ul>
 				</div>
 			</div>
@@ -38,12 +44,11 @@
 	<div class="container forgecontainer">
 		<div id="navigation">
 			<h:link id="homeLink" outcome="/index.xhtml">
-				<h:graphicImage value='#{resource["forge-logo.png"]}' alt="Forge... get hammered" border="0" />	
+				<h:graphicImage value='#{resource["forge-logo.png"]}' alt="Forge... get hammered"  />	
 			</h:link>
 			<ul>
 				<li>
-<<<<<<< Updated upstream
-					<h:link outcome="/personWithDisability/search" value="Registration"/>
+		<h:link outcome="/personWithDisability/search" value="Registration"/>
 				</li>
 				<li>
 					<h:link outcome="/assessmentDetails/search" value="Assessment Details"/>
@@ -120,85 +125,7 @@
 				<li>
 					<h:link outcome="/ward/search" value="Ward"/>
 				</li>
-=======
-					<h:link outcome="/personWithDisability/create" value="Registration"/>
-				</li>
-				<li>
-					<h:link outcome="/assessmentDetails/search" value="Assessment Details"/>
-				</li>
-				<li>
-					<h:link outcome="/assessorDetails/search" value="Assessor Details"/>
-				</li>
-				<li>
-					<h:link outcome="/cases/search" value="Cases"/>
-				</li>
-				<li>
-					<h:link outcome="/category/search" value="Category"/>
-				</li>
-				<li>
-					<h:link outcome="/clientDisability/search" value="Client Disability"/>
-				</li>
-				<li>
-					<h:link outcome="/clientSkill/search" value="Client Skill"/>
-				</li>
-				<li>
-					<h:link outcome="/constituency/search" value="Constituency"/>
-				</li>
-				<li>
-					<h:link outcome="/cwac/search" value="Cwac"/>
-				</li>
-				<li>
-					<h:link outcome="/degreeOfDisability/search" value="Degree Of Disability"/>
-				</li>
-				<li>
-					<h:link outcome="/disability/search" value="Disability"/>
-				</li>
-				<li>
-					<h:link outcome="/district/search" value="District"/>
-				</li>
-				<li>
-					<h:link outcome="/providerStatus/search" value="Provider Status"/>
-				</li>
-				<li>
-					<h:link outcome="/province/search" value="Province"/>
-				</li>
-				<li>
-					<h:link outcome="/referral/search" value="Referral"/>
-				</li>
-				<li>
-					<h:link outcome="/sector/search" value="Sector"/>
-				</li>
-				<li>
-					<h:link outcome="/serviceProvider/search" value="Service Provider"/>
-				</li>
-				<li>
-					<h:link outcome="/skill/search" value="Skill"/>
-				</li>
-				<li>
-					<h:link outcome="/station/search" value="Station"/>
-				</li>
-				<li>
-					<h:link outcome="/status/search" value="Status"/>
-				</li>
-				<li>
-					<h:link outcome="/typeOfCase/search" value="Type Of Case"/>
-				</li>
-				<li>
-					<h:link outcome="/typeOfService/search" value="Type Of Service"/>
-				</li>
-				<li>
-					<h:link outcome="/update/search" value="Update"/>
-				</li>
-				<li>
-					<h:link outcome="/user/search" value="User"/>
-				</li>
-				<li>
-					<h:link outcome="/village/search" value="Village"/>
-				</li>
-				<li>
-					<h:link outcome="/ward/search" value="Ward"/>
-				</li>
->>>>>>> Stashed changes
+
 			</ul>
 		</div>
 
@@ -216,13 +143,8 @@
 
 	<footer>
 		<div id="footer-wrapper">
-<<<<<<< Updated upstream
 	    	<p>Developed by <a href="http://www.unza.zm">UNZA CICT</a></p>
-=======
-	    	<p>Powered by <a href="http://www.unza.zm">UNZA-CICT</a></p>
->>>>>>> Stashed changes
 	    </div>
 	</footer>
-
 </h:body>
 </html>
