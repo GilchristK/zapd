@@ -86,7 +86,7 @@ public class Ward implements Serializable {
 	public String toString() {
 		String result = getClass().getSimpleName() + " ";
 		if (nameOfWard != null && !nameOfWard.trim().isEmpty())
-			result += "nameOfWard: " + nameOfWard;
+			result += nameOfWard;
 		return result;
 	}
 

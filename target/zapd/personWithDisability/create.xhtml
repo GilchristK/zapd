@@ -71,6 +71,8 @@
 					<h:message for="personWithDisabilityBeanPersonWithDisabilitySex" styleClass="error"/>
 				</h:panelGroup>
 				<h:outputText/>
+			</h:panelGrid>
+			<h:panelGrid columnClasses="label,component,required" columns="3">
 				<h:outputLabel for="personWithDisabilityBeanPersonWithDisabilityEducationLevel" value="Education Level:"/>
 				<h:panelGroup>
 					<h:selectOneMenu value="#{personWithDisabilityBean.personWithDisability.educationLevel}">
@@ -175,7 +177,6 @@
 				</h:panelGroup>
 				<h:outputText/>
 			</h:panelGrid>
-
 			<div class="buttons">
 				<h:commandLink value="Save" action='#{personWithDisabilityBean.update}' styleClass="btn btn-primary"/>
 				<c:choose>

@@ -86,7 +86,7 @@ public class Station implements Serializable {
 	public String toString() {
 		String result = getClass().getSimpleName() + " ";
 		if (stationName != null && !stationName.trim().isEmpty())
-			result += "stationName: " + stationName;
+			result += stationName;
 		return result;
 	}
 

@@ -75,8 +75,10 @@ public class AssessmentDetailsBean implements Serializable {
 
 	public String create() {
 
-		this.conversation.begin();
-		this.conversation.setTimeout(1800000L);
+		if(this.conversation.isTransient()){
+			this.conversation.begin();
+			this.conversation.setTimeout(1800000L);
+		}
 		return "create?faces-redirect=true";
 	}
 

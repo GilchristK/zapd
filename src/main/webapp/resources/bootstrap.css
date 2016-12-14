@@ -1516,11 +1516,13 @@ table {
   background-color: transparent;
   border-collapse: collapse;
   border-spacing: 0;
+  border: 1px solid #dddddd;
 }
 
 .table {
   width: 100%;
   margin-bottom: 18px;
+  
 }
 
 .table th,

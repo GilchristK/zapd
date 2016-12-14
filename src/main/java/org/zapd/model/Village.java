@@ -86,7 +86,7 @@ public class Village implements Serializable {
 	public String toString() {
 		String result = getClass().getSimpleName() + " ";
 		if (nameOfVillage != null && !nameOfVillage.trim().isEmpty())
-			result += "nameOfVillage: " + nameOfVillage;
+			result += nameOfVillage;
 		return result;
 	}
 

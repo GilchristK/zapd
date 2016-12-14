@@ -14,7 +14,14 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
       <script>
 		  $( function() {
-		    $( ".datepicker" ).datepicker();
+		    $( ".datepicker" ).datepicker(
+		    		{
+		    	        inline: true,
+		    	        dateFormat: "dd-mm-yy",
+		    	        showOtherMonths: true,
+		    	        showButtonPanel: true
+		    	    }		
+		    );
 		  } );
   </script>
 </h:head>
@@ -51,10 +58,10 @@
 		<h:link outcome="/personWithDisability/search" value="Registration"/>
 				</li>
 				<li>
-					<h:link outcome="/assessmentDetails/search" value="Assessment Details"/>
+					<h:link outcome="/assessmentDetails/search" value="Assessments"/>
 				</li>
 				<li>
-					<h:link outcome="/assessorDetails/search" value="Assessor Details"/>
+					<h:link outcome="/assessorDetails/search" value="Assessors"/>
 				</li>
 				<li>
 					<h:link outcome="/cases/search" value="Cases"/>

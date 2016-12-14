@@ -86,7 +86,7 @@ public class District implements Serializable {
 	public String toString() {
 		String result = getClass().getSimpleName() + " ";
 		if (name != null && !name.trim().isEmpty())
-			result += "name: " + name;
+			result += name;
 		return result;
 	}
 
