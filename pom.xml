@@ -28,11 +28,11 @@
       <artifactId>hibernate-jpa-2.0-api</artifactId>
       <scope>provided</scope>
     </dependency>
-	<dependency>
-		<groupId>org.hibernate</groupId>
-		<artifactId>hibernate-entitymanager</artifactId>
-		<version>4.3.0.Final</version>
-	</dependency>
+    <dependency>	
+        <groupId>org.hibernate</groupId>	
+        <artifactId>hibernate-entitymanager</artifactId>
+	<version>4.3.0.Final</version>
+    </dependency>
     <dependency>
       <groupId>org.jboss.spec.javax.faces</groupId>
       <artifactId>jboss-jsf-api_2.1_spec</artifactId>
@@ -73,7 +73,6 @@
       <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
       <scope>provided</scope>
     </dependency>
-    
   </dependencies>
   <dependencyManagement>
     <dependencies>

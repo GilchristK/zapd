@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"      
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/templates/newTemplate.xhtml">
+
+
+
+            <ui:define name="content">
+                <h:form id="adminRegistrationForm">
+                    <p:panel id="registration" header="Registration search form" class="ui-registration-panel">
+                        <p:panel header="Search" class="ui-search-panel">
+                            <p:panelGrid columns="6" class="ui-registration-panel-grid">
+
+                                <h:outputText value="Search by.:" />
+                                <h:inputText value="#{registrationForm.dmisNumber}" />
+
+                                <h:outputText value="Search Value.:" />
+                                <h:inputText value="#{registrationForm.nrcNumber}" />
+
+                                <h:outputText value="" />
+                                <h:commandButton value="Search" />
+                            </p:panelGrid>
+                        </p:panel>
+                        <p:panelGrid columns="1"  class="ui-search-results-grid">
+                            <p:dataTable var="skill" value="#{registrationForm.skills}" class="ui-data-table-search">
+                                <f:facet name="header">
+                                    Search results
+                                </f:facet>
+
+                                <p:column headerText="DMIS No">
+                                    <h:outputText value="#{skill.id}" />
+                                </p:column>
+
+                                <p:column headerText="Client Names">
+                                    <h:outputText value="#{skill.name}" />
+                                </p:column>
+
+                                <p:column headerText="Province">
+                                    <h:outputText value="#{skill.comment}" />
+                                </p:column>
+                                <p:column headerText="Disstrict">
+                                    <h:outputText value="#{skill.comment}" />
+                                </p:column>
+                                <p:column headerText="Constituency">
+                                    <h:outputText value="#{skill.comment}" />
+                                </p:column>
+                                <p:column headerText="Ward">
+                                    <h:outputText value="#{skill.comment}" />
+                                </p:column>
+                                <p:column headerText="Village">
+                                    <h:outputText value="#{skill.comment}" />
+                                </p:column>
+                                <p:column headerText="Status">
+                                    <h:outputText value="#{skill.comment}" />
+                                </p:column>
+                                <p:column headerText="Select">
+                                    <h:outputText value="#{skill.comment}" />
+                                </p:column>
+
+                            </p:dataTable>
+                            
+                        </p:panelGrid>
+                            <p:panelGrid columns="3" class="ui-command-actions">
+                                <h:commandButton value="Add New Client"/>
+                                <h:commandButton value="Modify Existing Client"/>
+                                <h:commandButton value="Print Disability Card"/>
+                            </p:panelGrid>
+
+                    </p:panel>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

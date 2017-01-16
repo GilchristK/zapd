@@ -1,0 +1,74 @@
+body {
+    background-color: #ffffff;
+    font-size: 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;  
+    margin: 10px;
+}
+
+h1 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  16px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #D20005;
+}
+
+a:link, a:visited {
+  color: #045491;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+a:link:hover, a:visited:hover  {
+  color: #045491;
+  font-weight : bold;
+  text-decoration : underline;
+}
+.ui-panel {
+    margin: 20px;
+    width: 250px;
+}
+.ui-registration-panel {
+    margin: 20px;
+    width: 850px;
+}
+.ui-registration-panel-grid {
+    width: 700px;
+}
+.ui-skills-geo-panel-grid {
+    width: 800px;
+    margin-left: 10px;
+}
+.ui-search-results-grid {
+    width: 800px;
+    margin-left: 10px;
+}
+.ui-geo-panel-grid {
+    width: 350px;
+}
+.ui-skills-panel-grid {
+    width: 350px;
+}
+.ui-data-table{
+    padding:0px;
+    margin-top: -60px;
+}
+.ui-data-table-search{
+    padding:0px;
+    margin-top: 10px;
+}
+.ui-search-panel{
+    width:800px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.ui-command-actions{
+    border: 0px;
+    width:200px;
+    margin:auto;
+    margin-top:10px;
+}
+

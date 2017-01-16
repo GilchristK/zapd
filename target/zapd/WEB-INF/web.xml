@@ -26,25 +26,7 @@
   <security-constraint>
 		<web-resource-collection>
 			<web-resource-name>Wildcard means whole app requires authentication</web-resource-name>
-			<url-pattern>/assessmentDetails/*</url-pattern>
-                        <url-pattern>/assessorDetails/*</url-pattern>
-                        <url-pattern>/assessorDetails/*</url-pattern>
-                        <url-pattern>/cases/*</url-pattern>
-                        <url-pattern>/category/*</url-pattern>
-                        <url-pattern>/clientDisability/*</url-pattern>
-                        <url-pattern>/constituency/*</url-pattern>
-                        <url-pattern>/cwac/*</url-pattern>
-                        <url-pattern>/degreeOfDisability/*</url-pattern>
-                        <url-pattern>/disability/*</url-pattern>
-                        <url-pattern>/district/*</url-pattern>
-                        <url-pattern>/personWithDisability/*</url-pattern>
-                        <url-pattern>/providerStatus/*</url-pattern>
-                        <url-pattern>/province/*</url-pattern>
-                        <url-pattern>/referral/*</url-pattern>
-                        <url-pattern>/sector/*</url-pattern>
-                        <url-pattern>/serviceProvider/*</url-pattern>
-                        <url-pattern>/skill/*</url-pattern>
-                        <url-pattern>/station/*</url-pattern>
+                        <url-pattern>/registration/*</url-pattern>
                         <url-pattern>/index.xhtml</url-pattern>
 			
 			
@@ -67,10 +49,4 @@
 			<form-error-page>/login.html</form-error-page>
 		</form-login-config>
 	</login-config>
-        <resource-ref>
-      <description>DB Connection</description>
-      <res-ref-name>jdbc/zapd</res-ref-name>
-      <res-type>javax.sql.DataSource</res-type>
-      <res-auth>Container</res-auth>
-  </resource-ref>
 </web-app>

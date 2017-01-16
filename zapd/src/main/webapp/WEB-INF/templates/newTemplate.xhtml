@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <!--<h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>Facelets Template</title>
+    </h:head>-->
+
+    <!-- <h:body>
+ 
+         <div id="top">
+             <ui:insert name="top">Top Menu</ui:insert>
+         </div>
+         <div>
+             <div id="left">
+                 <ui:insert name="left">Left Side bar</ui:insert>
+             </div>
+             <div id="content" class="left_content">
+                 <ui:insert name="content">Center Content</ui:insert>
+             </div>
+         </div>
+         <div id="bottom">
+             <ui:insert name="bottom">Footer</ui:insert>
+         </div>
+ 
+     </h:body>-->
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <h:outputStylesheet name="/css/default.css"/>
+                <h:outputStylesheet name="/css/cssLayout.css"/>
+                <title>::Zapd Disabilty Information System::</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    <ui:insert name="top">
+                        
+                        <!--<img src="../../resources/zapd_logo.png"/>Zapd Disability Management Information System.-->
+                        <h:link id="homeLink" outcome="/index.xhtml">
+                            <h:graphicImage value='#{resource["zapd_logo.png"]}' alt="zapd logo"  style="border:0;" />	
+			</h:link>
+                        Zapd Disability Management Information System
+           
+                    </ui:insert>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="50" closable="true" collapsible="true">
+                    <ui:insert name="bottom">&copy; 2016 Zapd</ui:insert>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="242" header="Menu" collapsible="true">
+                    <ui:insert name="left">
+                        <h:form id="menuLeft">
+                            <p:menu>
+                                <p:submenu label="Modules">
+                                    <p:menuitem value="Registration" url="#{menuView.registration}" />
+                                    <p:menuitem value="Client management" url="#{menuView.clientUpdate}" />
+                                    <p:menuitem value="Service management" url="#{menuView.clientUpdateSearch}" />
+                                    <p:menuitem value="Reports" url="#{menuView.registrationSearch}" />
+                                    <p:menuitem value="Administration" url="http://www.primefaces.org/themes.html" />
+                                    <p:menuitem value="Security" url="http://www.primefaces.org/themes.html" />
+    
+                                </p:submenu>
+    
+                            </p:menu>
+                            
+                        </h:form>
+                    </ui:insert>
+
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    <ui:insert name="content">Welcome to Zapd</ui:insert>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+
+</html>
