@@ -16,25 +16,26 @@ import javax.persistence.Table;
  * @author Katuta
  */
 @Entity
-@Table(name="SKILLS")
-public class Skill {
+@Table(name="DISTRICTS")
+class District {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Integer id;
     private String name;
-    private String comment;
+    private Constituency constituencies;
+    private Province province;
 
     /**
      * @return the id
      */
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -53,24 +54,32 @@ public class Skill {
     }
 
     /**
-     * @return the comment
+     * @return the constituencies
      */
-    public String getComment() {
-        return comment;
+    public Constituency getConstituencies() {
+        return constituencies;
     }
 
     /**
-     * @param comment the comment to set
+     * @param constituencies the constituencies to set
      */
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setConstituencies(Constituency constituencies) {
+        this.constituencies = constituencies;
+    }
+
+    /**
+     * @return the province
+     */
+    public Province getProvince() {
+        return province;
+    }
+
+    /**
+     * @param province the province to set
+     */
+    public void setProvince(Province province) {
+        this.province = province;
     }
     
-    public Skill(){
-    }
-    public Skill(String id, String name, String comment){
-        this.id = id;
-        this.name = name;
-        this.comment = comment;
-    }
+    
 }
