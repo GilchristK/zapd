@@ -5,23 +5,23 @@
  */
 package zm.unza.ctu.zapd.model;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 /**
  *
  * @author Katuta
  */
 @Entity
-@Table(name="STATIONS")
-public class Station {
+@Table(name="DEGREE_OF_DISABILITIES")
+public class Degree implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
-    private String name;
+    private  String name;
 
     /**
      * @return the id

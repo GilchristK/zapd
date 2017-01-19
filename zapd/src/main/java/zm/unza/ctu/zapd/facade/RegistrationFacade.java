@@ -15,7 +15,7 @@ import zm.unza.ctu.zapd.services.RegistrationService;
  * @author Katuta
  */
 public class RegistrationFacade implements Serializable,RegistrationService {
-    private RegistrationDAO regDAO = new RegistrationDAO();
+    private final RegistrationDAO regDAO = new RegistrationDAO();
     
     @Override
     public void createNewRegistration(PersonWithDisability pwd){

@@ -5,10 +5,15 @@
  */
 package zm.unza.ctu.zapd.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 /**
@@ -22,7 +27,10 @@ class Ward {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    private Village[] villages;
+    @OneToMany
+     @OrderColumn(name="id")
+    private List<Village> villages;
+    @OneToOne
     private Constituency constituency;
 
     /**
@@ -56,14 +64,17 @@ class Ward {
     /**
      * @return the villages
      */
-    public Village[] getVillages() {
+    public List<Village> getVillages() {
+        if(villages == null){
+            villages = new ArrayList<>();
+        }
         return villages;
     }
 
     /**
      * @param villages the villages to set
      */
-    public void setVillages(Village[] villages) {
+    public void setVillages(List<Village> villages) {
         this.villages = villages;
     }
 

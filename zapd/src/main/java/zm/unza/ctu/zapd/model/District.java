@@ -5,10 +5,15 @@
  */
 package zm.unza.ctu.zapd.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 /**
@@ -22,7 +27,10 @@ class District {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    private Constituency constituencies;
+    @OneToMany
+     @OrderColumn(name="id")
+    private List<Constituency> constituencies;
+    @ManyToOne
     private Province province;
 
     /**
@@ -53,19 +61,7 @@ class District {
         this.name = name;
     }
 
-    /**
-     * @return the constituencies
-     */
-    public Constituency getConstituencies() {
-        return constituencies;
-    }
-
-    /**
-     * @param constituencies the constituencies to set
-     */
-    public void setConstituencies(Constituency constituencies) {
-        this.constituencies = constituencies;
-    }
+    
 
     /**
      * @return the province
@@ -79,6 +75,23 @@ class District {
      */
     public void setProvince(Province province) {
         this.province = province;
+    }
+
+    /**
+     * @return the constituencies
+     */
+    public List<Constituency> getConstituencies() {
+        if( constituencies == null){
+            constituencies = new ArrayList<Constituency>();
+        }
+        return constituencies;
+    }
+
+    /**
+     * @param constituencies the constituencies to set
+     */
+    public void setConstituencies(List<Constituency> constituencies) {
+        this.constituencies = constituencies;
     }
     
     

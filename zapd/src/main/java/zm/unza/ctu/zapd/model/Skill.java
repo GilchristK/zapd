@@ -5,6 +5,7 @@
  */
 package zm.unza.ctu.zapd.model;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,26 +18,14 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="SKILLS")
-public class Skill {
+public class Skill implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Integer id;
     private String name;
     private String comment;
 
-    /**
-     * @return the id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
+    
 
     /**
      * @return the name
@@ -68,9 +57,23 @@ public class Skill {
     
     public Skill(){
     }
-    public Skill(String id, String name, String comment){
+    public Skill(Integer id, String name, String comment){
         this.id = id;
         this.name = name;
         this.comment = comment;
+    }
+
+    /**
+     * @return the id
+     */
+    public Integer getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

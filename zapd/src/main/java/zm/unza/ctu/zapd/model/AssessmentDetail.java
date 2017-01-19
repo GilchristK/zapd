@@ -5,11 +5,13 @@
  */
 package zm.unza.ctu.zapd.model;
 
+
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -24,11 +26,15 @@ public class AssessmentDetail {
     private Integer id;
     private String dmisNumber;
     private Date dateOfAssessment;
+    private Date registrationDate;
     private Date dateOfDisability;
-    private Integer degreeId;
+    @ManyToOne
+    private Degree degree;
+    @ManyToOne
     private Disability disability;
     private String causeOfDisability;
     private String status;
+    @ManyToOne
     private Assessor assessor;
 
     /**
@@ -90,21 +96,24 @@ public class AssessmentDetail {
     /**
      * @return the degreeId
      */
-    public Integer getDegreeId() {
-        return degreeId;
+    public Degree getDegree() {
+        return degree;
     }
 
     /**
      * @param degreeId the degreeId to set
      */
-    public void setDegreeId(Integer degreeId) {
-        this.degreeId = degreeId;
+    public void setDegree(Degree degree) {
+        this.degree = degree;
     }
 
     /**
      * @return the disability
      */
     public Disability getDisability() {
+        if (disability == null){
+            disability = new Disability();
+        }
         return disability;
     }
 
@@ -141,6 +150,20 @@ public class AssessmentDetail {
      */
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    /**
+     * @return the registrationDate
+     */
+    public Date getRegistrationDate() {
+        return registrationDate;
+    }
+
+    /**
+     * @param registrationDate the registrationDate to set
+     */
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
     }
     
     

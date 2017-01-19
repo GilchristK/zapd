@@ -5,10 +5,15 @@
  */
 package zm.unza.ctu.zapd.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 /**
@@ -22,8 +27,11 @@ class Village {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
+    @ManyToOne
     private Ward ward;
-    private CWAC[] cwacs;
+    @OneToMany
+    @OrderColumn(name="id")
+    private List<CWAC> cwacs;
 
     /**
      * @return the id
@@ -70,14 +78,17 @@ class Village {
     /**
      * @return the cwacs
      */
-    public CWAC[] getCwacs() {
+    public List<CWAC> getCwacs() {
+        if(cwacs == null){
+                cwacs = new ArrayList<CWAC>();
+        }
         return cwacs;
     }
 
     /**
      * @param cwacs the cwacs to set
      */
-    public void setCwacs(CWAC[] cwacs) {
+    public void setCwacs(List<CWAC> cwacs) {
         this.cwacs = cwacs;
     }
     

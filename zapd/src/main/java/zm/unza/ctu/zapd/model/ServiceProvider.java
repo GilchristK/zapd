@@ -17,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="SERVICE_PROVIDERS")
-class ServiceProvider {
+public class ServiceProvider {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

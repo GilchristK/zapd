@@ -5,12 +5,16 @@
  */
 package zm.unza.ctu.zapd.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 /**
@@ -19,10 +23,12 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="PERSON_DISABILITIES")
-@NamedQueries(
-        @NamedQuery(name="PersonWithDisability.findByDmis",query="SELECT p FROM PersonWithDisability WHERE p.dmisNumber = :dmis")
-)
+@NamedQuery(name="PersonWithDisability.findByDmis",
+        query="select p from PersonWithDisability p where p.dmisNumber = :dmis")
+
 public class PersonWithDisability {
+
+    
     @Id
     private Integer id;
     @Column(unique=true)
@@ -37,13 +43,29 @@ public class PersonWithDisability {
     private String levelOfEducation;
     private Date dateOfRegistration;
     private String occupation;
+    @ManyToOne
     private Province province;
+    @ManyToOne
     private District district;
+    @ManyToOne
     private Constituency constituency;
+    @ManyToOne
     private Ward ward;
+    @ManyToOne
     private Village village;
-    private Skill[] skills;
-    public final static String  FIND_BY_DMIS = "PersonWithDisability.findByDmis";
+    @OneToMany
+    @OrderColumn(name="id")
+    private List<Skill> skills;
+    private String nextOfKinNrc;
+    private String nextOfKinSurname;
+    private String nextOfKinOthernames;
+    private String nextOfKinContactPhone;
+    
+    
+    
+    
+    
+    public static String  FIND_BY_DMIS = "PersonWithDisability.findByDmis";
     
     public PersonWithDisability(){
     }
@@ -276,14 +298,17 @@ public class PersonWithDisability {
     /**
      * @return the skills
      */
-    public Skill[] getSkills() {
+    public List<Skill> getSkills() {
+        if(skills == null){
+            skills =new ArrayList<Skill>();
+        }
         return skills;
     }
 
     /**
      * @param skills the skills to set
      */
-    public void setSkills(Skill[] skills) {
+    public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
 
@@ -299,6 +324,62 @@ public class PersonWithDisability {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * @return the nextOfKinNrc
+     */
+    public String getNextOfKinNrc() {
+        return nextOfKinNrc;
+    }
+
+    /**
+     * @param nextOfKinNrc the nextOfKinNrc to set
+     */
+    public void setNextOfKinNrc(String nextOfKinNrc) {
+        this.nextOfKinNrc = nextOfKinNrc;
+    }
+
+    /**
+     * @return the nextOfKinSurname
+     */
+    public String getNextOfKinSurname() {
+        return nextOfKinSurname;
+    }
+
+    /**
+     * @param nextOfKinSurname the nextOfKinSurname to set
+     */
+    public void setNextOfKinSurname(String nextOfKinSurname) {
+        this.nextOfKinSurname = nextOfKinSurname;
+    }
+
+    /**
+     * @return the nextOfKinOthernames
+     */
+    public String getNextOfKinOthernames() {
+        return nextOfKinOthernames;
+    }
+
+    /**
+     * @param nextOfKinOthernames the nextOfKinOthernames to set
+     */
+    public void setNextOfKinOthernames(String nextOfKinOthernames) {
+        this.nextOfKinOthernames = nextOfKinOthernames;
+    }
+
+    /**
+     * @return the nextOfKinContactPhone
+     */
+    public String getNextOfKinContactPhone() {
+        return nextOfKinContactPhone;
+    }
+
+    /**
+     * @param nextOfKinContactPhone the nextOfKinContactPhone to set
+     */
+    public void setNextOfKinContactPhone(String nextOfKinContactPhone) {
+        this.nextOfKinContactPhone = nextOfKinContactPhone;
     }
     
 }

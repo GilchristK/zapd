@@ -5,13 +5,21 @@
  */
 package zm.unza.ctu.zapd.beans;
 
+
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import zm.unza.ctu.zapd.facade.RegistrationFacade;
+import zm.unza.ctu.zapd.model.AssessmentDetail;
+import zm.unza.ctu.zapd.model.Assessor;
+import zm.unza.ctu.zapd.model.PersonWithDisability;
+import zm.unza.ctu.zapd.model.ServiceProvider;
 import zm.unza.ctu.zapd.model.Skill;
+import zm.unza.ctu.zapd.services.RegistrationService;
 
 /**
  *
@@ -20,231 +28,98 @@ import zm.unza.ctu.zapd.model.Skill;
 @ManagedBean
 @ViewScoped
 public class RegistrationForm implements Serializable {
-    private String dmisNumber;
-    private String nrcNumber;
-    private String surname;
-    private String otherNames;
-    private String sex;
-    private String maritalStatus;
-    private String dateOfBirth;
-    private String educationalLevel;
-    private String occupation;
-    private String contactPhone;
-    private String province;
-    private String district;
-    private String ward;
-    private String village;
+    private PersonWithDisability person;
+    private Assessor assessor;
+    private AssessmentDetail assessmentDetails;
+    private ServiceProvider serviceProvider;
     private List<Skill> skills;
-    private String constituency;
+    
+    private RegistrationService registrationService;
     
     @PostConstruct
     public  void init(){
-        skills = new ArrayList<>();//refactor this to get from service
-        skills.add(new Skill("1","plumbing","good plumber"));
-        skills.add(new Skill("2","carpenter","good carpenter"));
-        skills.add(new Skill("3","Brick layer","good brick layer"));
+        skills = new ArrayList<Skill>();//refactor this to get from service
+        skills.add(new Skill(1,"plumbing","good plumber"));
+        skills.add(new Skill(2,"carpenter","good carpenter"));
+        skills.add(new Skill(3,"Brick layer","good brick layer"));
+        
+        //replace with DI code
+        registrationService = new RegistrationFacade();
+    }
+    
+    
+
+   
+    /**
+     * @return the person
+     */
+    public PersonWithDisability getPerson() {
+        if ( person == null) {
+            person = new PersonWithDisability();
+        }
+        return person;
     }
 
     /**
-     * @return the dmisNumber
+     * @param person the person to set
      */
-    public String getDmisNumber() {
-        return dmisNumber;
+    public void setPerson(PersonWithDisability person) {
+        this.person = person;
     }
 
     /**
-     * @param dmisNumber the dmisNumber to set
+     * @return the assessor
      */
-    public void setDmisNumber(String dmisNumber) {
-        this.dmisNumber = dmisNumber;
+    public Assessor getAssessor() {
+        if (assessor == null) {
+            assessor = new Assessor();
+        }
+        return assessor;
     }
 
     /**
-     * @return the nrcNumber
+     * @param assessor the assessor to set
      */
-    public String getNrcNumber() {
-        return nrcNumber;
+    public void setAssessor(Assessor assessor) {
+        this.assessor = assessor;
     }
 
     /**
-     * @param nrcNumber the nrcNumber to set
+     * @return the assessmentDetails
      */
-    public void setNrcNumber(String nrcNumber) {
-        this.nrcNumber = nrcNumber;
+    public AssessmentDetail getAssessmentDetails() {
+        return assessmentDetails;
     }
 
     /**
-     * @return the surname
+     * @param assessmentDetails the assessmentDetails to set
      */
-    public String getSurname() {
-        return surname;
+    public void setAssessmentDetails(AssessmentDetail assessmentDetails) {
+        this.assessmentDetails = assessmentDetails;
     }
 
     /**
-     * @param surname the surname to set
+     * @return the serviceProvider
      */
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public ServiceProvider getServiceProvider() {
+        return serviceProvider;
     }
 
     /**
-     * @return the otherNames
+     * @param serviceProvider the serviceProvider to set
      */
-    public String getOtherNames() {
-        return otherNames;
+    public void setServiceProvider(ServiceProvider serviceProvider) {
+        this.serviceProvider = serviceProvider;
     }
-
-    /**
-     * @param otherNames the otherNames to set
-     */
-    public void setOtherNames(String otherNames) {
-        this.otherNames = otherNames;
+    
+    public void saveRegistration(){
+        registrationService.createNewRegistration(person);
     }
-
-    /**
-     * @return the sex
-     */
-    public String getSex() {
-        return sex;
+    public void cancelRegistration(){
+        person = new PersonWithDisability();
+        assessmentDetails = new AssessmentDetail();
+        assessor = new Assessor();
     }
-
-    /**
-     * @param sex the sex to set
-     */
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    /**
-     * @return the maritalStatus
-     */
-    public String getMaritalStatus() {
-        return maritalStatus;
-    }
-
-    /**
-     * @param maritalStatus the maritalStatus to set
-     */
-    public void setMaritalStatus(String maritalStatus) {
-        this.maritalStatus = maritalStatus;
-    }
-
-    /**
-     * @return the dateOfBirth
-     */
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    /**
-     * @param dateOfBirth the dateOfBirth to set
-     */
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    /**
-     * @return the educationalLevel
-     */
-    public String getEducationalLevel() {
-        return educationalLevel;
-    }
-
-    /**
-     * @param educationalLevel the educationalLevel to set
-     */
-    public void setEducationalLevel(String educationalLevel) {
-        this.educationalLevel = educationalLevel;
-    }
-
-    /**
-     * @return the occupation
-     */
-    public String getOccupation() {
-        return occupation;
-    }
-
-    /**
-     * @param occupation the occupation to set
-     */
-    public void setOccupation(String occupation) {
-        this.occupation = occupation;
-    }
-
-    /**
-     * @return the contactPhone
-     */
-    public String getContactPhone() {
-        return contactPhone;
-    }
-
-    /**
-     * @param contactPhone the contactPhone to set
-     */
-    public void setContactPhone(String contactPhone) {
-        this.contactPhone = contactPhone;
-    }
-
-    /**
-     * @return the province
-     */
-    public String getProvince() {
-        return province;
-    }
-
-    /**
-     * @param province the province to set
-     */
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    /**
-     * @return the district
-     */
-    public String getDistrict() {
-        return district;
-    }
-
-    /**
-     * @param district the district to set
-     */
-    public void setDistrict(String district) {
-        this.district = district;
-    }
-
-    /**
-     * @return the ward
-     */
-    public String getWard() {
-        return ward;
-    }
-
-    /**
-     * @param ward the ward to set
-     */
-    public void setWard(String ward) {
-        this.ward = ward;
-    }
-
-    /**
-     * @return the village
-     */
-    public String getVillage() {
-        return village;
-    }
-
-    /**
-     * @param village the village to set
-     */
-    public void setVillage(String village) {
-        this.village = village;
-    }
-    public List<Skill> getSkills(){
-        return this.skills;
-    }
-    public String getConstituency(){
-        return this.constituency;
-    }
+    
     
 }

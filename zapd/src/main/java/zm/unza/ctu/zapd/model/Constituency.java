@@ -5,10 +5,15 @@
  */
 package zm.unza.ctu.zapd.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 /**
@@ -22,7 +27,10 @@ class Constituency {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    private Ward[] wards;
+    @OneToMany
+    @OrderColumn(name="id")
+    private List<Ward> wards;
+    @ManyToOne
     private District district;
 
     /**
@@ -56,14 +64,17 @@ class Constituency {
     /**
      * @return the wards
      */
-    public Ward[] getWards() {
+    public List<Ward> getWards() {
+        if( wards == null){
+            wards = new ArrayList<Ward>();
+        }
         return wards;
     }
 
     /**
      * @param wards the wards to set
      */
-    public void setWards(Ward[] wards) {
+    public void setWards(List<Ward> wards) {
         this.wards = wards;
     }
 

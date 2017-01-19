@@ -19,41 +19,41 @@
                             <p:panelGrid columns="4" class="ui-registration-panel-grid">
 
                                 <h:outputText value="DMIS No.:" />
-                                <h:inputText value="#{registrationForm.dmisNumber}" />
+                                <h:inputText value="#{registrationForm.person.dmisNumber}" />
 
                                 <h:outputText value="NRC No.:" />
-                                <h:inputText value="#{registrationForm.nrcNumber}" />
+                                <h:inputText value="#{registrationForm.person.nrcNumber}" />
 
                                 <h:outputText value="Surname:" />
-                                <h:inputText value="#{registrationForm.surname}" />
+                                <h:inputText value="#{registrationForm.person.surname}" />
 
 
                                 <h:outputText value="Other Names:" />
-                                <h:inputText value="#{registrationForm.otherNames}" />
+                                <h:inputText value="#{registrationForm.person.otherNames}" />
 
                                 <h:outputText value="Sex:" />
-                                <h:inputText value="#{registrationForm.sex}" />
+                                <h:inputText value="#{registrationForm.person.sex}" />
 
                                 <h:outputText value="Marital status:" />
-                                <h:inputText value="#{registrationForm.maritalStatus}" />
+                                <h:inputText value="#{registrationForm.person.maritalStatus}" />
 
                                 <h:outputText value="Date of Birth:" />
-                                <h:inputText value="#{registrationForm.dateOfBirth}" />
+                                <h:inputText value="#{registrationForm.person.dateOfBirth}" />
 
                                 <h:outputText value="Education Level:" />
-                                <h:inputText value="#{registrationForm.educationalLevel}" />
+                                <h:inputText value="#{registrationForm.person.levelOfEducation}" />
 
                                 <h:outputText value="Occupation:" />
-                                <h:inputText value="#{registrationForm.occupation}" />
+                                <h:inputText value="#{registrationForm.person.occupation}" />
 
                                 <h:outputText value="Contact phone:" />
-                                <h:inputText value="#{registrationForm.contactPhone}" />
+                                <h:inputText value="#{registrationForm.person.contactNumber}" />
 
 
                             </p:panelGrid>
                         </p:panel>
                         <p:panelGrid columns="2" class="ui-skills-geo-panel-grid">
-                            <p:dataTable var="skill" value="#{registrationForm.skills}" class="ui-data-table">
+                            <p:dataTable var="skill" value="#{registrationForm.person.skills}" class="ui-data-table">
                                 <f:facet name="header">
                                     Skills Acquisition
                                 </f:facet>
@@ -74,16 +74,16 @@
                             <p:panel header="Geographical location" class="ui-geo-panel-grid">
                                 <p:panelGrid columns="2" >
                                     <h:outputText value="Province:" />
-                                    <h:inputText value="#{registrationForm.province}" />
+                                    <h:inputText value="#{registrationForm.person.province.name}" />
 
                                     <h:outputText value="District:" />
-                                    <h:inputText value="#{registrationForm.district}" />
+                                    <h:inputText value="#{registrationForm.person.district.name}" />
                                     <h:outputText value="Constitutency:" />
-                                    <h:inputText value="#{registrationForm.constituency}" />
+                                    <h:inputText value="#{registrationForm.person.constituency.name}" />
                                     <h:outputText value="Ward:" />
-                                    <h:inputText value="#{registrationForm.ward}" />
+                                    <h:inputText value="#{registrationForm.person.ward.name}" />
                                     <h:outputText value="Village:" />
-                                    <h:inputText value="#{registrationForm.village}" />
+                                    <h:inputText value="#{registrationForm.person.village.name}" />
 
 
                                 </p:panelGrid>
@@ -92,18 +92,18 @@
                         <p:panel header="Next of Kin" class="ui-skills-geo-panel-grid">
                             <p:panelGrid columns="4" class="ui-registration-panel-grid">
                                 <h:outputText value="NRC No.:" />
-                                <h:inputText value="#{registrationForm.nrcNumber}" />
+                                <h:inputText value="#{registrationForm.person.nextOfKinNrc}" />
 
                                 <h:outputText value="Surname:" />
-                                <h:inputText value="#{registrationForm.surname}" />
+                                <h:inputText value="#{registrationForm.person.nextOfKinSurname}" />
 
 
                                 <h:outputText value="Other Names:" />
-                                <h:inputText value="#{registrationForm.otherNames}" />
+                                <h:inputText value="#{registrationForm.person.nextOfKinOthernames}" />
 
                                 
                                 <h:outputText value="Contact phone:" />
-                                <h:inputText value="#{registrationForm.contactPhone}" />
+                                <h:inputText value="#{registrationForm.person.nextOfKinContactPhone}" />
 
 
                             </p:panelGrid>
@@ -111,23 +111,25 @@
                         <p:panel header="Assessment details" class="ui-skills-geo-panel-grid">
                             <p:panelGrid columns="4" class="ui-registration-panel-grid">
                                 <h:outputText value="Date of disability:" />
-                                <h:inputText value="#{registrationForm.nrcNumber}" />
+                                <h:inputText value="#{registrationForm.assessmentDetails.dateOfDisability}" />
 
                                 <h:outputText value="Cause of disability:" />
-                                <h:inputText value="#{registrationForm.surname}" />
+                                <h:inputText value="#{registrationForm.assessmentDetails.causeOfDisability}" />
 
 
                                 <h:outputText value="Degree of disability:" />
-                                <h:inputText value="#{registrationForm.otherNames}" />
+                                <h:inputText value="#{registrationForm.assessmentDetails.degree.name}" />
 
                                 
                                 <h:outputText value="Status:" />
-                                <h:inputText value="#{registrationForm.contactPhone}" />
+                                <h:inputText value="#{registrationForm.assessmentDetails.status}" />
                                 
                                 <h:outputText value="Registration Date:" />
-                                <h:inputText value="#{registrationForm.contactPhone}" />
+                                <h:inputText value="#{registrationForm.assessmentDetails.registrationDate}" />
                                 <h:outputText value="Assessment Date:" />
-                                <h:inputText value="#{registrationForm.contactPhone}" />
+                                <h:inputText value="#{registrationForm.assessmentDetails.dateOfAssessment}" />
+                                <h:outputText value="Date of disbility:" />
+                                <h:inputText value="#{registrationForm.assessmentDetails.dateOfDisability}" />
 
 
 
@@ -135,7 +137,7 @@
                             </p:panelGrid>
                         </p:panel>
                         <p:panelGrid columns="2" class="ui-skills-geo-panel-grid">
-                            <p:dataTable var="skill" value="#{registrationForm.skills}" class="ui-data-table">
+                            <p:dataTable var="skill" value="#{registrationForm.person.skills}" class="ui-data-table">
                                 <f:facet name="header">
                                     Recommended services
                                 </f:facet>
@@ -155,23 +157,30 @@
                             </p:dataTable>
                             <p:panel header="Assessor's Details" class="ui-geo-panel-grid">
                                 <p:panelGrid columns="2" >
-                                    <h:outputText value="Province:" />
-                                    <h:inputText value="#{registrationForm.province}" />
+                                    <h:outputText value="Names:" />
+                                    <h:inputText value="#{registrationForm.assessor.name}" />
 
+                                    <h:outputText value="Sex:" />
+                                    <h:inputText value="#{registrationForm.assessor.sex}" />
+                                    <h:outputText value="Designation:" />
+                                    <h:inputText value="#{registrationForm.assessor.destination}" />
+                                    <h:outputText value="NRC No.:" />
+                                    <h:inputText value="#{registrationForm.assessor.nrc}" />
+                                    <h:outputText value="HPC:" />
+                                    <h:inputText value="#{registrationForm.assessor.hpc}" />
                                     <h:outputText value="District:" />
-                                    <h:inputText value="#{registrationForm.district}" />
-                                    <h:outputText value="Constitutency:" />
-                                    <h:inputText value="#{registrationForm.constituency}" />
-                                    <h:outputText value="Ward:" />
-                                    <h:inputText value="#{registrationForm.ward}" />
-                                    <h:outputText value="Village:" />
-                                    <h:inputText value="#{registrationForm.village}" />
+                                    <h:inputText value="#{registrationForm.assessor.district.name}" />
+                                    <h:outputText value="Station:" />
+                                    <h:inputText value="#{registrationForm.assessor.station.name}" />
 
 
                                 </p:panelGrid>
                             </p:panel>
                         </p:panelGrid>
-
+                        <p:panelGrid columns="2" class="ui-command-actions">
+                            <h:commandButton value="Save Client" action="#{registrationForm.saveRegistration()}"/>
+                            <h:commandButton value="Cancel Client" action="#{registrationForm.cancelRegistration()}"/>
+                            </p:panelGrid>
 
                     </p:panel>
                 </h:form>

@@ -5,10 +5,14 @@
  */
 package zm.unza.ctu.zapd.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 /**
@@ -22,7 +26,9 @@ class Province {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    private District[] districts;
+    @OneToMany
+     @OrderColumn(name="id")
+    private List<District> districts;
 
     /**
      * @return the id
@@ -55,14 +61,17 @@ class Province {
     /**
      * @return the districts
      */
-    public District[] getDistricts() {
+    public List<District> getDistricts() {
+        if(districts == null){
+            districts = new ArrayList<District>();
+        }
         return districts;
     }
 
     /**
      * @param districts the districts to set
      */
-    public void setDistricts(District[] districts) {
+    public void setDistricts(List<District> districts) {
         this.districts = districts;
     }
     

@@ -22,7 +22,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="USERS")
-@NamedQuery(name="User.findUserByEmail",query="SELECT u FROM User u WHERE u.email:email")
+@NamedQuery(name="User.findUserByEmail",query="SELECT u FROM User u WHERE u.email=:email")
 public class User implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
