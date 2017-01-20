@@ -17,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="CLIENT_REFERRALS")
-class ClientReferral {
+public class ClientReferral {
     @Id
     private String referenceNumber;
     private String dmisNumber;

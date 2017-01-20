@@ -22,7 +22,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "VILLAGES")
-class Village {
+public class Village {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

@@ -69,6 +69,9 @@ public class AssessmentDetail {
      * @return the dateOfAssessment
      */
     public Date getDateOfAssessment() {
+        if( dateOfAssessment == null){
+            dateOfAssessment = new Date();
+        }
         return dateOfAssessment;
     }
 
@@ -83,6 +86,9 @@ public class AssessmentDetail {
      * @return the dateOfDisability
      */
     public Date getDateOfDisability() {
+        if( dateOfDisability == null){
+            dateOfDisability = new Date();
+        }
         return dateOfDisability;
     }
 
@@ -156,6 +162,9 @@ public class AssessmentDetail {
      * @return the registrationDate
      */
     public Date getRegistrationDate() {
+        if( registrationDate == null){
+            registrationDate = new Date();
+        }
         return registrationDate;
     }
 

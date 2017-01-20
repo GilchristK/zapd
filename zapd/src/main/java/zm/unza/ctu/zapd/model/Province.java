@@ -21,7 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="PROVINCES")
-class Province {
+public class Province {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

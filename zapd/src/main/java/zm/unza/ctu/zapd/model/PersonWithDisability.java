@@ -229,6 +229,9 @@ public class PersonWithDisability {
      * @return the province
      */
     public Province getProvince() {
+        if( province == null ){
+            province = new Province();
+        }
         return province;
     }
 
@@ -243,6 +246,9 @@ public class PersonWithDisability {
      * @return the district
      */
     public District getDistrict() {
+        if( district == null){
+            district = new District();
+        }
         return district;
     }
 
@@ -257,6 +263,9 @@ public class PersonWithDisability {
      * @return the constituency
      */
     public Constituency getConstituency() {
+        if( constituency == null){
+            constituency = new Constituency();
+        }
         return constituency;
     }
 
@@ -271,6 +280,9 @@ public class PersonWithDisability {
      * @return the ward
      */
     public Ward getWard() {
+        if( ward == null){
+            ward = new Ward();
+        }
         return ward;
     }
 
@@ -285,6 +297,9 @@ public class PersonWithDisability {
      * @return the village
      */
     public Village getVillage() {
+        if(village == null){
+            village = new Village();
+        }
         return village;
     }
 

@@ -17,7 +17,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="DISABILITIES")
-class Disability {
+public class Disability {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

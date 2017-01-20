@@ -111,7 +111,7 @@
                         <p:panel header="Assessment details" class="ui-skills-geo-panel-grid">
                             <p:panelGrid columns="4" class="ui-registration-panel-grid">
                                 <h:outputText value="Date of disability:" />
-                                <h:inputText value="#{registrationForm.assessmentDetails.dateOfDisability}" />
+                                <h:inputText value="#{registrationForm.assessmentDetails.dateOfDisability.toGMTString}" />
 
                                 <h:outputText value="Cause of disability:" />
                                 <h:inputText value="#{registrationForm.assessmentDetails.causeOfDisability}" />
@@ -125,11 +125,10 @@
                                 <h:inputText value="#{registrationForm.assessmentDetails.status}" />
                                 
                                 <h:outputText value="Registration Date:" />
-                                <h:inputText value="#{registrationForm.assessmentDetails.registrationDate}" />
+                                <h:inputText value="#{registrationForm.assessmentDetails.registrationDate.toGMTString}" />
                                 <h:outputText value="Assessment Date:" />
-                                <h:inputText value="#{registrationForm.assessmentDetails.dateOfAssessment}" />
-                                <h:outputText value="Date of disbility:" />
-                                <h:inputText value="#{registrationForm.assessmentDetails.dateOfDisability}" />
+                                <h:inputText value="#{registrationForm.assessmentDetails.dateOfAssessment.toGMTString}" />
+                                
 
 
 
