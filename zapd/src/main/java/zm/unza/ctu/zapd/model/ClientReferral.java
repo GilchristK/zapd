@@ -59,6 +59,9 @@ public class ClientReferral {
      * @return the serviceProvider
      */
     public ServiceProvider getServiceProvider() {
+        if(serviceProvider == null){
+            serviceProvider = new ServiceProvider();
+        }
         return serviceProvider;
     }
 
@@ -73,6 +76,9 @@ public class ClientReferral {
      * @return the startOfService
      */
     public Date getStartOfService() {
+        if( startOfService == null){
+            startOfService = new Date();
+        }
         return startOfService;
     }
 
@@ -87,6 +93,9 @@ public class ClientReferral {
      * @return the endOfService
      */
     public Date getEndOfService() {
+        if( endOfService == null){
+            endOfService = new Date();
+        }
         return endOfService;
     }
 

@@ -65,6 +65,9 @@ public class Village {
      * @return the ward
      */
     public Ward getWard() {
+        if( ward == null){
+            ward = new Ward();
+        }
         return ward;
     }
 

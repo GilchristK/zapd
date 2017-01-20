@@ -103,6 +103,9 @@ public class AssessmentDetail {
      * @return the degreeId
      */
     public Degree getDegree() {
+        if( degree == null){
+            degree = new Degree();
+        }
         return degree;
     }
 

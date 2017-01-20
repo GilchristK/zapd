@@ -67,6 +67,9 @@ public class District {
      * @return the province
      */
     public Province getProvince() {
+        if( province == null){
+            province = new Province();
+        }
         return province;
     }
 

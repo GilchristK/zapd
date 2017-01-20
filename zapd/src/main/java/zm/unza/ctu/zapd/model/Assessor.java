@@ -122,6 +122,9 @@ public class Assessor {
      * @return the district
      */
     public District getDistrict() {
+        if( district == null){
+            district = new District();
+        }
         return district;
     }
 
@@ -156,6 +159,9 @@ public class Assessor {
      * @return the referal
      */
     public ClientReferral getReferal() {
+        if( referal == null){
+            referal = new ClientReferral();
+        }
         return referal;
     }
 

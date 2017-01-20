@@ -82,6 +82,9 @@ public class Ward {
      * @return the constituency
      */
     public Constituency getConstituency() {
+        if( constituency == null){
+            constituency = new Constituency();
+        }
         return constituency;
     }
 

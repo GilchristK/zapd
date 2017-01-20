@@ -59,6 +59,9 @@ public class CWAC implements Serializable {
      * @return the village
      */
     public Village getVillage() {
+        if(village == null){
+            village = new Village();
+        }
         return village;
     }
 

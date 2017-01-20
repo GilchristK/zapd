@@ -82,6 +82,9 @@ public class Constituency {
      * @return the district
      */
     public District getDistrict() {
+        if( district == null){
+            district = new District();
+        }
         return district;
     }
 
