@@ -88,6 +88,9 @@ public class RegistrationForm implements Serializable {
      * @return the assessmentDetails
      */
     public AssessmentDetail getAssessmentDetails() {
+        if(assessmentDetails == null){
+            assessmentDetails = new AssessmentDetail();
+        }
         return assessmentDetails;
     }
 
@@ -102,6 +105,9 @@ public class RegistrationForm implements Serializable {
      * @return the serviceProvider
      */
     public ServiceProvider getServiceProvider() {
+        if( serviceProvider == null){
+            serviceProvider = new ServiceProvider();
+        }
         return serviceProvider;
     }
 
