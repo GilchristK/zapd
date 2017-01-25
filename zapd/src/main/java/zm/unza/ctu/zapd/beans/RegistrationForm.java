@@ -126,6 +126,11 @@ public class RegistrationForm implements Serializable {
         assessmentDetails = new AssessmentDetail();
         assessor = new Assessor();
     }
+    public void searchRegistration(){
+        //check if dmis is
+        if( person.getDmisNumber() != null){
+        }
+    }
     
     
 }

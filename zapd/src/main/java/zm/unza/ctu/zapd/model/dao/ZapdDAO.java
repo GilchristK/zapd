@@ -8,6 +8,8 @@ package zm.unza.ctu.zapd.model.dao;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
@@ -21,6 +23,7 @@ import javax.persistence.criteria.CriteriaQuery;
  */
 public abstract class ZapdDAO<T> implements Serializable{
     private final static EntityManagerFactory emf =  Persistence.createEntityManagerFactory("zapdPU");
+    private Logger log = Logger.getLogger(ZapdDAO.class.getName());
     private EntityManager em;
     private Class<T> entityClass;
     
@@ -52,6 +55,9 @@ public abstract class ZapdDAO<T> implements Serializable{
         this.entityClass = entityClass;
     }
     public void save(T entity){
+        //log.log(Level.SEVERE,"Entity running...");
+        log.info("The logger is excuting !!");
+        System.out.println("Running save method");
         em.persist(entity);
     }
     public void delete(T entity){

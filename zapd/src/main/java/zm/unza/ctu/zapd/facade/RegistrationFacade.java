@@ -19,9 +19,9 @@ public class RegistrationFacade implements Serializable,RegistrationService {
     
     @Override
     public void createNewRegistration(PersonWithDisability pwd){
-        regDAO.beginTransaction();
+        //regDAO.beginTransaction();
         regDAO.save(pwd);
-        regDAO.commitAndCloseTransaction();
+        //regDAO.commitAndCloseTransaction();
     }
 
     @Override
