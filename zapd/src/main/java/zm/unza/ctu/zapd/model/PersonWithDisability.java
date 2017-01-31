@@ -5,16 +5,16 @@
  */
 package zm.unza.ctu.zapd.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 
 /**
@@ -26,10 +26,11 @@ import javax.persistence.Table;
 @NamedQuery(name="PersonWithDisability.findByDmis",
         query="select p from PersonWithDisability p where p.dmisNumber = :dmis")
 
-public class PersonWithDisability {
+public class PersonWithDisability implements Serializable{
 
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(unique=true)
     private String dmisNumber;
@@ -43,18 +44,18 @@ public class PersonWithDisability {
     private String levelOfEducation;
     private Date dateOfRegistration;
     private String occupation;
-    @ManyToOne
-    private Province province;
-    @ManyToOne
-    private District district;
-    @ManyToOne
-    private Constituency constituency;
-    @ManyToOne
-    private Ward ward;
-    @ManyToOne
-    private Village village;
-    @OneToMany
-    @OrderColumn(name="id")
+    //@ManyToOne
+    //private Province province;
+    //@ManyToOne
+    //private District district;
+    //@ManyToOne
+    //private Constituency constituency;
+    //@ManyToOne
+    //private Ward ward;
+    //@ManyToOne
+    //private Village village;
+    //@OneToMany//(mappedBy = "person", cascade = CascadeType.PERSIST)
+    //@OrderColumn(name="id")
     private List<Skill> skills;
     private String nextOfKinNrc;
     private String nextOfKinSurname;
@@ -228,87 +229,87 @@ public class PersonWithDisability {
     /**
      * @return the province
      */
-    public Province getProvince() {
+    /*public Province getProvince() {
         if( province == null ){
             province = new Province();
         }
         return province;
-    }
+    }*/
 
     /**
      * @param province the province to set
      */
-    public void setProvince(Province province) {
+    /*public void setProvince(Province province) {
         this.province = province;
-    }
+    }*/
 
     /**
      * @return the district
      */
-    public District getDistrict() {
+    /*public District getDistrict() {
         if( district == null){
             district = new District();
         }
         return district;
-    }
+    }*/
 
     /**
      * @param district the district to set
      */
-    public void setDistrict(District district) {
+    /*public void setDistrict(District district) {
         this.district = district;
-    }
+    }*/
 
     /**
      * @return the constituency
      */
-    public Constituency getConstituency() {
+    /*public Constituency getConstituency() {
         if( constituency == null){
             constituency = new Constituency();
         }
         return constituency;
-    }
+    }*/
 
     /**
      * @param constituency the constituency to set
      */
-    public void setConstituency(Constituency constituency) {
+    /*public void setConstituency(Constituency constituency) {
         this.constituency = constituency;
-    }
+    }*/
 
     /**
      * @return the ward
      */
-    public Ward getWard() {
+    /*public Ward getWard() {
         if( ward == null){
             ward = new Ward();
         }
         return ward;
-    }
+    }*/
 
     /**
      * @param ward the ward to set
      */
-    public void setWard(Ward ward) {
+    /*public void setWard(Ward ward) {
         this.ward = ward;
-    }
+    }*/
 
     /**
      * @return the village
      */
-    public Village getVillage() {
+    /*public Village getVillage() {
         if(village == null){
             village = new Village();
         }
         return village;
-    }
+    }*/
 
     /**
      * @param village the village to set
      */
-    public void setVillage(Village village) {
+    /*public void setVillage(Village village) {
         this.village = village;
-    }
+    }*/
 
     /**
      * @return the skills
@@ -323,9 +324,9 @@ public class PersonWithDisability {
     /**
      * @param skills the skills to set
      */
-    public void setSkills(List<Skill> skills) {
+    /*public void setSkills(List<Skill> skills) {
         this.skills = skills;
-    }
+    }*/
 
     /**
      * @return the id

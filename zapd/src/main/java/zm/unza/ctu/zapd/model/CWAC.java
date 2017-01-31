@@ -24,8 +24,8 @@ public class CWAC implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    @ManyToOne
-    private Village village;
+    //@ManyToOne
+    //private Village village;
 
     /**
      * @return the id
@@ -58,19 +58,19 @@ public class CWAC implements Serializable {
     /**
      * @return the village
      */
-    public Village getVillage() {
+    /*public Village getVillage() {
         if(village == null){
             village = new Village();
         }
         return village;
-    }
+    }*/
 
     /**
      * @param village the village to set
      */
-    public void setVillage(Village village) {
+    /*public void setVillage(Village village) {
         this.village = village;
-    }
+    }*/
     
     
 }

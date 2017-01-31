@@ -28,14 +28,14 @@ public class AssessmentDetail {
     private Date dateOfAssessment;
     private Date registrationDate;
     private Date dateOfDisability;
-    @ManyToOne
-    private Degree degree;
-    @ManyToOne
-    private Disability disability;
+   // @ManyToOne
+    //private Degree degree;
+    //@ManyToOne
+    //private Disability disability;
     private String causeOfDisability;
     private String status;
-    @ManyToOne
-    private Assessor assessor;
+   // @ManyToOne
+    //private Assessor assessor;
 
     /**
      * @return the id
@@ -102,36 +102,36 @@ public class AssessmentDetail {
     /**
      * @return the degreeId
      */
-    public Degree getDegree() {
+    /*public Degree getDegree() {
         if( degree == null){
             degree = new Degree();
         }
         return degree;
-    }
+    }*/
 
     /**
      * @param degreeId the degreeId to set
      */
-    public void setDegree(Degree degree) {
+   /* public void setDegree(Degree degree) {
         this.degree = degree;
-    }
+    }*/
 
     /**
      * @return the disability
      */
-    public Disability getDisability() {
+    /*public Disability getDisability() {
         if (disability == null){
             disability = new Disability();
         }
         return disability;
-    }
+    }*/
 
     /**
      * @param disability the disability to set
      */
-    public void setDisability(Disability disability) {
+    /*public void setDisability(Disability disability) {
         this.disability = disability;
-    }
+    }*/
 
     /**
      * @return the causeOfDisability

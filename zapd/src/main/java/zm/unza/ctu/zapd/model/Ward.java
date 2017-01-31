@@ -7,6 +7,7 @@ package zm.unza.ctu.zapd.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,11 +28,11 @@ public class Ward {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    @OneToMany
-     @OrderColumn(name="id")
-    private List<Village> villages;
-    @OneToOne
-    private Constituency constituency;
+    //@OneToMany(mappedBy = "ward", cascade = CascadeType.PERSIST)
+    //@OrderColumn(name="id")
+    //private List<Village> villages;
+    //@OneToOne(cascade = CascadeType.PERSIST)
+    //private Constituency constituency;
 
     /**
      * @return the id
@@ -64,36 +65,36 @@ public class Ward {
     /**
      * @return the villages
      */
-    public List<Village> getVillages() {
+    /*public List<Village> getVillages() {
         if(villages == null){
             villages = new ArrayList<>();
         }
         return villages;
-    }
+    }*/
 
     /**
      * @param villages the villages to set
      */
-    public void setVillages(List<Village> villages) {
+    /*public void setVillages(List<Village> villages) {
         this.villages = villages;
-    }
+    }*/
 
     /**
      * @return the constituency
      */
-    public Constituency getConstituency() {
+    /*public Constituency getConstituency() {
         if( constituency == null){
             constituency = new Constituency();
         }
         return constituency;
-    }
+    }*/
 
     /**
      * @param constituency the constituency to set
      */
-    public void setConstituency(Constituency constituency) {
+    /*public void setConstituency(Constituency constituency) {
         this.constituency = constituency;
-    }
+    }*/
     
     
 }

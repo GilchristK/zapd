@@ -56,9 +56,9 @@ public abstract class ZapdDAO<T> implements Serializable{
     }
     public void save(T entity){
         //log.log(Level.SEVERE,"Entity running...");
-        log.info("The logger is excuting !!");
-        System.out.println("Running save method");
-        em.persist(entity);
+        log.info("Running the save method ...");
+        //System.out.println("Running save method");
+        //em.persist(entity);
     }
     public void delete(T entity){
         T entityToBeRemoved = em.merge(entity);

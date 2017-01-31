@@ -7,6 +7,7 @@ package zm.unza.ctu.zapd.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,11 +28,11 @@ public class Village {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    @ManyToOne
-    private Ward ward;
-    @OneToMany
-    @OrderColumn(name="id")
-    private List<CWAC> cwacs;
+   // @ManyToOne
+    //private Ward ward;
+    //@OneToMany(mappedBy = "village", cascade = CascadeType.PERSIST)
+    ////@OrderColumn(name="id")
+    //private List<CWAC> cwacs;
 
     /**
      * @return the id
@@ -64,36 +65,36 @@ public class Village {
     /**
      * @return the ward
      */
-    public Ward getWard() {
+    /*public Ward getWard() {
         if( ward == null){
             ward = new Ward();
         }
         return ward;
-    }
+    }*/
 
     /**
      * @param ward the ward to set
      */
-    public void setWard(Ward ward) {
+    /*public void setWard(Ward ward) {
         this.ward = ward;
-    }
+    }*/
 
     /**
      * @return the cwacs
      */
-    public List<CWAC> getCwacs() {
+    /*public List<CWAC> getCwacs() {
         if(cwacs == null){
                 cwacs = new ArrayList<CWAC>();
         }
         return cwacs;
-    }
+    }*/
 
     /**
      * @param cwacs the cwacs to set
      */
-    public void setCwacs(List<CWAC> cwacs) {
+    /*public void setCwacs(List<CWAC> cwacs) {
         this.cwacs = cwacs;
-    }
+    }*/
     
     
 }

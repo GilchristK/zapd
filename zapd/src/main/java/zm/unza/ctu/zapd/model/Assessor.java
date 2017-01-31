@@ -27,12 +27,12 @@ public class Assessor {
     private String destination;
     private String nrc;
     private String hpc;
-    @ManyToOne
-    private District district;
-    @ManyToOne
-    private Station station;
-    @ManyToOne
-    private ClientReferral referal;
+    //@ManyToOne
+   // private District district;
+    //@ManyToOne
+    //private Station station;
+    //@ManyToOne
+   // private ClientReferral referal;
 
     /**
      * @return the id
@@ -121,56 +121,56 @@ public class Assessor {
     /**
      * @return the district
      */
-    public District getDistrict() {
+    /*public District getDistrict() {
         if( district == null){
             district = new District();
         }
         return district;
-    }
+    }*/
 
     /**
      * @param district the district to set
      */
-    public void setDistrict(District district) {
+    /*public void setDistrict(District district) {
         if (district == null) {
             district = new District();
         }
         this.district = district;
-    }
+    }*/
 
     /**
      * @return the station
      */
-    public Station getStation() {
+   /* public Station getStation() {
          if (station == null) {
             station = new Station();
         }
         return station;
-    }
+    }*/
 
     /**
      * @param station the station to set
      */
-    public void setStation(Station station) {
+    /*public void setStation(Station station) {
         this.station = station;
-    }
+    }*/
 
     /**
      * @return the referal
      */
-    public ClientReferral getReferal() {
+    /*public ClientReferral getReferal() {
         if( referal == null){
             referal = new ClientReferral();
         }
         return referal;
-    }
+    }*/
 
     /**
      * @param referal the referal to set
      */
-    public void setReferal(ClientReferral referal) {
+    /*public void setReferal(ClientReferral referal) {
         this.referal = referal;
-    }
+    }*/
     
     
 }

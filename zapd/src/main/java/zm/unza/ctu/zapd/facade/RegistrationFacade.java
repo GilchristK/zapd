@@ -6,6 +6,7 @@
 package zm.unza.ctu.zapd.facade;
 
 import java.io.Serializable;
+import org.jboss.logging.Logger;
 import zm.unza.ctu.zapd.model.PersonWithDisability;
 import zm.unza.ctu.zapd.model.dao.RegistrationDAO;
 import zm.unza.ctu.zapd.services.RegistrationService;
@@ -16,9 +17,10 @@ import zm.unza.ctu.zapd.services.RegistrationService;
  */
 public class RegistrationFacade implements Serializable,RegistrationService {
     private final RegistrationDAO regDAO = new RegistrationDAO();
-    
+    private Logger log = Logger.getLogger(this.getClass().getName());
     @Override
     public void createNewRegistration(PersonWithDisability pwd){
+        log.info("Saving the entity:"+ pwd.toString());
         //regDAO.beginTransaction();
         regDAO.save(pwd);
         //regDAO.commitAndCloseTransaction();
@@ -30,16 +32,16 @@ public class RegistrationFacade implements Serializable,RegistrationService {
        regDAO.beginTransaction();
        PersonWithDisability updatedPwd = regDAO.find(pwd.getId());
        updatedPwd.setLevelOfEducation(pwd.getLevelOfEducation());
-       updatedPwd.setConstituency(pwd.getConstituency());
+       //updatedPwd.setConstituency(pwd.getConstituency());
        updatedPwd.setContactNumber(pwd.getContactNumber());
        updatedPwd.setDateOfRegistration(pwd.getDateOfRegistration());
-       updatedPwd.setDistrict(pwd.getDistrict());
+       //updatedPwd.setDistrict(pwd.getDistrict());
        updatedPwd.setDmisNumber(pwd.getDmisNumber());
        updatedPwd.setMaritalStatus(pwd.getMaritalStatus());
        updatedPwd.setNrcNumber(pwd.getNrcNumber());
        updatedPwd.setOccupation(pwd.getOccupation());
        updatedPwd.setOtherNames(pwd.getOtherNames());
-       updatedPwd.setProvince(pwd.getProvince());
+       //updatedPwd.setProvince(pwd.getProvince());
        //set other fields
        regDAO.update(pwd);
        regDAO.commitAndCloseTransaction();

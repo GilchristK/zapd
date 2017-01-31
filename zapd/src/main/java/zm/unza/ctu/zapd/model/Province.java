@@ -7,6 +7,7 @@ package zm.unza.ctu.zapd.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,9 +27,9 @@ public class Province {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    @OneToMany
-     @OrderColumn(name="id")
-    private List<District> districts;
+   // @OneToMany(mappedBy = "province", cascade = CascadeType.PERSIST)
+    // @OrderColumn(name="id")
+   // private List<District> districts;
 
     /**
      * @return the id
@@ -61,18 +62,18 @@ public class Province {
     /**
      * @return the districts
      */
-    public List<District> getDistricts() {
+   /* public List<District> getDistricts() {
         if(districts == null){
             districts = new ArrayList<District>();
         }
         return districts;
-    }
+    }*/
 
     /**
      * @param districts the districts to set
      */
-    public void setDistricts(List<District> districts) {
+   /* public void setDistricts(List<District> districts) {
         this.districts = districts;
-    }
+    }*/
     
 }

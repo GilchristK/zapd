@@ -21,8 +21,8 @@ public class ClientReferral {
     @Id
     private String referenceNumber;
     private String dmisNumber;
-    @ManyToOne
-    private ServiceProvider serviceProvider;
+    //@ManyToOne
+    //private ServiceProvider serviceProvider;
     private Date startOfService;
     private Date endOfService;
     private String locationOfService;
@@ -58,19 +58,19 @@ public class ClientReferral {
     /**
      * @return the serviceProvider
      */
-    public ServiceProvider getServiceProvider() {
+    /*public ServiceProvider getServiceProvider() {
         if(serviceProvider == null){
             serviceProvider = new ServiceProvider();
         }
         return serviceProvider;
-    }
+    }*/
 
     /**
      * @param serviceProvider the serviceProvider to set
      */
-    public void setServiceProvider(ServiceProvider serviceProvider) {
+    /*public void setServiceProvider(ServiceProvider serviceProvider) {
         this.serviceProvider = serviceProvider;
-    }
+    }*/
 
     /**
      * @return the startOfService

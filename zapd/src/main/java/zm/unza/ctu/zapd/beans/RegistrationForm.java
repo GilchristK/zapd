@@ -8,44 +8,32 @@ package zm.unza.ctu.zapd.beans;
 
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import zm.unza.ctu.zapd.facade.RegistrationFacade;
-import zm.unza.ctu.zapd.model.AssessmentDetail;
-import zm.unza.ctu.zapd.model.Assessor;
+import java.util.logging.Logger;
+import javax.ejb.EJB;
+import javax.faces.bean.SessionScoped;
+import zm.unza.ctu.zapd.beans.session.PersonWithDisabilityFacade;
 import zm.unza.ctu.zapd.model.PersonWithDisability;
-import zm.unza.ctu.zapd.model.ServiceProvider;
-import zm.unza.ctu.zapd.model.Skill;
-import zm.unza.ctu.zapd.services.RegistrationService;
 
 /**
  *
  * @author Katuta
  */
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class RegistrationForm implements Serializable {
-    private PersonWithDisability person;
-    private Assessor assessor;
-    private AssessmentDetail assessmentDetails;
-    private ServiceProvider serviceProvider;
-    private List<Skill> skills;
+    private PersonWithDisability person=new PersonWithDisability();
+    private String dmis;
+    private Logger log = Logger.getLogger(RegistrationForm.class.getName());
+    //private Assessor assessor;
+    //private AssessmentDetail assessmentDetails;
+    //private ServiceProvider serviceProvider;
+    //private List<Skill> skills;
     
-    private RegistrationService registrationService;
+    //private RegistrationDAO registrationService;
     
-    @PostConstruct
-    public  void init(){
-        skills = new ArrayList<Skill>();//refactor this to get from service
-        skills.add(new Skill(1,"plumbing","good plumber"));
-        skills.add(new Skill(2,"carpenter","good carpenter"));
-        skills.add(new Skill(3,"Brick layer","good brick layer"));
-        
-        //replace with DI code
-        registrationService = new RegistrationFacade();
-    }
+    @EJB
+    PersonWithDisabilityFacade registrationService;
     
     
 
@@ -70,67 +58,88 @@ public class RegistrationForm implements Serializable {
     /**
      * @return the assessor
      */
-    public Assessor getAssessor() {
+    /*public Assessor getAssessor() {
         if (assessor == null) {
             assessor = new Assessor();
         }
         return assessor;
-    }
+    }*/
 
     /**
      * @param assessor the assessor to set
      */
-    public void setAssessor(Assessor assessor) {
+    /*public void setAssessor(Assessor assessor) {
         this.assessor = assessor;
-    }
+    }*/
 
     /**
      * @return the assessmentDetails
      */
-    public AssessmentDetail getAssessmentDetails() {
+    /*public AssessmentDetail getAssessmentDetails() {
         if(assessmentDetails == null){
             assessmentDetails = new AssessmentDetail();
         }
         return assessmentDetails;
-    }
+    }*/
 
     /**
      * @param assessmentDetails the assessmentDetails to set
      */
-    public void setAssessmentDetails(AssessmentDetail assessmentDetails) {
+    /*public void setAssessmentDetails(AssessmentDetail assessmentDetails) {
         this.assessmentDetails = assessmentDetails;
-    }
+    }*/
 
     /**
      * @return the serviceProvider
      */
-    public ServiceProvider getServiceProvider() {
+    /*public ServiceProvider getServiceProvider() {
         if( serviceProvider == null){
             serviceProvider = new ServiceProvider();
         }
         return serviceProvider;
-    }
+    }*/
 
     /**
      * @param serviceProvider the serviceProvider to set
      */
-    public void setServiceProvider(ServiceProvider serviceProvider) {
+    /*public void setServiceProvider(ServiceProvider serviceProvider) {
         this.serviceProvider = serviceProvider;
-    }
+    }*/
     
-    public void saveRegistration(){
-        registrationService.createNewRegistration(person);
+    public String saveRegistration(){
+        log.info("Saving the registration....");
+        log.info("name: "+person.getSurname());
+        log.info("dmis: "+person.getDmisNumber());
+        log.info("testing dmis:"+dmis);
+        registrationService.create(person);
+        log.info("Finished saving the info...");
+        return "/admin/registration?faces-redirect=true";
     }
     public void cancelRegistration(){
-        person = new PersonWithDisability();
-        assessmentDetails = new AssessmentDetail();
-        assessor = new Assessor();
+        log.info("Cancel the registration....");
+        person=new PersonWithDisability();
     }
     public void searchRegistration(){
+        log.info("Searching the registration...");
         //check if dmis is
         if( person.getDmisNumber() != null){
         }
     }
+
+    /**
+     * @return the dmis
+     */
+    public String getDmis() {
+        return dmis;
+    }
+
+    /**
+     * @param dmis the dmis to set
+     */
+    public void setDmis(String dmis) {
+        this.dmis = dmis;
+    }
+    
     
     
 }
