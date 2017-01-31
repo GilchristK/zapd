@@ -12,17 +12,12 @@ import javax.faces.bean.ManagedBean;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.faces.bean.SessionScoped;
-import zm.unza.ctu.zapd.beans.session.PersonWithDisabilityFacade;
-import zm.unza.ctu.zapd.model.PersonWithDisability;
-
-/**
- *
- * @author Katuta
- */
+import zm.unza.ctu.zapd.beans.entity.PersonDisability;
+import zm.unza.ctu.zapd.beans.session.PersonDisabilityFacade;
 @ManagedBean
 @SessionScoped
 public class RegistrationForm implements Serializable {
-    private PersonWithDisability person=new PersonWithDisability();
+    private PersonDisability person=new PersonDisability();
     private String dmis;
     private Logger log = Logger.getLogger(RegistrationForm.class.getName());
     //private Assessor assessor;
@@ -33,7 +28,7 @@ public class RegistrationForm implements Serializable {
     //private RegistrationDAO registrationService;
     
     @EJB
-    PersonWithDisabilityFacade registrationService;
+    PersonDisabilityFacade registrationService;
     
     
 
@@ -41,9 +36,9 @@ public class RegistrationForm implements Serializable {
     /**
      * @return the person
      */
-    public PersonWithDisability getPerson() {
+    public PersonDisability getPerson() {
         if ( person == null) {
-            person = new PersonWithDisability();
+            person = new PersonDisability();
         }
         return person;
     }
@@ -51,7 +46,7 @@ public class RegistrationForm implements Serializable {
     /**
      * @param person the person to set
      */
-    public void setPerson(PersonWithDisability person) {
+    public void setPerson(PersonDisability person) {
         this.person = person;
     }
 
@@ -109,7 +104,7 @@ public class RegistrationForm implements Serializable {
     public String saveRegistration(){
         log.info("Saving the registration....");
         log.info("name: "+person.getSurname());
-        log.info("dmis: "+person.getDmisNumber());
+        log.info("dmis: "+person.getDmisnumber());
         log.info("testing dmis:"+dmis);
         registrationService.create(person);
         log.info("Finished saving the info...");
@@ -117,12 +112,12 @@ public class RegistrationForm implements Serializable {
     }
     public void cancelRegistration(){
         log.info("Cancel the registration....");
-        person=new PersonWithDisability();
+        person=new PersonDisability();
     }
     public void searchRegistration(){
         log.info("Searching the registration...");
         //check if dmis is
-        if( person.getDmisNumber() != null){
+        if( person.getDmisnumber() != null){
         }
     }
 

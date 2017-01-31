@@ -19,17 +19,17 @@
                             <p:panelGrid columns="4" class="ui-registration-panel-grid">
 
                                 <p:outputLabel value="DMIS No.:" />
-                                <p:inputText value="#{registrationForm.person.dmisNumber}" />
+                                <p:inputText value="#{registrationForm.person.dmisnumber}" />
 
                                 <p:outputLabel value="NRC No.:" />
-                                <p:inputText value="#{registrationForm.person.nrcNumber}" />
+                                <p:inputText value="#{registrationForm.person.nrcnumber}" />
 
                                 <p:outputLabel value="Surname:" />
                                 <p:inputText value="#{registrationForm.person.surname}" />
 
 
                                 <p:outputLabel value="Other Names:" />
-                                <p:inputText value="#{registrationForm.person.otherNames}" />
+                                <p:inputText value="#{registrationForm.person.othernames}" />
 
                                 <p:outputLabel for="sex" value="Sex:" />
                                 <p:selectOneRadio id="sex" value="#{registrationForm.person.sex}">
@@ -38,16 +38,16 @@
                                 </p:selectOneRadio>
 
                                 <p:outputLabel for="status" value="Status:" />
-                                <p:selectOneRadio id="status" value="#{registrationForm.person.maritalStatus}">
+                                <p:selectOneRadio id="status" value="#{registrationForm.person.maritalstatus}">
                                     <f:selectItem itemLabel="Married" itemValue="married" />
                                     <f:selectItem itemLabel="Single" itemValue="single" />
                                 </p:selectOneRadio>
 
                                 <p:outputLabel value="Date of Birth:" />
-                                <p:calendar value="#{registrationForm.person.dateOfBirth}" />
+                                <p:calendar value="#{registrationForm.person.dateofbirth}" />
 
                                 <p:outputLabel for="education" value="Level of Education:" />
-                                <p:selectOneMenu id="education" value="#{registrationForm.person.levelOfEducation}" style="width:125px">
+                                <p:selectOneMenu id="education" value="#{registrationForm.person.levelofeducation}" style="width:125px">
                                     <f:selectItem itemLabel="Certificate" itemValue="certificate" />
                                     <f:selectItem itemLabel="Diploma" itemValue="diploma" />
                                     <f:selectItem itemLabel="Masters" itemValue="masters" />
@@ -59,7 +59,7 @@
                                 <p:inputText value="#{registrationForm.person.occupation}" />
 
                                 <p:outputLabel value="Contact phone:" />
-                                <p:inputText value="#{registrationForm.person.contactNumber}" />
+                                <p:inputText value="#{registrationForm.person.contactnumber}" />
 
 
                             </p:panelGrid>
@@ -86,17 +86,28 @@
                             </p:dataTable>
                             <p:panel header="Geographical location" class="ui-geo-panel-grid">
                                 <p:panelGrid columns="2" >
-                                    <p:outputLabel value="Province:" />
-                                    <p:inputText value="#{registrationForm.person.contactNumber}" />
+                                    <p:outputLabel for="pro" value="Province:" />
+                                    <p:selectOneMenu id="pro" value="#{registrationForm.person.contactnumber}">
+                                        <f:selectItem itemLabel="Lusaka" itemValue="1" />
+                                    </p:selectOneMenu>
 
-                                    <p:outputLabel value="District:" />
-                                    <p:inputText value="#{registrationForm.person.contactNumber}" />
-                                    <p:outputLabel value="Constitutency:" />
-                                    <p:inputText value="#{registrationForm.person.contactNumber}" />
-                                    <p:outputLabel value="Ward:" />
-                                    <p:inputText value="#{registrationForm.person.contactNumber}" />
-                                    <p:outputLabel value="Village:" />
-                                    <p:inputText value="#{registrationForm.person.contactNumber}" />
+                                    <p:outputLabel for="dist" value="District:" />
+                                    <p:selectOneMenu id="dist" value="#{registrationForm.person.contactnumber}">
+                                        <f:selectItem itemLabel="Lusaka" itemValue="1" />
+                                    </p:selectOneMenu>
+                                    <p:outputLabel for="const" value="Constitutency:" />
+                                    <p:selectOneMenu id="const" value="#{registrationForm.person.contactnumber}">
+                                        <f:selectItem itemLabel="Kabwata" itemValue="1" />
+                                    </p:selectOneMenu>
+                                    <p:outputLabel for="ward" value="Ward:" />
+                                    <p:selectOneMenu id="ward" value="#{registrationForm.person.contactnumber}">
+                                        <f:selectItem itemLabel="Ward1" itemValue="1" />
+                                    </p:selectOneMenu>
+                                    <p:outputLabel for="village" value="Village:" />
+                                    <p:selectOneMenu id="village" value="#{registrationForm.person.village}">
+                                        <f:selectItem itemLabel="Village1" itemValue="1" />
+                                        <f:selectItem itemLabel="Village2" itemValue="2" />
+                                    </p:selectOneMenu>
 
 
                                 </p:panelGrid>
@@ -105,18 +116,18 @@
                         <p:panel header="Next of Kin" class="ui-skills-geo-panel-grid">
                             <p:panelGrid columns="4" class="ui-registration-panel-grid">
                                 <p:outputLabel value="NRC No.:" />
-                                <p:inputText value="#{registrationForm.person.contactNumber}" />
+                                <p:inputText value="#{registrationForm.person.contactnumber}" />
 
                                 <p:outputLabel value="Surname:" />
-                                <p:inputText value="#{registrationForm.person.contactNumber}" />
+                                <p:inputText value="#{registrationForm.person.contactnumber}" />
 
 
                                 <p:outputLabel value="Other Names:" />
-                                <p:inputText value="#{registrationForm.person.nextOfKinOthernames}" />
+                                <p:inputText value="#{registrationForm.person.nextofkinothernames}" />
 
 
                                 <p:outputLabel value="Contact phone:" />
-                                <p:inputText value="#{registrationForm.person.nextOfKinContactPhone}" />
+                                <p:inputText value="#{registrationForm.person.nextofkincontactphone}" />
 
 
                             </p:panelGrid>
@@ -186,8 +197,8 @@
                             </p:panel>
                         </p:panelGrid>
                         <p:panelGrid columns="2" class="ui-command-actions">
-                            <p:commandButton value="Save" action="#{registrationForm.saveRegistration}"/>
-                            <p:commandButton value="Cancel" action="#{registrationForm.cancelRegistration}"/>                    
+                            <p:commandButton value="Save" action="#{registrationForm.saveRegistration()}"/>
+                            <p:commandButton value="Cancel" action="#{registrationForm.cancelRegistration()}"/>                    
                         </p:panelGrid>
 
                     </p:panel>

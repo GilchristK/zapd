@@ -8,7 +8,7 @@ package zm.unza.ctu.zapd.beans.session;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import zm.unza.ctu.zapd.model.Assessor;
+import zm.unza.ctu.zapd.beans.entity.Assessor;
 
 /**
  *

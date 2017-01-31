@@ -7,7 +7,7 @@ package zm.unza.ctu.zapd.facade;
 
 import java.io.Serializable;
 import org.jboss.logging.Logger;
-import zm.unza.ctu.zapd.model.PersonWithDisability;
+import zm.unza.ctu.zapd.beans.entity.PersonDisability;
 import zm.unza.ctu.zapd.model.dao.RegistrationDAO;
 import zm.unza.ctu.zapd.services.RegistrationService;
 
@@ -19,7 +19,7 @@ public class RegistrationFacade implements Serializable,RegistrationService {
     private final RegistrationDAO regDAO = new RegistrationDAO();
     private Logger log = Logger.getLogger(this.getClass().getName());
     @Override
-    public void createNewRegistration(PersonWithDisability pwd){
+    public void createNewRegistration(PersonDisability pwd){
         log.info("Saving the entity:"+ pwd.toString());
         //regDAO.beginTransaction();
         regDAO.save(pwd);
@@ -27,10 +27,10 @@ public class RegistrationFacade implements Serializable,RegistrationService {
     }
 
     @Override
-    public PersonWithDisability updateClient(PersonWithDisability pwd) {
+    public PersonDisability updateClient(PersonDisability pwd) {
        
        regDAO.beginTransaction();
-       PersonWithDisability updatedPwd = regDAO.find(pwd.getId());
+       /*PersonDisability updatedPwd = regDAO.find(pwd.get);
        updatedPwd.setLevelOfEducation(pwd.getLevelOfEducation());
        //updatedPwd.setConstituency(pwd.getConstituency());
        updatedPwd.setContactNumber(pwd.getContactNumber());
@@ -40,56 +40,56 @@ public class RegistrationFacade implements Serializable,RegistrationService {
        updatedPwd.setMaritalStatus(pwd.getMaritalStatus());
        updatedPwd.setNrcNumber(pwd.getNrcNumber());
        updatedPwd.setOccupation(pwd.getOccupation());
-       updatedPwd.setOtherNames(pwd.getOtherNames());
+       updatedPwd.setOtherNames(pwd.getOtherNames());*/
        //updatedPwd.setProvince(pwd.getProvince());
        //set other fields
        regDAO.update(pwd);
        regDAO.commitAndCloseTransaction();
-       return updatedPwd;
+       return null;
     }
 
     @Override
-    public PersonWithDisability findPwdById(String dmis) {
+    public PersonDisability findPwdById(String dmis) {
         return regDAO.finByDmis(dmis);
     }
 
     @Override
-    public PersonWithDisability findPwdBySurname(String surname) {
+    public PersonDisability findPwdBySurname(String surname) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PersonWithDisability findPwdByOthernames(String othernames) {
+    public PersonDisability findPwdByOthernames(String othernames) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PersonWithDisability findPwdByProvince(String province) {
+    public PersonDisability findPwdByProvince(String province) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PersonWithDisability findPwdByDistrict(String district) {
+    public PersonDisability findPwdByDistrict(String district) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PersonWithDisability findPwdByConstituency(String constituency) {
+    public PersonDisability findPwdByConstituency(String constituency) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PersonWithDisability findPwdByWard(String ward) {
+    public PersonDisability findPwdByWard(String ward) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PersonWithDisability findPwdByVillage(String village) {
+    public PersonDisability findPwdByVillage(String village) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PersonWithDisability findPwdByStatus(String status) {
+    public PersonDisability findPwdByStatus(String status) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

@@ -5,12 +5,12 @@
  */
 package zm.unza.ctu.zapd.services;
 
-import zm.unza.ctu.zapd.model.PersonWithDisability;
+import zm.unza.ctu.zapd.beans.entity.PersonDisability;
 
 /**
  *
  * @author Katuta
  */
 public interface ReportService {
-    public void printDisabilityCard(PersonWithDisability pwd, String reportFormat);
+    public void printDisabilityCard(PersonDisability pwd, String reportFormat);
 }

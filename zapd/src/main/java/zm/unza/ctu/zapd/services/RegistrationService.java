@@ -5,7 +5,7 @@
  */
 package zm.unza.ctu.zapd.services;
 
-import zm.unza.ctu.zapd.model.PersonWithDisability;
+import zm.unza.ctu.zapd.beans.entity.PersonDisability;
 
 /**
  *
@@ -16,65 +16,65 @@ public interface RegistrationService {
      * Register a new person with disabilities
      * @param pwd 
      */
-    public void createNewRegistration(PersonWithDisability pwd);
+    public void createNewRegistration(PersonDisability pwd);
     /**
      * Update the details of a person with disabilities
      * @param pwd
      * @return 
      */
-    public PersonWithDisability updateClient(PersonWithDisability pwd);
+    public PersonDisability updateClient(PersonDisability pwd);
     /**
      * Finds the person with disability associated with the dmis number
      * @param dmis
      * @return 
      */
-    public PersonWithDisability findPwdById(String dmis);
+    public PersonDisability findPwdById(String dmis);
      /**
      * Finds the person with disability associated with the surname
      * @param surname
      * @return 
      */
-    public PersonWithDisability findPwdBySurname(String surname);
+    public PersonDisability findPwdBySurname(String surname);
      /**
      * Finds the person with disability associated with the othernames
      * @param othernames
      * @return 
      */
-    public PersonWithDisability findPwdByOthernames(String othernames);
+    public PersonDisability findPwdByOthernames(String othernames);
      /**
      * Finds the person with disability associated with the province
      * @param province
      * @return 
      */
-    public PersonWithDisability findPwdByProvince(String province);
+    public PersonDisability findPwdByProvince(String province);
      /**
      * Finds the person with disability associated with the district
      * @param district
      * @return 
      */
-    public PersonWithDisability findPwdByDistrict(String district);
+    public PersonDisability findPwdByDistrict(String district);
      /**
      * Finds the person with disability associated with the constituency
      * @param constituency
      * @return 
      */
-    public PersonWithDisability findPwdByConstituency(String constituency);
+    public PersonDisability findPwdByConstituency(String constituency);
      /**
      * Finds the person with disability associated with the ward
      * @param ward
      * @return 
      */
-    public PersonWithDisability findPwdByWard(String ward);
+    public PersonDisability findPwdByWard(String ward);
      /**
      * Finds the person with disability associated with the village
      * @param village
      * @return 
      */
-    public PersonWithDisability findPwdByVillage(String village);
+    public PersonDisability findPwdByVillage(String village);
      /**
      * Finds the person with disability associated with the status
      * @param status
      * @return 
      */
-    public PersonWithDisability findPwdByStatus(String status);
+    public PersonDisability findPwdByStatus(String status);
 }

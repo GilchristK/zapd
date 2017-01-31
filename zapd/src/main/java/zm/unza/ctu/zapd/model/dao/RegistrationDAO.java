@@ -7,21 +7,21 @@ package zm.unza.ctu.zapd.model.dao;
 
 import java.util.HashMap;
 import java.util.Map;
-import zm.unza.ctu.zapd.model.PersonWithDisability;
+import zm.unza.ctu.zapd.beans.entity.PersonDisability;
 
 /**
  *
  * @author Katuta
  */
-public class RegistrationDAO extends ZapdDAO<PersonWithDisability> {
+public class RegistrationDAO extends ZapdDAO<PersonDisability> {
     
     public RegistrationDAO() {
-        super(PersonWithDisability.class);
+        super(PersonDisability.class);
     }
-    public PersonWithDisability finByDmis(String dmis){
+    public PersonDisability finByDmis(String dmis){
         Map<String,Object> parameters = new HashMap<String,Object>(); 
         parameters.put("dmis",dmis);
-        return super.findOneResult(PersonWithDisability.FIND_BY_DMIS, parameters);
+        return null;
     }
     
 }
