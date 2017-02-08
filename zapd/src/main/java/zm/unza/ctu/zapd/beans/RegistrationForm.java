@@ -11,13 +11,16 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import zm.unza.ctu.zapd.beans.entity.PersonDisability;
+import zm.unza.ctu.zapd.beans.entity.Village;
 import zm.unza.ctu.zapd.beans.session.PersonDisabilityFacade;
+import zm.unza.ctu.zapd.beans.session.VillageFacade;
 @ManagedBean
-@SessionScoped
+@ViewScoped
 public class RegistrationForm implements Serializable {
-    private PersonDisability person=new PersonDisability();
+    private PersonDisability person;
+    private Village village;
     private String dmis;
     private Logger log = Logger.getLogger(RegistrationForm.class.getName());
     //private Assessor assessor;
@@ -29,6 +32,8 @@ public class RegistrationForm implements Serializable {
     
     @EJB
     PersonDisabilityFacade registrationService;
+    @EJB
+    VillageFacade villageService;
     
     
 
@@ -106,7 +111,10 @@ public class RegistrationForm implements Serializable {
         log.info("name: "+person.getSurname());
         log.info("dmis: "+person.getDmisnumber());
         log.info("testing dmis:"+dmis);
-        registrationService.create(person);
+        //create and save the village
+        //villageService
+        //add the village to the person object
+        //registrationService.create(person);
         log.info("Finished saving the info...");
         return "/admin/registration?faces-redirect=true";
     }
@@ -133,6 +141,20 @@ public class RegistrationForm implements Serializable {
      */
     public void setDmis(String dmis) {
         this.dmis = dmis;
+    }
+
+    /**
+     * @return the village
+     */
+    public Village getVillage() {
+        return village;
+    }
+
+    /**
+     * @param village the village to set
+     */
+    public void setVillage(Village village) {
+        this.village = village;
     }
     
     

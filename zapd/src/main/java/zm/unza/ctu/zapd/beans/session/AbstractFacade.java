@@ -7,6 +7,7 @@ package zm.unza.ctu.zapd.beans.session;
 
 import java.util.List;
 import javax.persistence.EntityManager;
+import org.jboss.logging.Logger;
 
 /**
  *
@@ -15,6 +16,7 @@ import javax.persistence.EntityManager;
 public abstract class AbstractFacade<T> {
 
     private Class<T> entityClass;
+    private Logger log = Logger.getLogger(this.getClass().getName());
 
     public AbstractFacade(Class<T> entityClass) {
         this.entityClass = entityClass;
@@ -39,6 +41,7 @@ public abstract class AbstractFacade<T> {
     }
 
     public List<T> findAll() {
+        log.info("*********Find all executing....");
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
         return getEntityManager().createQuery(cq).getResultList();

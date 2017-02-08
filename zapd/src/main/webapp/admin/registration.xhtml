@@ -104,7 +104,7 @@
                                         <f:selectItem itemLabel="Ward1" itemValue="1" />
                                     </p:selectOneMenu>
                                     <p:outputLabel for="village" value="Village:" />
-                                    <p:selectOneMenu id="village" value="#{registrationForm.person.village}">
+                                    <p:selectOneMenu id="village" value="#{registrationForm.village.id}">
                                         <f:selectItem itemLabel="Village1" itemValue="1" />
                                         <f:selectItem itemLabel="Village2" itemValue="2" />
                                     </p:selectOneMenu>
@@ -116,10 +116,10 @@
                         <p:panel header="Next of Kin" class="ui-skills-geo-panel-grid">
                             <p:panelGrid columns="4" class="ui-registration-panel-grid">
                                 <p:outputLabel value="NRC No.:" />
-                                <p:inputText value="#{registrationForm.person.contactnumber}" />
+                                <p:inputText value="#{registrationForm.person.nextofkinnrc}" />
 
                                 <p:outputLabel value="Surname:" />
-                                <p:inputText value="#{registrationForm.person.contactnumber}" />
+                                <p:inputText value="#{registrationForm.person.nextofkinsurname}" />
 
 
                                 <p:outputLabel value="Other Names:" />
@@ -132,26 +132,26 @@
 
                             </p:panelGrid>
                         </p:panel>
-                        <p:panel header="Assessment details" class="ui-skills-geo-panel-grid">
+                        <p:panel header="Assessment details" class="ui-skills-geo-panel-grid" closable="true">
                             <p:panelGrid columns="4" class="ui-registration-panel-grid">
                                 <p:outputLabel value="Date of disability:" />
-                                <p:inputText value="registrationForm.assessmentDetails.dateOfDisability.toGMTString()}" />
+                                <p:inputText disabled="true" value="registrationForm.assessmentDetails.dateOfDisability.toGMTString()}" />
 
                                 <p:outputLabel value="Cause of disability:" />
-                                <p:inputText value="registrationForm.assessmentDetails.causeOfDisability}" />
+                                <p:inputText disabled="true" value="registrationForm.assessmentDetails.causeOfDisability}" />
 
 
                                 <p:outputLabel value="Degree of disability:" />
-                                <p:inputText value="registrationForm.assessmentDetails.degree.name}" />
+                                <p:inputText disabled="true" value="registrationForm.assessmentDetails.degree.name}" />
 
 
                                 <p:outputLabel value="Status:" />
-                                <p:inputText value="registrationForm.assessmentDetails.status}" />
+                                <p:inputText disabled="true" value="registrationForm.assessmentDetails.status}" />
 
                                 <p:outputLabel value="Registration Date:" />
-                                <p:inputText value="registrationForm.assessmentDetails.registrationDate.toGMTString()}" />
-                                <p:outputLabel value="Assessment Date:" />
-                                <p:inputText value="registrationForm.assessmentDetails.dateOfAssessment.toGMTString()}" />
+                                <p:inputText disabled="true" value="registrationForm.assessmentDetails.registrationDate.toGMTString()}" />
+                                <p:outputLabel  value="Assessment Date:" />
+                                <p:inputText disabled="true" value="registrationForm.assessmentDetails.dateOfAssessment.toGMTString()}" />
 
                             </p:panelGrid>
                         </p:panel>

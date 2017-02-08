@@ -266,6 +266,9 @@ public class PersonDisability implements Serializable {
     }
 
     public Village getVillage() {
+        if(village == null){
+            village = new Village();
+        }
         return village;
     }
 
