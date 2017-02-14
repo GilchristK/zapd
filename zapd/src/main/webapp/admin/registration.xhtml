@@ -150,23 +150,23 @@
                         <p:panel header="Assessment details" class="ui-skills-geo-panel-grid" closable="true">
                             <p:panelGrid columns="4" class="ui-registration-panel-grid">
                                 <p:outputLabel value="Date of disability:" />
-                                <p:inputText disabled="true" value="registrationForm.assessmentDetails.dateOfDisability.toGMTString()}" />
+                                <p:inputText disabled="true" value="" />
 
                                 <p:outputLabel value="Cause of disability:" />
-                                <p:inputText disabled="true" value="registrationForm.assessmentDetails.causeOfDisability}" />
+                                <p:inputText disabled="true" value="" />
 
 
                                 <p:outputLabel value="Degree of disability:" />
-                                <p:inputText disabled="true" value="registrationForm.assessmentDetails.degree.name}" />
+                                <p:inputText disabled="true" value="" />
 
 
                                 <p:outputLabel value="Status:" />
-                                <p:inputText disabled="true" value="registrationForm.assessmentDetails.status}" />
+                                <p:inputText disabled="true" value="" />
 
                                 <p:outputLabel value="Registration Date:" />
-                                <p:inputText disabled="true" value="registrationForm.assessmentDetails.registrationDate.toGMTString()}" />
+                                <p:inputText disabled="true" value="" />
                                 <p:outputLabel  value="Assessment Date:" />
-                                <p:inputText disabled="true" value="registrationForm.assessmentDetails.dateOfAssessment.toGMTString()}" />
+                                <p:inputText disabled="true" value="" />
 
                             </p:panelGrid>
                         </p:panel>
@@ -178,35 +178,35 @@
                                 </f:facet>
 
                                 <p:column headerText="Id">
-                                    <p:outputLabel value="#{skill.id}" />
+                                    <p:outputLabel value="#{skill.id}" rendered="false" />
                                 </p:column>
 
                                 <p:column headerText="Skill Name">
-                                    <p:outputLabel value="#{skill.name}" />
+                                    <p:outputLabel value="#{skill.name}" rendered="false"/>
                                 </p:column>
 
                                 <p:column headerText="Comment">
-                                    <p:outputLabel value="]" />
+                                    <p:outputLabel value="]" rendered="false"/>
                                 </p:column>
 
                             </p:dataTable>
                             <p:panel header="Assessor's Details" class="ui-geo-panel-grid">
                                 <p:panelGrid columns="2" >
                                     <p:outputLabel value="Names:" />
-                                    <p:inputText value="registrationForm.assessor.name}" />
+                                    <p:inputText value="" />
 
                                     <p:outputLabel value="Sex:" />
-                                    <p:inputText value="registrationForm.assessor.sex}" />
+                                    <p:inputText value="" />
                                     <p:outputLabel value="Designation:" />
-                                    <p:inputText value="registrationForm.assessor.destination}" />
+                                    <p:inputText value="" />
                                     <p:outputLabel value="NRC No.:" />
-                                    <p:inputText value="registrationForm.assessor.nrc}" />
+                                    <p:inputText value="" />
                                     <p:outputLabel value="HPC:" />
-                                    <p:inputText value="registrationForm.assessor.hpc}" />
+                                    <p:inputText value="" />
                                     <p:outputLabel value="District:" />
-                                    <p:inputText value="registrationForm.assessor.district.name}" />
+                                    <p:inputText value="" />
                                     <p:outputLabel value="Station:" />
-                                    <p:inputText value="registrationForm.assessor.station.name}" />
+                                    <p:inputText value="" />
 
 
                                 </p:panelGrid>

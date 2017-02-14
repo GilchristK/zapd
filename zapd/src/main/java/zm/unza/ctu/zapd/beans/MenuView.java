@@ -19,6 +19,7 @@ public class MenuView {
     private String registrationSearch;
     private String clientUpdate;
     private String clientUpdateSearch;
+    private String assessmentSearch;
     public void save() {
         addMessage("Success", "Data saved");
     }
@@ -64,5 +65,51 @@ public class MenuView {
         
         clientUpdateSearch =target.toString();
         return clientUpdateSearch;
+    }
+
+    /**
+     * @param registration the registration to set
+     */
+    public void setRegistration(String registration) {
+        this.registration = registration;
+    }
+
+    /**
+     * @param registrationSearch the registrationSearch to set
+     */
+    public void setRegistrationSearch(String registrationSearch) {
+        this.registrationSearch = registrationSearch;
+    }
+
+    /**
+     * @param clientUpdate the clientUpdate to set
+     */
+    public void setClientUpdate(String clientUpdate) {
+        this.clientUpdate = clientUpdate;
+    }
+
+    /**
+     * @param clientUpdateSearch the clientUpdateSearch to set
+     */
+    public void setClientUpdateSearch(String clientUpdateSearch) {
+        this.clientUpdateSearch = clientUpdateSearch;
+    }
+
+    /**
+     * @return the assessmentSearch
+     */
+    public String getAssessmentSearch() {
+        StringBuilder target=new StringBuilder();
+        target.append("/faces/assessor/");
+        target.append("index.xhtml");
+        assessmentSearch =target.toString();
+        return assessmentSearch;
+    }
+
+    /**
+     * @param assessmentSearch the assessmentSearch to set
+     */
+    public void setAssessmentSearch(String assessmentSearch) {
+        this.assessmentSearch = assessmentSearch;
     }
 }

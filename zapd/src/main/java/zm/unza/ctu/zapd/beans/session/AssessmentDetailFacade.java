@@ -5,6 +5,7 @@
  */
 package zm.unza.ctu.zapd.beans.session;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,6 +28,13 @@ public class AssessmentDetailFacade extends AbstractFacade<AssessmentDetail> {
 
     public AssessmentDetailFacade() {
         super(AssessmentDetail.class);
+
     }
-    
+
+    public List<AssessmentDetail> findByStatus(String status) {
+
+        return getEntityManager().createNamedQuery("AssessmentDetail.findByStatus").setParameter("status", status)
+                .getResultList();
+    }
+
 }
