@@ -66,17 +66,22 @@
 
                         </p:panel>
                         <p:panelGrid columns="2" class="ui-skills-geo-panel-grid">
-                            <p:dataTable var="skill" value="registrationForm.person.skills}" class="ui-data-table">
+                            <p:outputLabel value="Skill:" />
+                            <p:selectOneMenu id="skills" value="#{registrationForm.skillId}" >
+                                        <f:selectItem itemLabel="select one" itemValue="" />
+                                        <f:selectItems value="#{registrationForm.skills}" var="sk" itemLabel="#{sk.name}" itemValue="#{sk.id}" />
+                                    </p:selectOneMenu>
+                            <p:dataTable var="skill" value="#{registrationForm.skills}" class="ui-data-table">
                                 <f:facet name="header">
                                     Skills Acquisition
                                 </f:facet>
 
                                 <p:column headerText="Id">
-                                    <p:outputLabel value="skill.id}" />
+                                    <p:outputLabel value="#{skill.id}" />
                                 </p:column>
 
                                 <p:column headerText="Skill Name">
-                                    <p:outputLabel value="skill.name}" />
+                                    <p:outputLabel value="#{skill.name}" />
                                 </p:column>
 
                                 <p:column headerText="Comment">
@@ -166,21 +171,22 @@
                             </p:panelGrid>
                         </p:panel>
                         <p:panelGrid columns="2" class="ui-skills-geo-panel-grid">
-                            <p:dataTable var="skill" value="registrationForm.person.skills}" class="ui-data-table">
+                            
+                            <p:dataTable var="skill" value="#{registrationForm.skills}" class="ui-data-table">
                                 <f:facet name="header">
                                     Recommended services
                                 </f:facet>
 
                                 <p:column headerText="Id">
-                                    <p:outputLabel value="skill.id}" />
+                                    <p:outputLabel value="#{skill.id}" />
                                 </p:column>
 
                                 <p:column headerText="Skill Name">
-                                    <p:outputLabel value="skill.name}" />
+                                    <p:outputLabel value="#{skill.name}" />
                                 </p:column>
 
                                 <p:column headerText="Comment">
-                                    <p:outputLabel value="skill.comment}" />
+                                    <p:outputLabel value="]" />
                                 </p:column>
 
                             </p:dataTable>

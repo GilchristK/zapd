@@ -18,12 +18,14 @@ import zm.unza.ctu.zapd.beans.entity.Constituency;
 import zm.unza.ctu.zapd.beans.entity.District;
 import zm.unza.ctu.zapd.beans.entity.PersonDisability;
 import zm.unza.ctu.zapd.beans.entity.Province;
+import zm.unza.ctu.zapd.beans.entity.Skill;
 import zm.unza.ctu.zapd.beans.entity.Village;
 import zm.unza.ctu.zapd.beans.entity.Ward;
 import zm.unza.ctu.zapd.beans.session.ConstituencyFacade;
 import zm.unza.ctu.zapd.beans.session.DistrictFacade;
 import zm.unza.ctu.zapd.beans.session.PersonDisabilityFacade;
 import zm.unza.ctu.zapd.beans.session.ProvinceFacade;
+import zm.unza.ctu.zapd.beans.session.SkillFacade;
 import zm.unza.ctu.zapd.beans.session.VillageFacade;
 import zm.unza.ctu.zapd.beans.session.WardFacade;
 @Named
@@ -36,12 +38,14 @@ public class RegistrationForm implements Serializable {
     private List<Constituency> constituencies;
     private List<Ward> wards;
     private List<Village> villages;
+    private List<Skill> skills;
     private String provinceId;
     private String districtId;
     private String constituencyId;
     private String wardId;
     private String vilageId;
     private String dmis;
+    private String skillId;
     private Logger log = Logger.getLogger(RegistrationForm.class.getName());
     //private Assessor assessor;
     //private AssessmentDetail assessmentDetails;
@@ -64,6 +68,9 @@ public class RegistrationForm implements Serializable {
     private WardFacade wardFacade;
     @EJB
     private VillageFacade villageFacade;
+    @EJB
+    private SkillFacade skillFacade;
+    
     
     
     public void showDistricts(String provinceId){
@@ -83,6 +90,7 @@ public class RegistrationForm implements Serializable {
         setConstituencies(getConstituencyFacade().findAll());
         setWards(getWardFacade().findAll());
         setVillages(getVillageFacade().findAll());
+        setSkills(getSkillFacade().findAll());
         System.out.println("Provinces count:"+getProvinces().size());
         System.out.println("District count:"+getDistricts().size());
     }
@@ -157,16 +165,19 @@ public class RegistrationForm implements Serializable {
     }*/
     
     public String saveRegistration(){
-        getLog().info("Saving the registration....");
+       System.out.println("Saving ... reg form");
         getLog().info("name: "+getPerson().getSurname());
         getLog().info("dmis: "+getPerson().getDmisnumber());
         getLog().info("testing dmis:"+getDmis());
         //create and save the village
         //villageService
         //add the village to the person object
-        //registrationService.create(person);
+        person.setVillage(villageFacade.find(Integer.parseInt(vilageId)));
+        registrationService.create(person);
+        
+        
         getLog().info("Finished saving the info...");
-        return "/admin/registration?faces-redirect=true";
+        return "/admin/registrationSearch?faces-redirect=true";
     }
     public void cancelRegistration(){
         getLog().info("Cancel the registration....");
@@ -461,6 +472,48 @@ public class RegistrationForm implements Serializable {
      */
     public void setVillageFacade(VillageFacade villageFacade) {
         this.villageFacade = villageFacade;
+    }
+
+    /**
+     * @return the skills
+     */
+    public List<Skill> getSkills() {
+        return skills;
+    }
+
+    /**
+     * @param skills the skills to set
+     */
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
+    }
+
+    /**
+     * @return the skillFacade
+     */
+    public SkillFacade getSkillFacade() {
+        return skillFacade;
+    }
+
+    /**
+     * @param skillFacade the skillFacade to set
+     */
+    public void setSkillFacade(SkillFacade skillFacade) {
+        this.skillFacade = skillFacade;
+    }
+
+    /**
+     * @return the skillId
+     */
+    public String getSkillId() {
+        return skillId;
+    }
+
+    /**
+     * @param skillId the skillId to set
+     */
+    public void setSkillId(String skillId) {
+        this.skillId = skillId;
     }
     
     
