@@ -87,14 +87,19 @@
                             <p:panel header="Geographical location" class="ui-geo-panel-grid">
                                 <p:panelGrid columns="2" >
                                     <p:outputLabel for="pro" value="Province:" />
-                                    <p:selectOneMenu id="pro" value="#{registrationForm.person.contactnumber}">
-                                        <f:selectItem itemLabel="Lusaka" itemValue="1" />
+                                    <p:selectOneMenu id="pro" value="#{registrationForm.provinceId}"  >
+                                        <f:selectItem itemLabel="select one" itemValue="" />
+                                        <f:selectItems  value="#{registrationForm.provinces}" var="province" itemLabel="#{province.name}" itemValue="#{province.id}" />
+                                        <p:ajax  update="dist" event="change"  />
                                     </p:selectOneMenu>
 
                                     <p:outputLabel for="dist" value="District:" />
-                                    <p:selectOneMenu id="dist" value="#{registrationForm.person.contactnumber}">
-                                        <f:selectItem itemLabel="Lusaka" itemValue="1" />
+                                    
+                                    <p:selectOneMenu id="dist" value="#{registrationForm.districtId}" >
+                                        <f:selectItem itemLabel="select one" itemValue="" />
+                                        <f:selectItems value="#{registrationForm.districts}" var="district" itemLabel="#{district.name}" itemValue="#{district.id}" />
                                     </p:selectOneMenu>
+                                    
                                     <p:outputLabel for="const" value="Constitutency:" />
                                     <p:selectOneMenu id="const" value="#{registrationForm.person.contactnumber}">
                                         <f:selectItem itemLabel="Kabwata" itemValue="1" />

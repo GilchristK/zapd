@@ -8,19 +8,29 @@ package zm.unza.ctu.zapd.beans;
 
 
 import java.io.Serializable;
-import javax.faces.bean.ManagedBean;
+import java.util.List;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.bean.ViewScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
+import zm.unza.ctu.zapd.beans.entity.District;
 import zm.unza.ctu.zapd.beans.entity.PersonDisability;
+import zm.unza.ctu.zapd.beans.entity.Province;
 import zm.unza.ctu.zapd.beans.entity.Village;
+import zm.unza.ctu.zapd.beans.session.DistrictFacade;
 import zm.unza.ctu.zapd.beans.session.PersonDisabilityFacade;
+import zm.unza.ctu.zapd.beans.session.ProvinceFacade;
 import zm.unza.ctu.zapd.beans.session.VillageFacade;
-@ManagedBean
-@ViewScoped
+@Named
+@SessionScoped
 public class RegistrationForm implements Serializable {
     private PersonDisability person;
     private Village village;
+    private List<Province> provinces;
+    private List<District> districts;
+    private String provinceId;
+    private String districtId;
     private String dmis;
     private Logger log = Logger.getLogger(RegistrationForm.class.getName());
     //private Assessor assessor;
@@ -31,11 +41,30 @@ public class RegistrationForm implements Serializable {
     //private RegistrationDAO registrationService;
     
     @EJB
-    PersonDisabilityFacade registrationService;
+    private PersonDisabilityFacade registrationService;
     @EJB
-    VillageFacade villageService;
+    private VillageFacade villageService;
+    @EJB
+    private ProvinceFacade provinceFacade;
+    @EJB
+    private DistrictFacade districtFacade;
     
     
+    public void showDistricts(String provinceId){
+        System.out.println("Invoked by ajax call!!");
+        System.out.println("Ajax provinceId:"+provinceId);
+        if(provinceId != null){
+            setDistricts(districtFacade.findByProvinceId(Integer.parseInt(provinceId)));
+        }else{
+             setDistricts(districtFacade.findAll());
+        }
+    }
+    
+    @PostConstruct
+    public void init(){
+        setProvinces(getProvinceFacade().findAll());
+        System.out.println("Provinces count:"+getProvinces().size());
+    }
 
    
     /**
@@ -107,25 +136,25 @@ public class RegistrationForm implements Serializable {
     }*/
     
     public String saveRegistration(){
-        log.info("Saving the registration....");
-        log.info("name: "+person.getSurname());
-        log.info("dmis: "+person.getDmisnumber());
-        log.info("testing dmis:"+dmis);
+        getLog().info("Saving the registration....");
+        getLog().info("name: "+getPerson().getSurname());
+        getLog().info("dmis: "+getPerson().getDmisnumber());
+        getLog().info("testing dmis:"+getDmis());
         //create and save the village
         //villageService
         //add the village to the person object
         //registrationService.create(person);
-        log.info("Finished saving the info...");
+        getLog().info("Finished saving the info...");
         return "/admin/registration?faces-redirect=true";
     }
     public void cancelRegistration(){
-        log.info("Cancel the registration....");
-        person=new PersonDisability();
+        getLog().info("Cancel the registration....");
+        setPerson(new PersonDisability());
     }
     public void searchRegistration(){
-        log.info("Searching the registration...");
+        getLog().info("Searching the registration...");
         //check if dmis is
-        if( person.getDmisnumber() != null){
+        if( getPerson().getDmisnumber() != null){
         }
     }
 
@@ -155,6 +184,136 @@ public class RegistrationForm implements Serializable {
      */
     public void setVillage(Village village) {
         this.village = village;
+    }
+
+    /**
+     * @return the provinces
+     */
+    public List<Province> getProvinces() {
+        return provinces;
+    }
+
+    /**
+     * @param provinces the provinces to set
+     */
+    public void setProvinces(List<Province> provinces) {
+        this.provinces = provinces;
+    }
+
+    /**
+     * @return the provinceId
+     */
+    public String getProvinceId() {
+        return provinceId;
+    }
+
+    /**
+     * @param provinceId the provinceId to set
+     */
+    public void setProvinceId(String provinceId) {
+        this.provinceId = provinceId;
+    }
+
+    /**
+     * @return the log
+     */
+    public Logger getLog() {
+        return log;
+    }
+
+    /**
+     * @param log the log to set
+     */
+    public void setLog(Logger log) {
+        this.log = log;
+    }
+
+    /**
+     * @return the registrationService
+     */
+    public PersonDisabilityFacade getRegistrationService() {
+        return registrationService;
+    }
+
+    /**
+     * @param registrationService the registrationService to set
+     */
+    public void setRegistrationService(PersonDisabilityFacade registrationService) {
+        this.registrationService = registrationService;
+    }
+
+    /**
+     * @return the villageService
+     */
+    public VillageFacade getVillageService() {
+        return villageService;
+    }
+
+    /**
+     * @param villageService the villageService to set
+     */
+    public void setVillageService(VillageFacade villageService) {
+        this.villageService = villageService;
+    }
+
+    /**
+     * @return the provinceFacade
+     */
+    public ProvinceFacade getProvinceFacade() {
+        return provinceFacade;
+    }
+
+    /**
+     * @param provinceFacade the provinceFacade to set
+     */
+    public void setProvinceFacade(ProvinceFacade provinceFacade) {
+        this.provinceFacade = provinceFacade;
+    }
+
+    /**
+     * @return the districts
+     */
+    public List<District> getDistricts() {
+        if(provinceId != null){
+            setDistricts(getDistrictFacade().findByProvinceId(Integer.parseInt(getProvinceId())));
+            System.out.println("District count:"+getDistricts().size());
+        }
+        return districts;
+    }
+
+    /**
+     * @param districts the districts to set
+     */
+    public void setDistricts(List<District> districts) {
+        this.districts = districts;
+    }
+
+    /**
+     * @return the districtId
+     */
+    public String getDistrictId() {
+        return districtId;
+    }
+
+    /**
+     * @param districtId the districtId to set
+     */
+    public void setDistrictId(String districtId) {
+        this.districtId = districtId;
+    }
+
+    /**
+     * @return the districtFacade
+     */
+    public DistrictFacade getDistrictFacade() {
+        return districtFacade;
+    }
+
+    /**
+     * @param districtFacade the districtFacade to set
+     */
+    public void setDistrictFacade(DistrictFacade districtFacade) {
+        this.districtFacade = districtFacade;
     }
     
     

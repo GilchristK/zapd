@@ -5,6 +5,7 @@
  */
 package zm.unza.ctu.zapd.beans.session;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +29,22 @@ public class PersonDisabilityFacade extends AbstractFacade<PersonDisability> {
     public PersonDisabilityFacade() {
         super(PersonDisability.class);
     }
+    public List<PersonDisability> findBydmis(String dmis) {
+
+		return getEntityManager().createNamedQuery("PersonDisability.findByDmisnumber").setParameter("dmisnumber", dmis)
+				.getResultList();
+	}
+
+	public List<PersonDisability> findBySurname(String surname) {
+
+		return getEntityManager().createNamedQuery("PersonDisability.findBySurname").setParameter("surname", surname)
+				.getResultList();
+	}
+
+	public List<PersonDisability> findByOthernames(String othernames) {
+
+		return getEntityManager().createNamedQuery("PersonDisability.findByOthernames").setParameter("othernames", othernames)
+				.getResultList();
+	}
     
 }

@@ -19,59 +19,67 @@
                             <p:panelGrid columns="6" class="ui-registration-panel-grid">
 
                                 <h:outputText value="Search by.:" />
-                                <h:inputText value="#{registrationForm.dmisNumber}" />
+                                <p:selectOneMenu id="searchField" value="#{registrationSearchForm.searchField}" style="width:125px">
+                                    <f:selectItem itemLabel="Dmis Number" itemValue="dmis_number" />
+                                    <f:selectItem itemLabel="Surname" itemValue="surname" />
+                                    <f:selectItem itemLabel="Othernames" itemValue="othernames" />
+                                    <f:selectItem itemLabel="Province" itemValue="province" />
+                                    <f:selectItem itemLabel="District" itemValue="district" />
+                                    <f:selectItem itemLabel="Constituency" itemValue="constituency" />
+                                    <f:selectItem itemLabel="Ward" itemValue="ward" />
+                                    <f:selectItem itemLabel="Village" itemValue="village" />
+                                </p:selectOneMenu>
 
                                 <h:outputText value="Search Value.:" />
-                                <h:inputText value="#{registrationForm.nrcNumber}" />
+                                <h:inputText value="#{registrationSearchForm.searchValue}" />
 
                                 <h:outputText value="" />
-                                <h:commandButton value="Search" />
+                                <h:commandButton value="Search" action="#{registrationSearchForm.search()}"/>
                             </p:panelGrid>
                         </p:panel>
                         <p:panelGrid columns="1"  class="ui-search-results-grid">
-                            <p:dataTable var="skill" value="#{registrationForm.person.skills}" class="ui-data-table-search">
+                            <p:dataTable var="pwd" value="#{registrationSearchForm.pwdList}" class="ui-data-table-search">
                                 <f:facet name="header">
                                     Search results
                                 </f:facet>
 
                                 <p:column headerText="DMIS No">
-                                    <h:outputText value="#{skill.id}" />
+                                    <h:outputText value="#{pwd.dmisnumber}" />
+                                </p:column>
+                                
+                                 <p:column headerText="Surname">
+                                     <h:outputText value="#{pwd.surname}" />
                                 </p:column>
 
                                 <p:column headerText="Client Names">
-                                    <h:outputText value="#{skill.name}" />
+                                    <h:outputText value="#{pwd.othernames}" />
                                 </p:column>
 
                                 <p:column headerText="Province">
-                                    <h:outputText value="#{skill.comment}" />
+                                    <h:outputText value="#{pwd.village.ward.constituency.district.province.name}" />
                                 </p:column>
-                                <p:column headerText="Disstrict">
-                                    <h:outputText value="#{skill.comment}" />
+                                <p:column headerText="District">
+                                    <h:outputText value="#{pwd.village.ward.constituency.district.name}" />
                                 </p:column>
                                 <p:column headerText="Constituency">
-                                    <h:outputText value="#{skill.comment}" />
+                                    <h:outputText value="#{pwd.village.ward.constituency.name}" />
                                 </p:column>
                                 <p:column headerText="Ward">
-                                    <h:outputText value="#{skill.comment}" />
+                                    <h:outputText value="#{pwd.village.ward.name}" />
                                 </p:column>
                                 <p:column headerText="Village">
-                                    <h:outputText value="#{skill.comment}" />
+                                    <h:outputText value="#{pwd.village.name}" />
                                 </p:column>
                                 <p:column headerText="Status">
-                                    <h:outputText value="#{skill.comment}" />
+                                    <h:outputText value="" />
                                 </p:column>
-                                <p:column headerText="Select">
-                                    <h:outputText value="#{skill.comment}" />
+                                <p:column headerText="Action">
+                                    <h:commandButton value="Edit"/>
                                 </p:column>
 
                             </p:dataTable>
                             
                         </p:panelGrid>
-                            <p:panelGrid columns="3" class="ui-command-actions">
-                                <h:commandButton value="Add New Client"/>
-                                <h:commandButton value="Modify Existing Client"/>
-                                <h:commandButton value="Print Disability Card"/>
-                            </p:panelGrid>
 
                     </p:panel>
                 </h:form>

@@ -5,6 +5,7 @@
  */
 package zm.unza.ctu.zapd.beans.session;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,5 +29,10 @@ public class DistrictFacade extends AbstractFacade<District> {
     public DistrictFacade() {
         super(District.class);
     }
+    public List<District> findByProvinceId(Integer id) {
+
+		return getEntityManager().createNamedQuery("District.findByProvince").setParameter("provinceId", id)
+				.getResultList();
+	}
     
 }

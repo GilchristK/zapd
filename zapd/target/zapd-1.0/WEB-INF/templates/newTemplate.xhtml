@@ -53,6 +53,10 @@
                             <h:graphicImage value='#{resource["zapd_logo.png"]}' alt="zapd logo"  style="border:0;" />	
 			</h:link>
                         Zapd Disability Management Information System
+                        <p:outputLabel value="Welcome #{request.remoteUser} , you are logged in as " style="margin-left: 350px;"/>
+                        <p:outputLabel value="Administrator" rendered="#{request.isUserInRole('admin')}"/>
+                        <p:outputLabel value="Guest" rendered="#{request.isUserInRole('user')}"/>
+           
            
                     </ui:insert>
                 </p:layoutUnit>
@@ -69,7 +73,7 @@
                                     <p:menuitem value="Registration" url="#{menuView.registration}" />
                                     <p:menuitem value="Client management" url="#{menuView.clientUpdate}" />
                                     <p:menuitem value="Service management" url="#{menuView.clientUpdateSearch}" />
-                                    <p:menuitem value="Reports" url="#{menuView.registrationSearch}" />
+                                    <p:menuitem value="Search" url="#{menuView.registrationSearch}" />
                                     <p:menuitem value="Administration" url="#{menuView.registration}" />
                                     <p:menuitem value="Security" url="#{menuView.registration}" />
     
