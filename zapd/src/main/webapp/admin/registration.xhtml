@@ -65,7 +65,7 @@
                             </p:panelGrid>
 
                         </p:panel>
-                        <p:panelGrid columns="2" class="ui-skills-geo-panel-grid">
+                       <p:panelGrid columns="2" class="ui-skills-geo-panel-grid">
                             <p:outputLabel value="Skill:" />
                             <p:selectOneMenu id="skills" value="#{registrationForm.skillId}" >
                                         <f:selectItem itemLabel="select one" itemValue="" />
@@ -95,7 +95,7 @@
                                     <p:selectOneMenu id="pro" value="#{registrationForm.provinceId}"  >
                                         <f:selectItem itemLabel="select one" itemValue="" />
                                         <f:selectItems  value="#{registrationForm.provinces}" var="province" itemLabel="#{province.name}" itemValue="#{province.id}" />
-                                        <p:ajax  update="dist" event="change"  />
+                                    
                                     </p:selectOneMenu>
 
                                     <p:outputLabel for="dist" value="District:" />
