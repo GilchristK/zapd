@@ -14,14 +14,18 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import zm.unza.ctu.zapd.beans.entity.Constituency;
 import zm.unza.ctu.zapd.beans.entity.District;
 import zm.unza.ctu.zapd.beans.entity.PersonDisability;
 import zm.unza.ctu.zapd.beans.entity.Province;
 import zm.unza.ctu.zapd.beans.entity.Village;
+import zm.unza.ctu.zapd.beans.entity.Ward;
+import zm.unza.ctu.zapd.beans.session.ConstituencyFacade;
 import zm.unza.ctu.zapd.beans.session.DistrictFacade;
 import zm.unza.ctu.zapd.beans.session.PersonDisabilityFacade;
 import zm.unza.ctu.zapd.beans.session.ProvinceFacade;
 import zm.unza.ctu.zapd.beans.session.VillageFacade;
+import zm.unza.ctu.zapd.beans.session.WardFacade;
 @Named
 @SessionScoped
 public class RegistrationForm implements Serializable {
@@ -29,8 +33,14 @@ public class RegistrationForm implements Serializable {
     private Village village;
     private List<Province> provinces;
     private List<District> districts;
+    private List<Constituency> constituencies;
+    private List<Ward> wards;
+    private List<Village> villages;
     private String provinceId;
     private String districtId;
+    private String constituencyId;
+    private String wardId;
+    private String vilageId;
     private String dmis;
     private Logger log = Logger.getLogger(RegistrationForm.class.getName());
     //private Assessor assessor;
@@ -48,22 +58,33 @@ public class RegistrationForm implements Serializable {
     private ProvinceFacade provinceFacade;
     @EJB
     private DistrictFacade districtFacade;
+    @EJB
+    private ConstituencyFacade constituencyFacade;
+    @EJB
+    private WardFacade wardFacade;
+    @EJB
+    private VillageFacade villageFacade;
     
     
     public void showDistricts(String provinceId){
         System.out.println("Invoked by ajax call!!");
         System.out.println("Ajax provinceId:"+provinceId);
         if(provinceId != null){
-            setDistricts(districtFacade.findByProvinceId(Integer.parseInt(provinceId)));
+            setDistricts(getDistrictFacade().findByProvinceId(Integer.parseInt(provinceId)));
         }else{
-             setDistricts(districtFacade.findAll());
+             setDistricts(getDistrictFacade().findAll());
         }
     }
     
     @PostConstruct
     public void init(){
         setProvinces(getProvinceFacade().findAll());
+        setDistricts(getDistrictFacade().findAll());
+        setConstituencies(getConstituencyFacade().findAll());
+        setWards(getWardFacade().findAll());
+        setVillages(getVillageFacade().findAll());
         System.out.println("Provinces count:"+getProvinces().size());
+        System.out.println("District count:"+getDistricts().size());
     }
 
    
@@ -274,7 +295,7 @@ public class RegistrationForm implements Serializable {
      * @return the districts
      */
     public List<District> getDistricts() {
-        if(provinceId != null){
+        if(getProvinceId() != null){
             setDistricts(getDistrictFacade().findByProvinceId(Integer.parseInt(getProvinceId())));
             System.out.println("District count:"+getDistricts().size());
         }
@@ -314,6 +335,132 @@ public class RegistrationForm implements Serializable {
      */
     public void setDistrictFacade(DistrictFacade districtFacade) {
         this.districtFacade = districtFacade;
+    }
+
+    /**
+     * @return the constituencies
+     */
+    public List<Constituency> getConstituencies() {
+        return constituencies;
+    }
+
+    /**
+     * @param constituencies the constituencies to set
+     */
+    public void setConstituencies(List<Constituency> constituencies) {
+        this.constituencies = constituencies;
+    }
+
+    /**
+     * @return the wards
+     */
+    public List<Ward> getWards() {
+        return wards;
+    }
+
+    /**
+     * @param wards the wards to set
+     */
+    public void setWards(List<Ward> wards) {
+        this.wards = wards;
+    }
+
+    /**
+     * @return the villages
+     */
+    public List<Village> getVillages() {
+        return villages;
+    }
+
+    /**
+     * @param villages the villages to set
+     */
+    public void setVillages(List<Village> villages) {
+        this.villages = villages;
+    }
+
+    /**
+     * @return the constituencyId
+     */
+    public String getConstituencyId() {
+        return constituencyId;
+    }
+
+    /**
+     * @param constituencyId the constituencyId to set
+     */
+    public void setConstituencyId(String constituencyId) {
+        this.constituencyId = constituencyId;
+    }
+
+    /**
+     * @return the wardId
+     */
+    public String getWardId() {
+        return wardId;
+    }
+
+    /**
+     * @param wardId the wardId to set
+     */
+    public void setWardId(String wardId) {
+        this.wardId = wardId;
+    }
+
+    /**
+     * @return the vilageId
+     */
+    public String getVilageId() {
+        return vilageId;
+    }
+
+    /**
+     * @param vilageId the vilageId to set
+     */
+    public void setVilageId(String vilageId) {
+        this.vilageId = vilageId;
+    }
+
+    /**
+     * @return the constituencyFacade
+     */
+    public ConstituencyFacade getConstituencyFacade() {
+        return constituencyFacade;
+    }
+
+    /**
+     * @param constituencyFacade the constituencyFacade to set
+     */
+    public void setConstituencyFacade(ConstituencyFacade constituencyFacade) {
+        this.constituencyFacade = constituencyFacade;
+    }
+
+    /**
+     * @return the wardFacade
+     */
+    public WardFacade getWardFacade() {
+        return wardFacade;
+    }
+
+    /**
+     * @param wardFacade the wardFacade to set
+     */
+    public void setWardFacade(WardFacade wardFacade) {
+        this.wardFacade = wardFacade;
+    }
+
+    /**
+     * @return the villageFacade
+     */
+    public VillageFacade getVillageFacade() {
+        return villageFacade;
+    }
+
+    /**
+     * @param villageFacade the villageFacade to set
+     */
+    public void setVillageFacade(VillageFacade villageFacade) {
+        this.villageFacade = villageFacade;
     }
     
     

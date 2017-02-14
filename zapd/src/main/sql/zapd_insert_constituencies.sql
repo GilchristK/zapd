@@ -1,3 +1,4 @@
-describe wards;
-
-create-jdbc-connection-pool --datasourceclassname com.mysql.jdbc.jdbc2.optional.MysqlDataSource --restype javax.sql.DataSource --property password=123koffie:databaseName=zapd:serverName=localhost:user=root:portNumber=3306 mysql
+insert into constituencies(id,name,district) values(1,"Bwacha",1);
+insert into constituencies(id,name,district) values(2,"Chisamba",1);
+insert into constituencies(id,name,district) values(3,"Lufubu",1);
+insert into constituencies(id,name,district) values(4,"Nangoma",1);

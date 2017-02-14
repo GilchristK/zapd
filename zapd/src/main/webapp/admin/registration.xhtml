@@ -101,17 +101,22 @@
                                     </p:selectOneMenu>
                                     
                                     <p:outputLabel for="const" value="Constitutency:" />
-                                    <p:selectOneMenu id="const" value="#{registrationForm.person.contactnumber}">
-                                        <f:selectItem itemLabel="Kabwata" itemValue="1" />
+                                    <p:selectOneMenu id="const" value="#{registrationForm.constituencyId}">
+                                        <f:selectItem itemLabel="select one" itemValue="" />
+                                        <f:selectItems value="#{registrationForm.constituencies}" var="const" itemLabel="#{const.name}" itemValue="#{const.id}" />
+                                  
                                     </p:selectOneMenu>
                                     <p:outputLabel for="ward" value="Ward:" />
-                                    <p:selectOneMenu id="ward" value="#{registrationForm.person.contactnumber}">
-                                        <f:selectItem itemLabel="Ward1" itemValue="1" />
+                                    <p:selectOneMenu id="ward" value="#{registrationForm.wardId}">
+                                        <f:selectItem itemLabel="select one" itemValue="" />
+                                        <f:selectItems value="#{registrationForm.wards}" var="ward" itemLabel="#{ward.name}" itemValue="#{ward.id}" />
+                                  
                                     </p:selectOneMenu>
                                     <p:outputLabel for="village" value="Village:" />
-                                    <p:selectOneMenu id="village" value="#{registrationForm.village.id}">
-                                        <f:selectItem itemLabel="Village1" itemValue="1" />
-                                        <f:selectItem itemLabel="Village2" itemValue="2" />
+                                    <p:selectOneMenu id="village" value="#{registrationForm.vilageId}">
+                                        <f:selectItem itemLabel="select one" itemValue="" />
+                                        <f:selectItems value="#{registrationForm.villages}" var="village" itemLabel="#{village.name}" itemValue="#{village.id}" />
+                                  
                                     </p:selectOneMenu>
 
 
