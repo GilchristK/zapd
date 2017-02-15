@@ -5,10 +5,12 @@
  */
 package zm.unza.ctu.zapd.beans.session;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import zm.unza.ctu.zapd.beans.entity.Constituency;
+import zm.unza.ctu.zapd.beans.entity.District;
 
 /**
  *
@@ -28,5 +30,9 @@ public class ConstituencyFacade extends AbstractFacade<Constituency> {
     public ConstituencyFacade() {
         super(Constituency.class);
     }
-    
+    public List<Constituency> findByDistrict(District district) {
+
+		return getEntityManager().createNamedQuery("Constituency.findByDistrict").setParameter("district", district)
+				.getResultList();
+	}
 }

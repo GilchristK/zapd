@@ -73,13 +73,22 @@ public class RegistrationForm implements Serializable {
     
     
     
-    public void showDistricts(String provinceId){
+    public void showDistricts(){
         System.out.println("Invoked by ajax call!!");
         System.out.println("Ajax provinceId:"+provinceId);
         if(provinceId != null){
-            setDistricts(getDistrictFacade().findByProvinceId(Integer.parseInt(provinceId)));
+            setDistricts(getDistrictFacade().findByProvinceId(provinceFacade.find(Integer.parseInt(provinceId))));
         }else{
              setDistricts(getDistrictFacade().findAll());
+        }
+    }
+    public void showConstituencies(){
+        System.out.println("Invoked by ajax call!!");
+        System.out.println("Ajax DistrictId:"+districtId);
+        if(districtId != null){
+            setConstituencies(getConstituencyFacade().findByDistrict(districtFacade.find(Integer.parseInt(districtId))));
+        }else{
+             setConstituencies(getConstituencyFacade().findAll());
         }
     }
     
@@ -307,10 +316,6 @@ public class RegistrationForm implements Serializable {
      * @return the districts
      */
     public List<District> getDistricts() {
-        if(getProvinceId() != null){
-            setDistricts(getDistrictFacade().findByProvinceId(Integer.parseInt(getProvinceId())));
-            System.out.println("District count:"+getDistricts().size());
-        }
         return districts;
     }
 

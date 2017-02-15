@@ -10,6 +10,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import zm.unza.ctu.zapd.beans.entity.District;
+import zm.unza.ctu.zapd.beans.entity.Province;
 
 /**
  *
@@ -29,9 +30,9 @@ public class DistrictFacade extends AbstractFacade<District> {
     public DistrictFacade() {
         super(District.class);
     }
-    public List<District> findByProvinceId(Integer id) {
+    public List<District> findByProvinceId(Province id) {
 
-		return getEntityManager().createNamedQuery("District.findByProvince").setParameter("provinceId", id)
+		return getEntityManager().createNamedQuery("District.findByProvince").setParameter("id", id)
 				.getResultList();
 	}
     

@@ -95,14 +95,15 @@
                                     <p:selectOneMenu id="pro" value="#{registrationForm.provinceId}"  >
                                         <f:selectItem itemLabel="select one" itemValue="" />
                                         <f:selectItems  value="#{registrationForm.provinces}" var="province" itemLabel="#{province.name}" itemValue="#{province.id}" />
-                                    
+                                        <p:ajax listener="#{registrationForm.showDistricts()}" update="dist"/>
                                     </p:selectOneMenu>
 
                                     <p:outputLabel for="dist" value="District:" />
                                     
                                     <p:selectOneMenu id="dist" value="#{registrationForm.districtId}" >
                                         <f:selectItem itemLabel="select one" itemValue="" />
-                                        <f:selectItems value="#{registrationForm.districts}" var="district" itemLabel="#{district.name}" itemValue="#{district.id}" />
+                                        <f:selectItems value="#{registrationForm.districts}" var="dist" itemLabel="#{dist.name}" itemValue="#{dist.id}" />
+                                        <p:ajax listener="#{registrationForm.showConstituencies()}" update="const"/>
                                     </p:selectOneMenu>
                                     
                                     <p:outputLabel for="const" value="Constitutency:" />
