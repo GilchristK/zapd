@@ -42,6 +42,7 @@ public class RegistrationForm implements Serializable {
     private List<Village> villages;
     private List<Skill> skills;
     private List<Assessor> assessors;
+    private Assessor assessor;
     private String provinceId;
     private String districtId;
     private String constituencyId;
@@ -49,6 +50,7 @@ public class RegistrationForm implements Serializable {
     private String vilageId;
     private String dmis;
     private String skillId;
+    private String selectedAssessorId;
     private Logger log = Logger.getLogger(RegistrationForm.class.getName());
     //private Assessor assessor;
     //private AssessmentDetail assessmentDetails;
@@ -80,38 +82,47 @@ public class RegistrationForm implements Serializable {
     
     public void showDistricts(){
         System.out.println("Invoked by ajax call!!");
-        System.out.println("Ajax provinceId:"+provinceId);
-        if(provinceId != null){
-            setDistricts(getDistrictFacade().findByProvinceId(provinceFacade.find(Integer.parseInt(provinceId))));
+        System.out.println("Ajax provinceId:"+getProvinceId());
+        if(getProvinceId() != null){
+            setDistricts(getDistrictFacade().findByProvinceId(getProvinceFacade().find(Integer.parseInt(getProvinceId()))));
         }else{
              setDistricts(getDistrictFacade().findAll());
         }
     }
     public void showConstituencies(){
         System.out.println("Invoked by ajax call!!");
-        System.out.println("Ajax DistrictId:"+districtId);
-        if(districtId != null){
-            setConstituencies(getConstituencyFacade().findByDistrict(districtFacade.find(Integer.parseInt(districtId))));
+        System.out.println("Ajax DistrictId:"+getDistrictId());
+        if(getDistrictId() != null){
+            setConstituencies(getConstituencyFacade().findByDistrict(getDistrictFacade().find(Integer.parseInt(getDistrictId()))));
         }else{
              setConstituencies(getConstituencyFacade().findAll());
         }
     }
     public void showWards(){
         System.out.println("Invoked by ajax call!!");
-        System.out.println("Ajax ConstituencyId:"+constituencyId);
-        if(constituencyId != null){
-           setWards(getWardFacade().findByConstituency(constituencyFacade.find(Integer.parseInt(constituencyId))));
+        System.out.println("Ajax ConstituencyId:"+getConstituencyId());
+        if(getConstituencyId() != null){
+           setWards(getWardFacade().findByConstituency(getConstituencyFacade().find(Integer.parseInt(getConstituencyId()))));
         }else{
              setWards(getWardFacade().findAll());
         }
     }
     public void showVillages(){
         System.out.println("Invoked by ajax call!!");
-        System.out.println("Ajax WardId:"+wardId);
-        if(wardId != null){
-           setVillages(getVillageFacade().findByWard(wardFacade.find(Integer.parseInt(wardId))));
+        System.out.println("Ajax WardId:"+getWardId());
+        if(getWardId() != null){
+           setVillages(getVillageFacade().findByWard(getWardFacade().find(Integer.parseInt(getWardId()))));
         }else{
              setWards(getWardFacade().findAll());
+        }
+    }
+    public void showAssessorDetails(){
+        System.out.println("Invoked by ajax call!!");
+        System.out.println("Ajax assessordetails:"+getSelectedAssessorId());
+        if(getSelectedAssessorId() != null){
+           setAssessor(getAssessorFacade().find(Integer.parseInt(getSelectedAssessorId())));
+        }else{
+             setAssessor(new Assessor());
         }
     }
     
@@ -123,7 +134,7 @@ public class RegistrationForm implements Serializable {
         setWards(getWardFacade().findAll());
         setVillages(getVillageFacade().findAll());
         setSkills(getSkillFacade().findAll());
-        setAssessors(assessorFacade.findAll());
+        setAssessors(getAssessorFacade().findAll());
         System.out.println("Provinces count:"+getProvinces().size());
         System.out.println("District count:"+getDistricts().size());
     }
@@ -206,8 +217,8 @@ public class RegistrationForm implements Serializable {
         //villageService
         //add the village to the person object
         //person.setVillage(villageFacade.find(Integer.parseInt(vilageId)));
-        person.setVillage(villageFacade.findAll().get(0));
-        registrationService.create(person);
+        getPerson().setVillage(getVillageFacade().findAll().get(0));
+        getRegistrationService().create(getPerson());
         
         
         getLog().info("Finished saving the info...");
@@ -558,6 +569,48 @@ public class RegistrationForm implements Serializable {
      */
     public void setAssessors(List<Assessor> assessors) {
         this.assessors = assessors;
+    }
+
+    /**
+     * @return the assessorFacade
+     */
+    public AssessorFacade getAssessorFacade() {
+        return assessorFacade;
+    }
+
+    /**
+     * @param assessorFacade the assessorFacade to set
+     */
+    public void setAssessorFacade(AssessorFacade assessorFacade) {
+        this.assessorFacade = assessorFacade;
+    }
+
+    /**
+     * @return the assessor
+     */
+    public Assessor getAssessor() {
+        return assessor;
+    }
+
+    /**
+     * @param assessor the assessor to set
+     */
+    public void setAssessor(Assessor assessor) {
+        this.assessor = assessor;
+    }
+
+    /**
+     * @param selectedAssessorId the selectedAssessorId to set
+     */
+    public void setSelectedAssessorId(String selectedAssessorId) {
+        this.selectedAssessorId = selectedAssessorId;
+    }
+
+    /**
+     * @return the selectedAssessorId
+     */
+    public String getSelectedAssessorId() {
+        return selectedAssessorId;
     }
     
     

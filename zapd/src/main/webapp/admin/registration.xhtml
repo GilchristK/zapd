@@ -194,27 +194,28 @@
                             <p:panel header="Assessor's Details" class="ui-geo-panel-grid">
                                 <p:panelGrid columns="2">
                                     <p:outputLabel value="Choose assessor:" />
-                                    <p:selectOneMenu>
+                                    <p:selectOneMenu value="#{registrationForm.selectedAssessorId}">
                                         <f:selectItem itemLabel="select one" itemValue=""/>
                                         <f:selectItems value="#{registrationForm.assessors}" var="assessor" itemLabel="#{assessor.name}" itemValue="#{assessor.id}"/>
+                                        <p:ajax listener="#{registrationForm.showAssessorDetails()}" update="assessorDetails"/>
                                     </p:selectOneMenu>
                                 </p:panelGrid>
-                                <p:panelGrid columns="2" >
+                                <p:panelGrid columns="2" id="assessorDetails">
                                     <p:outputLabel value="Names:" />
-                                    <p:inputText value="" />
+                                    <p:inputText value="#{registrationForm.assessor.name}" />
 
                                     <p:outputLabel value="Sex:" />
-                                    <p:inputText value="" />
+                                    <p:inputText value="#{registrationForm.assessor.sex}" />
                                     <p:outputLabel value="Designation:" />
-                                    <p:inputText value="" />
+                                    <p:inputText value="#{registrationForm.assessor.destination}" />
                                     <p:outputLabel value="NRC No.:" />
-                                    <p:inputText value="" />
+                                    <p:inputText value="#{registrationForm.assessor.nrc}" />
                                     <p:outputLabel value="HPC:" />
-                                    <p:inputText value="" />
+                                    <p:inputText value="#{registrationForm.assessor.hpc}" />
                                     <p:outputLabel value="District:" />
-                                    <p:inputText value="" />
+                                    <p:inputText value="#{registrationForm.assessor.name}" />
                                     <p:outputLabel value="Station:" />
-                                    <p:inputText value="" />
+                                    <p:inputText value="#{registrationForm.assessor.name}" />
                                 </p:panelGrid>
                             </p:panel>
                         </p:panelGrid>
