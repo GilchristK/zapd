@@ -32,7 +32,7 @@ public class ConstituencyFacade extends AbstractFacade<Constituency> {
     }
     public List<Constituency> findByDistrict(District district) {
 
-		return getEntityManager().createNamedQuery("Constituency.findByDistrict").setParameter("district", district)
-				.getResultList();
-	}
+        return getEntityManager().createNamedQuery("Constituency.findByDistrict").setParameter("district", district)
+                .getResultList();
+    }
 }

@@ -5,9 +5,11 @@
  */
 package zm.unza.ctu.zapd.beans.session;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import zm.unza.ctu.zapd.beans.entity.Constituency;
 import zm.unza.ctu.zapd.beans.entity.Ward;
 
 /**
@@ -28,5 +30,11 @@ public class WardFacade extends AbstractFacade<Ward> {
     public WardFacade() {
         super(Ward.class);
     }
-    
+
+    public List<Ward> findByConstituency(Constituency constituency) {
+
+        return getEntityManager().createNamedQuery("Ward.findByConstituency").setParameter("constituency", constituency)
+                .getResultList();
+    }
+
 }

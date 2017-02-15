@@ -5,10 +5,12 @@
  */
 package zm.unza.ctu.zapd.beans.session;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import zm.unza.ctu.zapd.beans.entity.Village;
+import zm.unza.ctu.zapd.beans.entity.Ward;
 
 /**
  *
@@ -27,6 +29,11 @@ public class VillageFacade extends AbstractFacade<Village> {
 
     public VillageFacade() {
         super(Village.class);
+    }
+    public List<Village> findByWard(Ward ward) {
+
+        return getEntityManager().createNamedQuery("Village.findByWard").setParameter("ward", ward)
+                .getResultList();
     }
     
 }

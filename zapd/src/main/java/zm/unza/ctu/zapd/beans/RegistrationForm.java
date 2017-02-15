@@ -14,6 +14,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import zm.unza.ctu.zapd.beans.entity.Assessor;
 import zm.unza.ctu.zapd.beans.entity.Constituency;
 import zm.unza.ctu.zapd.beans.entity.District;
 import zm.unza.ctu.zapd.beans.entity.PersonDisability;
@@ -21,6 +22,7 @@ import zm.unza.ctu.zapd.beans.entity.Province;
 import zm.unza.ctu.zapd.beans.entity.Skill;
 import zm.unza.ctu.zapd.beans.entity.Village;
 import zm.unza.ctu.zapd.beans.entity.Ward;
+import zm.unza.ctu.zapd.beans.session.AssessorFacade;
 import zm.unza.ctu.zapd.beans.session.ConstituencyFacade;
 import zm.unza.ctu.zapd.beans.session.DistrictFacade;
 import zm.unza.ctu.zapd.beans.session.PersonDisabilityFacade;
@@ -39,6 +41,7 @@ public class RegistrationForm implements Serializable {
     private List<Ward> wards;
     private List<Village> villages;
     private List<Skill> skills;
+    private List<Assessor> assessors;
     private String provinceId;
     private String districtId;
     private String constituencyId;
@@ -70,6 +73,8 @@ public class RegistrationForm implements Serializable {
     private VillageFacade villageFacade;
     @EJB
     private SkillFacade skillFacade;
+    @EJB
+    private AssessorFacade assessorFacade;
     
     
     
@@ -91,6 +96,24 @@ public class RegistrationForm implements Serializable {
              setConstituencies(getConstituencyFacade().findAll());
         }
     }
+    public void showWards(){
+        System.out.println("Invoked by ajax call!!");
+        System.out.println("Ajax ConstituencyId:"+constituencyId);
+        if(constituencyId != null){
+           setWards(getWardFacade().findByConstituency(constituencyFacade.find(Integer.parseInt(constituencyId))));
+        }else{
+             setWards(getWardFacade().findAll());
+        }
+    }
+    public void showVillages(){
+        System.out.println("Invoked by ajax call!!");
+        System.out.println("Ajax WardId:"+wardId);
+        if(wardId != null){
+           setVillages(getVillageFacade().findByWard(wardFacade.find(Integer.parseInt(wardId))));
+        }else{
+             setWards(getWardFacade().findAll());
+        }
+    }
     
     @PostConstruct
     public void init(){
@@ -100,6 +123,7 @@ public class RegistrationForm implements Serializable {
         setWards(getWardFacade().findAll());
         setVillages(getVillageFacade().findAll());
         setSkills(getSkillFacade().findAll());
+        setAssessors(assessorFacade.findAll());
         System.out.println("Provinces count:"+getProvinces().size());
         System.out.println("District count:"+getDistricts().size());
     }
@@ -520,6 +544,20 @@ public class RegistrationForm implements Serializable {
      */
     public void setSkillId(String skillId) {
         this.skillId = skillId;
+    }
+
+    /**
+     * @return the assessors
+     */
+    public List<Assessor> getAssessors() {
+        return assessors;
+    }
+
+    /**
+     * @param assessors the assessors to set
+     */
+    public void setAssessors(List<Assessor> assessors) {
+        this.assessors = assessors;
     }
     
     
