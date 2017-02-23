@@ -216,8 +216,9 @@ public class RegistrationForm implements Serializable {
         //create and save the village
         //villageService
         //add the village to the person object
-        //person.setVillage(villageFacade.find(Integer.parseInt(vilageId)));
-        getPerson().setVillage(getVillageFacade().findAll().get(0));
+        System.out.println("Selected Village:"+vilageId);
+        person.setVillage(villageFacade.find(Integer.parseInt(vilageId)));
+        //getPerson().setVillage(getVillageFacade().findAll().get(0));
         getRegistrationService().create(getPerson());
         
         
