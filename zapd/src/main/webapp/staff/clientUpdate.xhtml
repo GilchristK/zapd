@@ -23,6 +23,7 @@
 
                                 <p:outputLabel value="Type of update:" />
                                 <p:selectOneMenu value="#{registrationUpdateForm.updateType}" >
+                                    <f:selectItem itemLabel="Select update type" itemValue=""/>
                                     <f:selectItem itemLabel="1.Personal details" itemValue="personal_details"/>
                                     <f:selectItem itemLabel="2.Skills" itemValue="skills"/>
                                     <f:selectItem itemLabel="3. Location" itemValue="location"/>
@@ -40,29 +41,29 @@
                             <p:panelGrid columns="4" class="ui-registration-panel-grid">
 
                                 <p:outputLabel value="Surname:" />
-                                <p:inputText value="#{registrationUpdateForm.person.surname}" />
+                                <p:inputText value="#{registrationUpdateForm.person.surname}" disabled="true"/>
 
 
                                 <p:outputLabel value="Other Names:" />
-                                <p:inputText value="#{registrationUpdateForm.person.othernames}" />
+                                <p:inputText value="#{registrationUpdateForm.person.othernames}" disabled="true" />
 
                                 <p:outputLabel value="Sex:" />
-                                <p:inputText value="#{registrationUpdateForm.person.sex}" />
+                                <p:inputText value="#{registrationUpdateForm.person.sex}" disabled="true"/>
 
                                 <p:outputLabel value="Marital status:" />
-                                <p:inputText value="#{registrationUpdateForm.person.maritalstatus}" />
+                                <p:inputText value="#{registrationUpdateForm.person.maritalstatus}" disabled="true"/>
 
                                 <p:outputLabel value="Date of Birth:" />
-                                <p:calendar value="#{registrationUpdateForm.person.dateofbirth}" />
+                                <p:calendar value="#{registrationUpdateForm.person.dateofbirth}" disabled="true"/>
 
                                 <p:outputLabel value="Education Level:" />
-                                <p:inputText value="#{registrationUpdateForm.person.levelofeducation}" />
+                                <p:inputText value="#{registrationUpdateForm.person.levelofeducation}" disabled="true"/>
 
                                 <p:outputLabel value="Occupation:" />
-                                <p:inputText value="#{registrationUpdateForm.person.occupation}" />
+                                <p:inputText value="#{registrationUpdateForm.person.occupation}" disabled="true"/>
 
                                 <p:outputLabel value="Contact phone:" />
-                                <p:inputText value="#{registrationUpdateForm.person.contactnumber}" />
+                                <p:inputText value="#{registrationUpdateForm.person.contactnumber}" disabled="true"/>
                             </p:panelGrid>
                         </p:panel>
 
@@ -90,18 +91,18 @@
                             <p:panel header="3.Updating Geographical location" class="ui-geo-panel-grid">
                                 <p:panelGrid columns="2" >
                                     <p:outputLabel value="Province:" />
-                                    <p:selectOneMenu var="province" value="#{registrationUpdateForm.provinces}" >
+                                    <p:selectOneMenu var="province" value="#{registrationUpdateForm.provinces}" disabled="true">
                                         <f:selectItem itemLabel="#{province.name}" value="#{province.id}"/>
                                     </p:selectOneMenu>
 
                                     <p:outputLabel value="District:" />
-                                    <p:inputText value="#{registrationUpdateForm.dmis}" />
+                                    <p:inputText value="#{registrationUpdateForm.dmis}" disabled="true"/>
                                     <p:outputLabel value="Constitutency:" />
-                                    <p:inputText value="#{registrationUpdateForm.dmis}" />
+                                    <p:inputText value="#{registrationUpdateForm.dmis}" disabled="true"/>
                                     <p:outputLabel value="Ward:" />
-                                    <p:inputText value="#{registrationUpdateForm.dmis}" />
+                                    <p:inputText value="#{registrationUpdateForm.dmis}" disabled="true"/>
                                     <p:outputLabel value="Village:" />
-                                    <p:inputText value="#{registrationUpdateForm.dmis}" />
+                                    <p:inputText value="#{registrationUpdateForm.dmis}" disabled="true"/>
 
 
                                 </p:panelGrid>
@@ -110,18 +111,18 @@
                         <p:panel header="4.Updating Next of Kin" class="ui-skills-geo-panel-grid">
                             <p:panelGrid columns="4" class="ui-registration-panel-grid">
                                 <p:outputLabel value="NRC No.:" />
-                                <p:inputText value="#{registrationUpdateForm.person.nextofkinnrc}" />
+                                <p:inputText value="#{registrationUpdateForm.person.nextofkinnrc}" disabled="true"/>
 
                                 <p:outputLabel value="Surname:" />
-                                <p:inputText value="#{registrationUpdateForm.person.nextofkinsurname}" />
+                                <p:inputText value="#{registrationUpdateForm.person.nextofkinsurname}" disabled="true"/>
 
 
                                 <p:outputLabel value="Other Names:" />
-                                <p:inputText value="#{registrationUpdateForm.person.nextofkinothernames}" />
+                                <p:inputText value="#{registrationUpdateForm.person.nextofkinothernames}" disabled="true"/>
 
 
                                 <p:outputLabel value="Contact phone:" />
-                                <p:inputText value="#{registrationUpdateForm.person.nextofkincontactphone}" />
+                                <p:inputText value="#{registrationUpdateForm.person.nextofkincontactphone}" disabled="true"/>
 
 
                             </p:panelGrid>
@@ -129,23 +130,23 @@
                         <p:panel header="5.Updating Assessment details" class="ui-skills-geo-panel-grid">
                             <p:panelGrid columns="4" class="ui-registration-panel-grid">
                                 <p:outputLabel value="Date of disability:" />
-                                <p:calendar value="#{registrationUpdateForm.assessmentDetail.dateofdisability}" />
+                                <p:calendar value="#{registrationUpdateForm.assessmentDetail.dateofdisability}" disabled="true" />
 
                                 <p:outputLabel value="Cause of disability:" />
-                                <p:inputText value="#{registrationUpdateForm.assessmentDetail.causeofdisability}" />
+                                <p:inputText value="#{registrationUpdateForm.assessmentDetail.causeofdisability}" disabled="true"/>
 
 
                                 <p:outputLabel value="Degree of disability:" />
-                                <p:inputText value="#{registrationUpdateForm.assessmentDetail.causeofdisability}" />
+                                <p:inputText value="#{registrationUpdateForm.assessmentDetail.causeofdisability}" disabled="true"/>
 
 
                                 <p:outputLabel value="Status:" />
-                                <p:inputText value="#{registrationUpdateForm.assessmentDetail.status}" />
+                                <p:inputText value="#{registrationUpdateForm.assessmentDetail.status}" disabled="true"/>
 
                                 <p:outputLabel value="Registration Date:" />
-                                <p:calendar value="#{registrationUpdateForm.assessmentDetail.registrationdate}" />
+                                <p:calendar value="#{registrationUpdateForm.assessmentDetail.registrationdate}" disabled="true"/>
                                 <p:outputLabel value="Assessment Date:" />
-                                <p:calendar value="#{registrationUpdateForm.assessmentDetail.dateofassessment}" />
+                                <p:calendar value="#{registrationUpdateForm.assessmentDetail.dateofassessment}" disabled="true"/>
                             </p:panelGrid>
                         </p:panel>
                         <p:panelGrid columns="2" class="ui-skills-geo-panel-grid">
@@ -172,14 +173,14 @@
                             <p:panel header="7. Updating Assessor's Details" class="ui-geo-panel-grid">
                                 <p:panelGrid columns="2" >
                                     <p:outputLabel value="Name:" />
-                                    <p:inputText value="#{registrationUpdateForm.assessor.name}" />
+                                    <p:inputText value="#{registrationUpdateForm.assessor.name}" disabled="true"/>
 
                                     <p:outputLabel value="NRC:" />
-                                    <p:inputText value="#{registrationUpdateForm.assessor.nrc}" />
+                                    <p:inputText value="#{registrationUpdateForm.assessor.nrc}" disabled="true"/>
                                     <p:outputLabel value="Sex:" />
-                                    <p:inputText value="#{registrationUpdateForm.assessor.sex}" />
+                                    <p:inputText value="#{registrationUpdateForm.assessor.sex}" disabled="true"/>
                                     <p:outputLabel value="hpc:" />
-                                    <p:inputText value="#{registrationUpdateForm.assessor.hpc}" />
+                                    <p:inputText value="#{registrationUpdateForm.assessor.hpc}" disabled="true"/>
 
 
                                 </p:panelGrid>

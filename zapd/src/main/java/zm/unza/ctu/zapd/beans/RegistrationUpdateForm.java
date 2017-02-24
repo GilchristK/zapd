@@ -10,11 +10,11 @@ package zm.unza.ctu.zapd.beans;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.faces.bean.ManagedBean;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.faces.bean.ViewScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 import zm.unza.ctu.zapd.beans.entity.AssessmentDetail;
 import zm.unza.ctu.zapd.beans.entity.Assessor;
 import zm.unza.ctu.zapd.beans.entity.PersonDisability;
@@ -25,8 +25,8 @@ import zm.unza.ctu.zapd.beans.session.AssessmentDetailFacade;
 import zm.unza.ctu.zapd.beans.session.PersonDisabilityFacade;
 import zm.unza.ctu.zapd.beans.session.ProvinceFacade;
 import zm.unza.ctu.zapd.beans.session.VillageFacade;
-@ManagedBean
-@ViewScoped
+@Named
+@SessionScoped
 public class RegistrationUpdateForm implements Serializable {
     private PersonDisability person;
     private Village village;
@@ -211,7 +211,13 @@ public class RegistrationUpdateForm implements Serializable {
     public void setProvinces(List<Province> provinces) {
         this.provinces = provinces;
     }
-    
+    public String clientUpdate(PersonDisability p){
+        System.out.println("client update running...");
+        System.out.println(p);
+        this.setPerson(p);
+        System.out.println(person.getSurname());
+        return "/staff/clientUpdate.xhtml";
+    }
     
     
 }

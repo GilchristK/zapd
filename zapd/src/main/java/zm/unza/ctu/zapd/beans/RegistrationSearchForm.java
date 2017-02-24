@@ -25,6 +25,9 @@ public class RegistrationSearchForm implements Serializable {
     private String searchValue;
     private String searchField;
     private Collection<PersonDisability> pwdList;
+    private PersonDisability pwd;
+    
+    
 
     @EJB
     private PersonDisabilityFacade pwdFacade;
@@ -96,6 +99,22 @@ public class RegistrationSearchForm implements Serializable {
      */
     public void setPwdList(Collection<PersonDisability> pwdList) {
         this.pwdList = pwdList;
+    }
+    
+    
+
+    /**
+     * @return the pwd
+     */
+    public PersonDisability getPwd() {
+        return pwd;
+    }
+
+    /**
+     * @param pwd the pwd to set
+     */
+    public void setPwd(PersonDisability pwd) {
+        this.pwd = pwd;
     }
 
 }
